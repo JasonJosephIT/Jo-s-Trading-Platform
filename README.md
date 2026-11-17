@@ -2,9 +2,9 @@
 
 Turns Claude into your trading-journal dashboard and morning coach. You keep journaling in Notion; Claude pulls in your trades, links them to what you wrote, and every trading morning gives you a short brief and an up-to-date dashboard.
 
-**[Start the setup →](https://jasonjosephit.github.io/trading-coach/setup.html)** · **[See the demo dashboard →](https://jasonjosephit.github.io/trading-coach/dashboard.html?demo=1)**
+**[Start the setup →](https://jasonjosephit.github.io/Jo-s-Trading-Platform/setup.html)** · **[See the demo dashboard →](https://jasonjosephit.github.io/Jo-s-Trading-Platform/dashboard.html?demo=1)**
 
-![Demo dashboard](docs/screenshots/dashboard-desktop-dark.png)
+![Demo dashboard](docs/screenshots/dashboard-desktop-dark.jpg)
 
 ## Quick start (about 20 minutes, no terminal)
 

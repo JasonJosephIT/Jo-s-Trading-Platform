@@ -11,7 +11,7 @@ updated: 2026-11-17
 - v1 built: setup wizard (`setup.html` from `wizard/`, React + shadcn/ui, iPhone-style onboarding, royal purple → black with gold trim), dashboard, data scripts, CLAUDE.md, prompts, catalog, docs.
 
 ## Next
-1. Publish: public repo `JasonJosephIT/trading-coach`, GitHub Pages from `main` root.
+1. Publish: public repo `JasonJosephIT/Jo-s-Trading-Platform` (Jason created it), GitHub Pages from `main` root.
 2. Send her the setup link; collect her answers to: which platform, Mac or Windows, Notion database or pages.
 3. Verify the unverified CSV presets (Tradovate, NinjaTrader, thinkorswim, IBKR Flex, Webull) against a real export once she drops one in `inbox/`.
 4. Test the Notion journal flow against her real journal shape (this build was dry-run on synthetic data only; the session's Notion connector could only view pages).

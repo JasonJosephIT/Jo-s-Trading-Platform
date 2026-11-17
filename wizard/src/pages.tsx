@@ -607,12 +607,12 @@ export function Folder({ a }: P) {
           steps={
             mac
               ? [
-                  { text: <>Open <b>Downloads</b> and double-click <b>trading-coach-main.zip</b>. It unzips itself.</> },
-                  { text: <>Drag the new <b>trading-coach-main</b> folder into <b>Documents</b>.</> },
+                  { text: <>Open <b>Downloads</b> and double-click <b>Jo-s-Trading-Platform-main.zip</b>. It unzips itself.</> },
+                  { text: <>Drag the new <b>Jo-s-Trading-Platform-main</b> folder into <b>Documents</b>.</> },
                   { text: <>Click the folder once, press <b>Return</b>, and rename it <b>Trading Coach</b>.</> },
                 ]
               : [
-                  { text: <>Open <b>Downloads</b>, right-click <b>trading-coach-main.zip</b> and choose <b>Extract All…</b></> },
+                  { text: <>Open <b>Downloads</b>, right-click <b>Jo-s-Trading-Platform-main.zip</b> and choose <b>Extract All…</b></> },
                   { text: <>Set the destination to your <b>Documents</b> folder and click <b>Extract</b>.</> },
                   { text: <>Right-click the new folder, choose <b>Rename</b>, and call it <b>Trading Coach</b>.</> },
                 ]

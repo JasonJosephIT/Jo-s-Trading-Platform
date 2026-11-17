@@ -2,8 +2,8 @@
 import * as React from 'react'
 import { byId, fitOf, type Category } from './catalog'
 
-export const REPO = 'https://github.com/JasonJosephIT/trading-coach'
-export const PAGES = 'https://jasonjosephit.github.io/trading-coach'
+export const REPO = 'https://github.com/JasonJosephIT/Jo-s-Trading-Platform'
+export const PAGES = 'https://jasonjosephit.github.io/Jo-s-Trading-Platform'
 export const ZIP = `${REPO}/archive/refs/heads/main.zip`
 
 export type Pick = { id: string | null; name: string }

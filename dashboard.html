@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark light">
+<title>Trading Coach</title>
+<script>
+  /* Theme first, before paint. Dark is the default; the toggle is remembered. */
+  (function () {
+    var t = null;
+    try { t = window.localStorage.getItem('tc-theme'); } catch (e) { t = null; }
+    document.documentElement.setAttribute('data-theme', t === 'light' ? 'light' : 'dark');
+  })();
+</script>
+<link rel="stylesheet" href="assets/theme.css">
+<link rel="stylesheet" href="assets/dashboard.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to dashboard</a>
+
+<div class="demo-ribbon" id="demo-ribbon" hidden>
+  <span><strong>Demo data</strong> · synthetic trades for illustration, not a real account</span>
+  <a href="dashboard.html">Leave demo</a>
+</div>
+
+<header class="topbar" id="topbar">
+  <div class="topbar-row">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 32 32" width="32" height="32"><defs><linearGradient id="bm" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6e7b4"/><stop offset=".45" stop-color="#dcb64f"/><stop offset="1" stop-color="#9a7720"/></linearGradient></defs><rect x="1" y="1" width="30" height="30" rx="9" fill="#261050" stroke="url(#bm)" stroke-width="1.5"/><path d="M8 21l5-5 4 3 7-8" fill="none" stroke="url(#bm)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+      <h1 class="wordmark">Trading Coach</h1>
+    </div>
+    <div class="topbar-meta">
+      <span class="chip chip-preset" id="preset-label" hidden></span>
+      <span class="updated" id="updated-label"></span>
+      <button type="button" class="icon-btn" id="theme-toggle" aria-label="Switch to light theme" title="Switch theme">
+        <svg class="i-sun" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        <svg class="i-moon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <form class="filters" id="filters" hidden aria-label="Filters" onsubmit="return false">
+    <div class="seg" role="radiogroup" aria-label="Date range" id="range-seg">
+      <button type="button" role="radio" data-range="30d" aria-checked="false">30d</button>
+      <button type="button" role="radio" data-range="90d" aria-checked="false">90d</button>
+      <button type="button" role="radio" data-range="ytd" aria-checked="false">YTD</button>
+      <button type="button" role="radio" data-range="all" aria-checked="true">All</button>
+      <button type="button" role="radio" data-range="custom" aria-checked="false">Custom</button>
+    </div>
+    <div class="custom-range" id="custom-range" hidden>
+      <label>From <input type="date" id="f-from"></label>
+      <label>To <input type="date" id="f-to"></label>
+    </div>
+    <label class="select-wrap">
+      <span class="sr-only">Account</span>
+      <select id="f-account" aria-label="Account"></select>
+    </label>
+    <label class="select-wrap">
+      <span class="sr-only">Setup</span>
+      <select id="f-setup" aria-label="Setup"></select>
+    </label>
+    <span class="filter-count" id="filter-count" aria-live="polite"></span>
+  </form>
+</header>
+
+<main id="main" tabindex="-1">
+
+  <!-- Not set up yet -->
+  <section class="empty-wrap" id="empty-state" hidden>
+    <div class="empty-card gold-trim">
+      <div class="empty-glyph" aria-hidden="true">
+        <svg viewBox="0 0 48 48" width="48" height="48"><path d="M10 32l9-9 7 5 12-14" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <h2>Not set up yet</h2>
+      <p>Your coach needs your trades and journal. Setup takes about ten minutes, and you can look around the demo first.</p>
+      <div class="empty-actions">
+        <a class="btn btn-gold" href="setup.html">Open setup.html to get started</a>
+        <a class="btn btn-ghost" href="dashboard.html?demo=1">See the demo</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Data exists, no trades -->
+  <section class="empty-wrap" id="no-trades" hidden>
+    <div class="empty-card gold-trim">
+      <h2>No trades yet</h2>
+      <p>You're set up. Once your first trades come in, your coach fills this page in the next morning.</p>
+    </div>
+  </section>
+
+  <div class="grid" id="dash" hidden>
+
+    <!-- 2. Coach -->
+    <section class="panel gold-trim panel-coach" data-panel="coach" aria-labelledby="h-coach">
+      <div class="coach-grid">
+        <div class="coach-brief">
+          <header class="panel-head">
+            <p class="eyebrow" id="brief-date"></p>
+            <h2 id="h-coach">Today's brief</h2>
+          </header>
+          <div class="focus-rule gold-trim" id="focus-rule" hidden>
+            <span class="focus-label">Focus rule</span>
+            <p id="focus-text"></p>
+          </div>
+          <div class="md" id="brief-md"></div>
+        </div>
+        <div class="coach-insights">
+          <h3 class="sub-h">What your trades are saying</h3>
+          <ol class="insights" id="insights"></ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. KPIs -->
+    <section class="panel panel-kpis" data-panel="kpis" aria-labelledby="h-kpis">
+      <h2 id="h-kpis" class="sr-only">Key numbers</h2>
+      <div class="kpis" id="kpis"></div>
+    </section>
+
+    <!-- 4. Equity -->
+    <section class="panel gold-trim" data-panel="equity" aria-labelledby="h-equity">
+      <header class="panel-head">
+        <h2 id="h-equity">Equity curve</h2>
+        <p class="panel-sub" id="sum-equity"></p>
+      </header>
+      <div class="chart-box chart-tall"><canvas id="c-equity" role="img" aria-describedby="sum-equity"></canvas></div>
+      <ul class="legend" aria-hidden="true">
+        <li><i class="lg-line"></i>Equity</li>
+        <li><i class="lg-dash"></i>Peak</li>
+        <li><i class="lg-band"></i>Drawdown</li>
+        <li><i class="lg-ring"></i>Rule break</li>
+      </ul>
+    </section>
+
+    <!-- 13. Prop rules -->
+    <section class="panel gold-trim" data-panel="prop" aria-labelledby="h-prop">
+      <header class="panel-head">
+        <h2 id="h-prop">Prop account rules</h2>
+        <p class="panel-sub">Uses every trade on the account, not the date filter.</p>
+      </header>
+      <div class="prop" id="prop"></div>
+    </section>
+
+    <!-- 5. Calendar -->
+    <section class="panel gold-trim" data-panel="calendar" aria-labelledby="h-calendar">
+      <header class="panel-head panel-head-row">
+        <div>
+          <h2 id="h-calendar">Calendar</h2>
+          <p class="panel-sub" id="sum-calendar"></p>
+        </div>
+        <div class="cal-nav">
+          <button type="button" class="icon-btn" id="cal-prev" aria-label="Previous month">&#8249;</button>
+          <span class="cal-month" id="cal-month" aria-live="polite"></span>
+          <button type="button" class="icon-btn" id="cal-next" aria-label="Next month">&#8250;</button>
+        </div>
+      </header>
+      <div id="calendar"></div>
+    </section>
+
+    <!-- 6. Setup -->
+    <section class="panel gold-trim" data-panel="setup" aria-labelledby="h-setup">
+      <header class="panel-head">
+        <h2 id="h-setup">Performance by setup</h2>
+        <p class="panel-sub" id="sum-setup"></p>
+      </header>
+      <div class="chart-box" id="box-setup"><canvas id="c-setup" role="img" aria-describedby="sum-setup"></canvas></div>
+    </section>
+
+    <!-- 7a. Time of day -->
+    <section class="panel gold-trim" data-panel="timeofday" aria-labelledby="h-tod">
+      <header class="panel-head">
+        <h2 id="h-tod">Time of day</h2>
+        <p class="panel-sub" id="sum-tod"></p>
+      </header>
+      <div class="chart-box"><canvas id="c-tod" role="img" aria-describedby="sum-tod"></canvas></div>
+    </section>
+
+    <!-- 7b. Holding period (swing) -->
+    <section class="panel gold-trim" data-panel="holding" aria-labelledby="h-hold">
+      <header class="panel-head">
+        <h2 id="h-hold">Holding period</h2>
+        <p class="panel-sub" id="sum-hold"></p>
+      </header>
+      <div class="chart-box"><canvas id="c-hold" role="img" aria-describedby="sum-hold"></canvas></div>
+    </section>
+
+    <!-- 8. Day of week -->
+    <section class="panel gold-trim" data-panel="dayofweek" aria-labelledby="h-dow">
+      <header class="panel-head">
+        <h2 id="h-dow">Day of week</h2>
+        <p class="panel-sub" id="sum-dow"></p>
+      </header>
+      <div class="chart-box"><canvas id="c-dow" role="img" aria-describedby="sum-dow"></canvas></div>
+    </section>
+
+    <!-- 9. R distribution -->
+    <section class="panel gold-trim" data-panel="rdist" aria-labelledby="h-rdist">
+      <header class="panel-head">
+        <h2 id="h-rdist">R-multiple distribution</h2>
+        <p class="panel-sub" id="sum-rdist"></p>
+      </header>
+      <div class="chart-box"><canvas id="c-rdist" role="img" aria-describedby="sum-rdist"></canvas></div>
+    </section>
+
+    <!-- 10. Leak map -->
+    <section class="panel gold-trim" data-panel="leakmap" aria-labelledby="h-leak">
+      <header class="panel-head">
+        <h2 id="h-leak">Leak map</h2>
+        <p class="panel-sub" id="sum-leak"></p>
+      </header>
+      <div class="chart-box" id="box-leak"><canvas id="c-leak" role="img" aria-describedby="sum-leak"></canvas></div>
+    </section>
+
+    <!-- 11. State vs outcome -->
+    <section class="panel gold-trim" data-panel="state" aria-labelledby="h-state">
+      <header class="panel-head panel-head-row">
+        <div>
+          <h2 id="h-state">State vs outcome</h2>
+          <p class="panel-sub" id="sum-state"></p>
+        </div>
+        <div class="seg seg-sm" role="radiogroup" aria-label="Measure" id="state-seg">
+          <button type="button" role="radio" data-metric="avgR" aria-checked="true">Avg R</button>
+          <button type="button" role="radio" data-metric="netPnl" aria-checked="false">Net $</button>
+        </div>
+      </header>
+      <div class="split">
+        <figure>
+          <figcaption>Mood (1 low – 5 high)</figcaption>
+          <div class="chart-box chart-short"><canvas id="c-mood" role="img" aria-describedby="sum-state"></canvas></div>
+        </figure>
+        <figure>
+          <figcaption>Sleep the night before</figcaption>
+          <div class="chart-box chart-short"><canvas id="c-sleep" role="img" aria-describedby="sum-state"></canvas></div>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 12. Rolling -->
+    <section class="panel gold-trim" data-panel="rolling" aria-labelledby="h-rolling">
+      <header class="panel-head">
+        <h2 id="h-rolling">Rolling 20 trades</h2>
+        <p class="panel-sub" id="sum-rolling"></p>
+      </header>
+      <div class="chart-box"><canvas id="c-rolling" role="img" aria-describedby="sum-rolling"></canvas></div>
+      <ul class="legend" aria-hidden="true">
+        <li><i class="lg-gold"></i>Expectancy (R)</li>
+        <li><i class="lg-line"></i>Win %</li>
+      </ul>
+    </section>
+
+    <!-- 15. MAE / MFE (only when trades carry mae/mfe) -->
+    <section class="panel gold-trim" data-panel="maemfe" aria-labelledby="h-mae">
+      <header class="panel-head">
+        <h2 id="h-mae">Heat vs run (MAE / MFE)</h2>
+        <p class="panel-sub" id="sum-mae"></p>
+      </header>
+      <div class="chart-box"><canvas id="c-mae" role="img" aria-describedby="sum-mae"></canvas></div>
+    </section>
+
+    <!-- 14. Trade log -->
+    <section class="panel gold-trim" data-panel="tradelog" id="panel-tradelog" aria-labelledby="h-log">
+      <header class="panel-head panel-head-row">
+        <div>
+          <h2 id="h-log">Trade log</h2>
+          <p class="panel-sub" id="log-count" aria-live="polite"></p>
+        </div>
+        <label class="search">
+          <span class="sr-only">Filter trades</span>
+          <input type="search" id="log-q" placeholder="Filter: symbol, setup, tag…" autocomplete="off">
+        </label>
+      </header>
+      <div class="evidence-bar" id="evidence-bar" hidden>
+        <span>Showing the evidence for: <strong id="evidence-title"></strong></span>
+        <button type="button" class="btn btn-ghost btn-sm" id="evidence-clear">Show all trades</button>
+      </div>
+      <div class="table-wrap">
+        <table class="log" id="log">
+          <caption class="sr-only">Trades. Use the column buttons to sort and the row buttons to open journal notes.</caption>
+          <thead>
+            <tr>
+              <th scope="col" data-sort="exit_time" aria-sort="descending"><button type="button">Date</button></th>
+              <th scope="col" data-sort="symbol"><button type="button">Symbol</button></th>
+              <th scope="col" data-sort="side"><button type="button">Side</button></th>
+              <th scope="col" data-sort="setup"><button type="button">Setup</button></th>
+              <th scope="col" data-sort="qty" class="num"><button type="button">Qty</button></th>
+              <th scope="col" data-sort="pnl_net" class="num"><button type="button">P&amp;L</button></th>
+              <th scope="col" data-sort="r" class="num"><button type="button">R</button></th>
+              <th scope="col" data-sort="tags"><button type="button">Tags</button></th>
+              <th scope="col"><span class="sr-only">Journal</span></th>
+            </tr>
+          </thead>
+          <tbody id="log-body"></tbody>
+        </table>
+      </div>
+      <div class="log-more"><button type="button" class="btn btn-ghost" id="log-more" hidden>Show more</button></div>
+    </section>
+
+    <section class="panel panel-notice" id="no-match" hidden>
+      <p>No trades match these filters. <button type="button" class="btn btn-ghost btn-sm" id="reset-filters">Reset filters</button></p>
+    </section>
+  </div>
+</main>
+
+<footer class="footer" id="footer">
+  <p><strong>Educational/journaling tool. Not investment advice.</strong></p>
+  <p id="footer-meta"></p>
+</footer>
+
+<dialog class="sheet" id="sheet" aria-labelledby="sheet-title">
+  <div class="sheet-inner">
+    <header class="sheet-head">
+      <div>
+        <p class="eyebrow" id="sheet-eyebrow"></p>
+        <h2 id="sheet-title"></h2>
+      </div>
+      <button type="button" class="icon-btn" id="sheet-close" aria-label="Close">&#10005;</button>
+    </header>
+    <div id="sheet-body"></div>
+  </div>
+</dialog>
+
+<script src="assets/vendor/chart.umd.min.js"></script>
+<script src="assets/metrics.js"></script>
+<script src="data/data.js"></script>
+<script>
+  /* ?demo=1 loads the synthetic sample. Injected so the public page never ships it by default. */
+  (function () {
+    var demo = false;
+    try { demo = new URLSearchParams(window.location.search).get('demo') === '1'; } catch (e) { demo = false; }
+    if (!demo) return;
+    window.__tcSample = 'loading';
+    var s = document.createElement('script');
+    s.src = 'data/sample/data.js';
+    s.onload = function () { window.__tcSample = 'loaded'; window.dispatchEvent(new Event('tc:sample')); };
+    s.onerror = function () { window.__tcSample = 'error'; window.dispatchEvent(new Event('tc:sample')); };
+    document.head.appendChild(s);
+  })();
+</script>
+<script src="assets/dashboard.js"></script>
+</body>
+</html>
