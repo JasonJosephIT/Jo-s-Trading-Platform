@@ -105,8 +105,9 @@
     var data = DEMO ? window.TC_DATA_SAMPLE : window.TC_DATA;
     if (DEMO) $('demo-ribbon').hidden = false;
     wireTheme();
-    if (!data || typeof data !== 'object') { showEmpty(); return; }
+    if (!data || typeof data !== 'object') { try { renderQuote(null); } catch (e) { /* decoration */ } showEmpty(); return; }
     DATA = data;
+    try { renderQuote(data); } catch (e) { /* the quote is decoration; never block the dashboard */ }
     P = data.profile || {};
     TZ = P.timezone || 'UTC';
     try { new Intl.DateTimeFormat('en-US', { timeZone: TZ }); } catch (e) { TZ = 'UTC'; }
@@ -1204,7 +1205,8 @@
   }
 
   /* ---------------- quote of the day ---------------- */
-  /* Process, not money. Real, sourced quotes; one per day, same all day. */
+  /* From her own notes: the quote her Claude picked (insights.quote), else a lesson she wrote
+     (plan-followed days first), else a sourced quote. Process, not money; same line all day. */
   var QUOTES = [
     ['We are what we repeatedly do. Excellence, then, is not an act, but a habit.', 'Will Durant'],
     ['We suffer more often in imagination than in reality.', 'Seneca'],
@@ -1214,18 +1216,32 @@
     ["I am not afraid of storms, for I am learning how to sail my ship.", 'Louisa May Alcott'],
     ['Do what you can, with what you have, where you are.', 'Theodore Roosevelt']
   ];
-  function renderQuote() {
+  function pickQuote(data, day) {
+    var q = data && data.insights && data.insights.quote;
+    if (q && typeof q.text === 'string' && q.text.trim()) return [q.text.trim(), q.by || ''];
+    var lessons = ((data && data.journal) || []).filter(function (e) {
+      return e && typeof e.lesson === 'string' && e.lesson.trim() && e.lesson.length <= 240;
+    });
+    var good = lessons.filter(function (e) { return e.followed_plan === true; });
+    var pool = (good.length ? good : lessons).slice().sort(function (a, b) { return a.date < b.date ? 1 : -1; }).slice(0, 30);
+    if (pool.length) {
+      var e = pool[day % pool.length];
+      return [e.lesson.trim(), e.date ? 'You, ' + fmtShort(e.date) : 'You'];
+    }
+    return QUOTES[day % QUOTES.length];
+  }
+  function renderQuote(data) {
     var now = new Date();
     var day = Math.floor((Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()) - Date.UTC(now.getFullYear(), 0, 0)) / 864e5);
-    var q = QUOTES[day % QUOTES.length];
+    var q = pickQuote(data, day);
     $('quote-text').textContent = q[0];
     $('quote-by').textContent = q[1];
+    $('quote-by').hidden = !q[1];
     $('quote').hidden = false;
   }
 
   /* ---------------- start ---------------- */
   function start() {
-    try { renderQuote(); } catch (e) { /* the quote is decoration; never block the dashboard */ }
     try { boot(); }
     catch (e) {
       if (window.console) console.error('[Trading Assistant] could not start:', e);

@@ -37,8 +37,15 @@ Missing fields are `null` (arrays may be `[]`). Never invent values.
   "insights": [ { "title": "Revenge trades after a loss cost you −6.2R this month",
      "evidence": { "trade_ids": ["…"], "journal_ids": ["…"], "n": 11 },   // trade_ids: up to ~12 examples, worst first; n counts every trade behind it
      "confidence": "early|moderate|strong", "suggestion": "process change, never a trade call" } ],
-  "brief": { "date": "2026-11-17", "markdown": "…" } }
+  "brief": { "date": "2026-11-17", "markdown": "…" },
+  "quote": { "text": "Waiting for the setup paid; keep doing the boring version.",   // optional, ≤240 chars
+     "by": "You, 17 Jul",            // her words: "You, <date>"; a quoted person: their name
+     "source": "journal|quoted",     // journal = verbatim from her journal; quoted = a real, correctly attributed quote
+     "journal_id": "…",              // required when source is journal
+     "why": "one line for her Claude: which note or leak it answers" } }
 ```
+
+`quote` is the line at the top of the dashboard. Without it the dashboard rotates through the `lesson` lines in her journal (days she followed her plan first), and only with no journal does it fall back to a few built-in quotes.
 
 ## `config/profile.json`
 

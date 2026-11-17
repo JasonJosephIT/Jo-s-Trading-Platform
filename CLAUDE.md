@@ -150,7 +150,7 @@ If she has no wizard answers (she opened the folder and said "set me up"), give 
    - Do not change her journal's structure. If useful properties are missing (mood, followed plan), you may *suggest* adding them, once.
    - **If Notion isn't connected in this session:** give her the connect clicks (Customize → Connectors → + → Notion → Connect), wait, then test with a search. If she can't connect it now, offer: **1.** Try again later (mark `journal` `in_progress`, carry on with the other steps) **2.** Export the journal from Notion (database **⋯ → Export → CSV**, or page **⋯ → Export → Markdown**) into `inbox/journal/` and you read that instead **3.** Skip the journal for now (the dashboard works; mood, sleep and mistake insights wait until it's connected). For Google Sheets or Excel journals, use that connector the same way.
 
-6. **`insights` · First insights.** Run `python3 scripts/insights_stats.py` and write insights only from its numbers (see "Finding insights"). Write `data/insights.json` with up to 5 insights, a `focus_rule` and today's `brief`. Run `python3 scripts/build_data.py`.
+6. **`insights` · First insights.** Run `python3 scripts/insights_stats.py` and write insights only from its numbers (see "Finding insights"). Write `data/insights.json` with up to 5 insights, a `focus_rule`, today's `brief` and a `quote` (see "Quote of the day"). Run `python3 scripts/build_data.py`.
 
 7. **`dashboard` · Show her.** You usually can't see her screen, so ask her: "Open your Trading Assistant folder in Documents and double-click **dashboard.html**. What do you see? **1.** My numbers and charts **2.** 'Not set up yet' **3.** Something looks empty or wrong". For 2, rebuild data and check `data/data.js` isn't `null`; for 3, ask which panel and check the data behind it. Then ask her to bookmark it. Point at today's brief panel and the leak map. Ask her to tell you if anything looks empty or wrong; fix data, never the dashboard code.
 
@@ -171,7 +171,7 @@ If she has no wizard answers (she opened the folder and said "set me up"), give 
 2. **Journal.** Read Notion entries created or edited since the last run (`insights.generated`). Update `journal.json` (replace entries with the same `id`). Re-link to trades. Update trade `tags` from her written mistakes.
 3. **Insights.** Recompute (see "Finding insights"). Keep insights that still hold; replace stale ones. Max 5.
 4. **Market context.** Web-search today's scheduled events for her markets. Start from `catalog/market-events.json` for what recurs, but confirm today's actual times on the official schedule pages (holidays shift them). Add earnings or notable overnight moves only for her `instruments`/`watchlist`. Official sources first (EIA, USDA, CFTC, BLS, BEA, Federal Reserve, the exchange).
-5. **Brief.** Write `briefs/YYYY-MM-DD.md` and `insights.brief` using the template below. Run `python3 scripts/build_data.py`.
+5. **Brief.** Write `briefs/YYYY-MM-DD.md` and `insights.brief` using the template below. Also set `insights.quote`, the line at the top of her dashboard, from her own notes (see "Quote of the day"). Run `python3 scripts/build_data.py`.
 6. **Notion.** If `notion.brief_page` is set, replace that page's content with today's brief.
 7. **Mondays:** run CALENDAR_SYNC for the coming week if enabled.
 8. If any source failed, still write the brief, and say at the top what was missing ("Couldn't reach NinjaTrader this morning; numbers are as of Friday").
@@ -200,6 +200,13 @@ Get the numbers from `python3 scripts/insights_stats.py` (same formulas as `asse
 - State: mood and sleep vs outcome.
 - Plan adherence trend.
 R uses each trade's `initial_risk`, or her `default_risk_per_trade` when that's empty; when most trades use the default, say R is based on her planned risk. Each insight: a title with the number, evidence (`trade_ids`, `journal_ids`, `n`), confidence by n (see Rule 8), and one process suggestion. The `focus_rule` targets the costliest current leak. With no journal yet, write insights from trades only (setups, timing, after-loss trades, symbols) and make one of them "Connect your journal to see how mood, sleep and mistakes affect results".
+
+### Quote of the day
+
+One short line that speaks to what her recent journal entries and comments say (last 7 days first). Pick one:
+- **Her own words (preferred):** a sentence she wrote, copied exactly (a `lesson` or a line from her entry), that answers today's focus or a feeling she keeps writing about. Best: something she wrote on a day she followed her plan. `source: "journal"`, `by: "You, <D Mon>"`, `journal_id`.
+- **A quoted line:** only if nothing of hers fits. A real quote you're sure of, correctly attributed, chosen for what her notes say (she writes about rushing → patience; about fear after a loss → courage, steadiness). `source: "quoted"`, `by: "<name>"`. Never invent or paraphrase a quote, never use one about money or getting rich.
+Keep it under 240 characters, encouraging, about process. Don't reuse the quote that's already in `insights.quote`. Write one line in `why` (which note it answers). No journal yet → leave `quote` out; the dashboard has a fallback.
 
 ### CHECKIN (interactive, ~2 minutes)
 
