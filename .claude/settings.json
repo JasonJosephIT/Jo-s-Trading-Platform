@@ -3,7 +3,8 @@
     "allow": [
       "Bash(python3 scripts/doctor.py:*)",
       "Bash(python3 scripts/build_data.py:*)",
-      "Bash(python3 scripts/normalize_csv.py:*)"
+      "Bash(python3 scripts/normalize_csv.py:*)",
+      "Bash(python3 scripts/insights_stats.py:*)"
     ]
   }
 }

@@ -11,6 +11,16 @@ updated: 2026-11-17
 - Live 2026-11-17: https://jasonjosephit.github.io/Jo-s-Trading-Platform/setup.html and /dashboard.html?demo=1 (repo JasonJosephIT/Jo-s-Trading-Platform, Pages from main root).
 - v1 built: setup wizard (`setup.html` from `wizard/`, React + shadcn/ui, iPhone-style onboarding, royal purple → black with gold trim), dashboard, data scripts, CLAUDE.md, prompts, catalog, docs.
 
+## Handoff (2026-11-17, context limit)
+Done this session, committed locally (last pushed commit is `30035c8`; push the rest):
+- Self-guided setup for her Claude: `scripts/doctor.py` (11 setup steps, `--mark`, resumable via `config/setup-state.json`), `scripts/insights_stats.py` (pattern numbers with evidence), CLAUDE.md "Start here" + first-message templates + app-style guidance rules + 15-question no-wizard script + Cowork vs Claude Code + fixes from a blind test, README "For Claude: start here", `.claude/commands/*` and `.claude/settings.json` (generated/allowed), `config/wizard-answers.example.yaml`, prompt `continue-setup`, setup page resume note. All tests pass (node 20, python OK).
+- The blind-test fixes (second commit) may still be uncommitted: run `git status` first.
+Next for the new session:
+1. `cd ~/Projects/trading-coach && git status`; commit anything pending; `cd wizard && npm run build` if `wizard/src` changed after the last build; run `node --test` and `python3 -m unittest discover -s tests`; `git push`.
+2. Second blind test (not yet run): copy the folder (minus wizard/.git) to the scratchpad, have a fresh sonnet agent play her Claude with only "hi, set up my trading coach" (NinjaTrader, crude+gold futures, prop account, Notion, Google Calendar, Mac, NY, answers in chat), stop partway, then resume with "continue my setup". Fix any gaps it reports in CLAUDE.md.
+3. Then send her the setup link.
+Don't redo: the dashboard, wizard, research catalog, data scripts or the first blind test.
+
 ## Next
 1. Send her the setup link; collect her answers to: which platform, Mac or Windows, Notion database or pages.
 2. Verify the unverified CSV presets (Tradovate, NinjaTrader, thinkorswim, IBKR Flex, Webull) against a real export once she drops one in `inbox/`.

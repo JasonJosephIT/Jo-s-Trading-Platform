@@ -1,0 +1,47 @@
+# The shape the setup page (setup.html) produces and pastes into the setup prompt.
+# Claude saves her real answers to config/wizard-answers.yaml (never in git).
+# When she answers in chat instead, Claude builds this same shape.
+wizard_version: 1
+name: null                      # optional; what Claude calls her
+computer: mac                   # mac | windows
+timezone: America/New_York
+markets: [Crude oil & energy, Gold & metals]
+instruments: [CL, MCL, GC]
+style: futures-prop             # day | swing | futures-prop
+layout_preset: futures-prop
+session:
+  start: "09:00"
+  end: "14:30"
+brief_time: "07:30"
+risk:
+  default_risk_per_trade: 150   # her own planned risk per trade, $
+  max_daily_loss: 600           # HER OWN daily stop, $
+  max_trades_per_day: 5
+  stop_after_consecutive_losses: 2
+  prop_rules:                   # null unless style is futures-prop
+    trailing_drawdown: 2000     # the FIRM's rule, $
+    daily_loss_limit: 1000      # the FIRM's daily limit, $
+setups: [Inventory report fade, Opening range break]
+tools:
+  broker:
+    name: NinjaTrader / Tradovate
+    catalog_id: ninjatrader-tradovate   # id in catalog/tools.json, or null if unknown
+    category: broker
+    path: connector             # connector | csv | advanced | web | none | unknown
+    fit: custom                 # directory | custom | export | advanced | web | second | research
+  journal: { name: Notion, catalog_id: notion, category: journal, path: connector, fit: directory }
+  calendar: { name: Google Calendar, catalog_id: google-calendar, category: calendar, path: connector, fit: directory }
+  charting: [TradingView]
+  news: []
+  other: [Discord room]
+  to_research: [Discord room (other)]   # Claude looks these up and confirms with her
+notion:
+  journal_shape: database       # database | pages | mixed | unsure
+  journal_location: null        # URL if she gave one
+  brief_page: create            # "create" or null
+calendar:
+  add_market_events: true
+  event_ids: [eia-wpsr, eia-ngs, cftc-cot, fomc, bls-cpi, bls-nfp]   # ids from catalog/market-events.json
+market_data:
+  web_search: true
+  alpha_vantage: false

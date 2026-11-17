@@ -69,7 +69,7 @@
   "calendar": {
     "add_market_events": false,
     "calendar_name": "Trading",
-    "event_types": []
+    "event_ids": []
   },
   "notion": {
     "journal_location": "",

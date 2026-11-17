@@ -164,6 +164,7 @@ def report(r):
     for s in r["steps"]:
         mark_ = {"done": "x", "skipped": "-", "in_progress": ">", "pending": " "}[s["status"]]
         lines.append(f"  [{mark_}] {s['number']:>2}. {s['title']}" + (f"  ({s['note']})" if s.get("note") else ""))
+    lines.append("  ([x] done  [-] skipped  [>] waiting on her  [ ] to do)")
     t = r["trades"]
     lines.append(f"Trades: {t['count']}" + (f", last exit {t['last_exit']}" if t["last_exit"] else ""))
     lines.append(f"Journal entries: {r['journal']['count']}" + (f", latest {r['journal']['last_date']}" if r["journal"]["last_date"] else ""))

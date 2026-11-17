@@ -67,7 +67,7 @@ PROFILE = {
         "news": [],
         "other": [],
     },
-    "calendar": {"add_market_events": False, "calendar_name": "Trading", "event_types": []},
+    "calendar": {"add_market_events": False, "calendar_name": "Trading", "event_ids": []},
     "notion": {"journal_location": "", "journal_shape": "database", "brief_page": None},
     "layout_preset": "futures-prop",
     "panels": {},
