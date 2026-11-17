@@ -1203,8 +1203,29 @@
     }, 'MAE versus MFE scatter. ' + sum);
   }
 
+  /* ---------------- quote of the day ---------------- */
+  /* Process, not money. Real, sourced quotes; one per day, same all day. */
+  var QUOTES = [
+    ['We are what we repeatedly do. Excellence, then, is not an act, but a habit.', 'Will Durant'],
+    ['We suffer more often in imagination than in reality.', 'Seneca'],
+    ['Well done is better than well said.', 'Benjamin Franklin'],
+    ['The best way out is always through.', 'Robert Frost'],
+    ['Courage is grace under pressure.', 'Ernest Hemingway'],
+    ["I am not afraid of storms, for I am learning how to sail my ship.", 'Louisa May Alcott'],
+    ['Do what you can, with what you have, where you are.', 'Theodore Roosevelt']
+  ];
+  function renderQuote() {
+    var now = new Date();
+    var day = Math.floor((Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()) - Date.UTC(now.getFullYear(), 0, 0)) / 864e5);
+    var q = QUOTES[day % QUOTES.length];
+    $('quote-text').textContent = q[0];
+    $('quote-by').textContent = q[1];
+    $('quote').hidden = false;
+  }
+
   /* ---------------- start ---------------- */
   function start() {
+    try { renderQuote(); } catch (e) { /* the quote is decoration; never block the dashboard */ }
     try { boot(); }
     catch (e) {
       if (window.console) console.error('[Trading Assistant] could not start:', e);

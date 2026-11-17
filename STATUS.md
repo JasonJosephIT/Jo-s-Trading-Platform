@@ -10,15 +10,17 @@ updated: 2026-11-17
 ## Now
 - Live 2026-11-17: https://jasonjosephit.github.io/Jo-s-Trading-Platform/setup.html and /dashboard.html?demo=1 (repo JasonJosephIT/Jo-s-Trading-Platform, Pages from main root).
 - v1 built: setup wizard (`setup.html` from `wizard/`, React + shadcn/ui, iPhone-style onboarding, royal purple → black with gold trim), dashboard, data scripts, CLAUDE.md, prompts, catalog, docs.
+- 2026-11-17: dashboard is liquid metal too, with a quote of the day at the top. Checked at phone width in Chromium; not checked in Safari.
 
 
 ## Next
-1. Send her the setup link (ready 2026-11-17): https://jasonjosephit.github.io/Jo-s-Trading-Platform/setup.html?name=Jo ; collect her answers to: which platform, Mac or Windows, Notion database or pages.
+1. Send her the setup link (ready 2026-11-17): https://jasonjosephit.github.io/Jo-s-Trading-Platform/setup.html?name=Jo ; collect her answers to: which platform, Notion database or pages.
 2. v2 is parked: `docs/v2-plan.md` is notes her Claude follows only if she asks (CLAUDE.md points to it).
 3. Verify the unverified CSV presets (Tradovate, NinjaTrader, thinkorswim, IBKR Flex, Webull) against a real export once she drops one in `inbox/`.
 4. Test the Notion journal flow against her real journal shape (this build was dry-run on synthetic data only; the session's Notion connector could only view pages).
 
 ## Decisions
+- 2026-11-17 — Dashboard is liquid metal, CSS only (no WebGL shader: it has no build step and must work from `file://`). `assets/theme.css` carries the setup page's tokens (`--metal` flowing gold, `--metal-rim` conic rim, `--glass-sheen`); `.gold-trim` panels now get the metal rim and a glass sheen; wordmark, gold buttons, demo ribbon, range chips, insight numbers and the prop progress bar are polished metal; flowing stops for reduced motion. Chart colours unchanged. A quote of the day sits under the brand: one quiet italic line, process not money, from 7 sourced quotes in `assets/dashboard.js` (Durant, Seneca, Franklin, Frost, Hemingway, Alcott, T. Roosevelt), same quote all day.
 - 2026-11-17 — She has a Mac: the setup page no longer asks (and step 1 "About you" is gone; the name field shows on the welcome screen only when the link has no `?name=`). Everything is "liquid metal": "Hello, Jo." and the logo use Paper Shaders' `LiquidMetal` WebGL effect (Apache-2.0, `@paper-design/shaders-react@0.0.82`) coloured gold with a CSS sepia filter, falling back to the static gold text without WebGL2 and holding still for reduced motion; buttons, chips, checks and progress use a flowing metallic-gold gradient; glass cards get a polished metal rim.
 - 2026-11-17 — She already has Claude: setup step 1 is now "About you" (computer + name); the paid-plan and Claude Desktop checks are gone.
 - 2026-11-17 — Renamed to **Trading Assistant** everywhere she sees it (setup page, dashboard, CLAUDE.md, prompts, docs, her folder `~/Documents/Trading Assistant`); plugin and marketplace ids are now `trading-assistant`. Repo name and internal slugs unchanged.
