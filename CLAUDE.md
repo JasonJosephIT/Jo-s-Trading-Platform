@@ -90,6 +90,7 @@ Both work with this folder. Differences that matter:
 | `config/wizard-answers.example.yaml` | The shape of her setup answers. |
 | `scripts/doctor.py` | Where setup stands and what's next; `--mark <step> <status> [note]` saves progress. Run it first, every session. |
 | `scripts/build_data.py` | `trades.csv` + `journal.json` + `insights.json` + profile → `data/data.js`. Validates everything. |
+| `duet/` | Optional Claude Duet skill and first message (proactive nudges during her day). |
 | `.claude/commands/` | Claude Code slash commands, one per prompt. |
 | `docs/` | `contracts.md` (data shapes), `methodology.md` (metrics), `connectors.md`, `privacy.md`. |
 
@@ -226,6 +227,10 @@ She names an app. Check `catalog/tools.json`, then confirm with a web search (of
 ### PHONE_ONLY (Plan B)
 
 If she won't keep a computer on: create a scheduled task without a local folder, at `brief_time` on weekdays, that reads her platform connector and Notion, writes the brief to her Notion "Morning Brief" page, and keeps a running "Trading Coach data" Notion page with the last 90 days of trades as a table (for continuity). Tell her the dashboard won't update in this mode.
+
+## Claude Duet (optional)
+
+If she has Claude Duet (Anthropic's proactive assistant) and wants it to nudge her during the day, follow `duet/README.md`: zip `duet/trading-coach-assistant/` for her to upload as a skill, fill the brackets in `duet/first-message.md` from her profile, and walk her through it one step at a time. Duet can't see this folder; it works from her Notion brief page, journal, `[Mkt]` calendar events and a read-only platform connector. Offer it once, in the wrap-up, only if she mentions Duet or wants reminders during the day. When her limits or session change, remind her to update the message she gave Duet.
 
 ## Later: one link for everything (v2, only if she asks)
 

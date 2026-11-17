@@ -50,6 +50,9 @@ Look borrowed from Upptime / Gatus status pages: one row per service, a coloured
 4. **Hello setup Artifact, ~3 h.** Intro screen, answers saved to db, CLAUDE.md SETUP reads them. Done when a blind test runs setup with no copy-paste.
 5. **Blind test, ~1 h.** Same two-part test as 2026-11-17, plus the phone view.
 
+## Claude Duet
+`duet/` already holds a Duet skill that reads the Notion brief. In v2 it could also read the Status tab's heartbeat (`status/last_run`) for the "brief missing" check, if Duet can read Artifacts; otherwise keep the Notion check.
+
 ## Risks and open questions
 - **Who publishes.** Her own Claude should publish the Artifact, so she owns it and her connectors answer. Jason can't preview her data unless she shares it.
 - **db size cap** isn't stated in the type definitions; if 90 days of trades don't fit one doc, split into `trades/<month>` docs.
