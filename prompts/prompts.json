@@ -9,6 +9,13 @@
       "text": "Read CLAUDE.md in this folder and follow the SETUP flow exactly.\nMy answers from the setup wizard are below. Ask me only about anything missing or unclear,\none question at a time, with multiple-choice options where possible.\nFor every tool listed under tools.to_research, look up whether it has a Claude connector\nor a way to export my trades, show me what you found with links, and let me confirm before you use it.\nDo not change how I write my journal. Never place, modify, or suggest specific trades.\n\n{{ANSWERS}}"
     },
     {
+      "id": "continue-setup",
+      "file": "09-continue-setup.md",
+      "title": "Continue my setup",
+      "when": "Stopped partway, or opening the folder again? This picks up exactly where you left off.",
+      "text": "Read CLAUDE.md in this folder, run scripts/doctor.py, and continue my Trading Coach setup\nfrom where I left off. Guide me one step at a time, and do everything you can yourself."
+    },
+    {
       "id": "morning-update",
       "file": "02-morning-update.md",
       "title": "Morning update (scheduled)",

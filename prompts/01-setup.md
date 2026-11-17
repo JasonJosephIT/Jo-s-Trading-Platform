@@ -13,6 +13,6 @@ or a way to export my trades, show me what you found with links, and let me conf
 Do not change how I write my journal. Never place, modify, or suggest specific trades.
 
 ```yaml
-# The setup wizard (setup.html) pastes your answers here.
+# The setup page (setup.html) pastes your answers here.
 ```
 ````

@@ -5,6 +5,7 @@ data/data.js
 !data/sample/
 config/*.json
 config/*.md
+config/*.yaml
 !config/*.example.*
 inbox/*
 archive/*

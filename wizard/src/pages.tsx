@@ -640,12 +640,18 @@ export function StartClaude({ a }: P) {
             { text: <>Open <b>Claude Desktop</b> and start a new task (Cowork).</> },
             { text: <>Choose your <b>Trading Coach</b> folder in Documents when it asks for a folder.</> },
             { text: <>Copy the prompt below, paste it in and send. Your answers from this setup are already inside.</> },
-            { text: <>Answer Claude's questions. It takes about 10 minutes and ends by opening your dashboard.</> },
+            { text: <>Claude takes it from here, one step at a time, like this page did. About 15 minutes, and it ends by opening your dashboard.</> },
           ]}
         />
       </Section>
       <Section>
         <CopyBlock text={setupPrompt(a)} label="Copy setup prompt" />
+      </Section>
+      <Section>
+        <Callout title="Need a break partway?">Close it any time. Claude saves your progress. Later, open the Trading Coach folder in Claude again and say <b>“continue my setup”</b>. It picks up exactly where you stopped.</Callout>
+      </Section>
+      <Section>
+        <p className="text-[13px] leading-relaxed text-muted-foreground">Using Claude Code instead of Cowork? Open the Trading Coach folder there and paste the same prompt. It works the same way.</p>
       </Section>
     </>
   )
@@ -741,6 +747,10 @@ export function Help() {
       <LargeTitle eyebrow="Help" title="If something's off" subtitle="Most fixes are one prompt. Paste “Fix something” into Claude and describe what you see." icon={<IconTile><CircleHelp className="size-7" /></IconTile>} />
       <Section>
         <CopyBlock text={prompts.fix.text} label="Copy “Fix something”" maxHeight={120} />
+      </Section>
+      <Section>
+        <FieldLabel>Stopped partway through setup?</FieldLabel>
+        <CopyBlock text={prompts['continue-setup'].text} label="Copy “Continue my setup”" maxHeight={100} />
       </Section>
       <div className="px-4 pb-6">
       <Accordion type="single" collapsible className="overflow-hidden rounded-2xl gold-trim bg-row">
