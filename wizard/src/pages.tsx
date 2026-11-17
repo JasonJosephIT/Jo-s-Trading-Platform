@@ -119,20 +119,19 @@ export function Welcome() {
   const name = linkName()
   return (
     <>
-      <div className="relative mx-5 mt-2 overflow-hidden rounded-[28px] gold-trim px-6 pt-8 pb-7 text-white" style={{ background: 'var(--hero-bg)' }}>
-        <div className="pointer-events-none absolute -top-24 -right-16 size-64 rounded-full opacity-40 blur-3xl" style={{ background: 'radial-gradient(circle, #dcb64f 0%, transparent 70%)' }} />
+      <div className="glass relative mx-5 mt-2 overflow-hidden rounded-[32px] px-6 pt-8 pb-7">
         <Crest />
-        <p className="mt-6 text-[13px] font-semibold uppercase tracking-[0.12em] text-[#ecd27e]">Trading Coach</p>
+        <p className="mt-6 text-[13px] font-semibold uppercase tracking-[0.12em] text-gold">Trading Assistant</p>
         {name ? (
           <>
-            <h1 className="mt-1 text-[40px] leading-[1.05] font-bold tracking-[-0.03em] text-[#f6e7b4]">Hello, {name}.</h1>
-            <p className="mt-2 text-[20px] leading-snug font-semibold text-white text-balance">Let's set up your trading workstation.</p>
-            <p className="mt-3 text-[16px] leading-relaxed text-white/75">Your journal, your numbers, a calm morning plan. About 20 minutes once; after that it updates itself every trading morning.</p>
+            <h1 aria-label={`Hello, ${name}.`} className="script-hello gold-text -ml-1 mt-1 whitespace-nowrap text-[clamp(44px,15vw,64px)] tracking-normal">Hello, {name}.</h1>
+            <p className="mt-1 text-[21px] leading-snug font-semibold tracking-[-0.01em] text-balance">Let's set up your trading workstation.</p>
+            <p className="mt-3 text-[16px] leading-relaxed text-muted-foreground">Your journal, your numbers, a calm morning plan. About 20 minutes once; after that it updates itself every trading morning.</p>
           </>
         ) : (
           <>
             <h1 className="mt-1 text-[32px] leading-[1.08] font-bold tracking-[-0.02em] text-balance">Your journal, your numbers, a calm morning plan.</h1>
-            <p className="mt-3 text-[16px] leading-relaxed text-white/75">Set up once in about 20 minutes. Every trading morning after that, it updates itself.</p>
+            <p className="mt-3 text-[16px] leading-relaxed text-muted-foreground">Set up once in about 20 minutes. Every trading morning after that, it updates itself.</p>
           </>
         )}
       </div>
@@ -263,7 +262,7 @@ export function Compatibility({ a }: P) {
 
 function ToolCard({ label, name, tool, fit, second, icon }: { label: string; name: string; tool?: Tool; fit: Fit; second: string | null; icon: React.ReactNode }) {
   return (
-    <div className="rounded-2xl gold-trim bg-row p-4">
+    <div className="glass rounded-[22px] p-4">
       <div className="flex items-start gap-3">
         <span className="grid size-9 shrink-0 place-items-center rounded-[10px] bg-secondary text-gold [&_svg]:size-[18px]">{icon}</span>
         <div className="min-w-0 flex-1">
@@ -533,7 +532,7 @@ function UrlCopy({ url }: { url: string }) {
 function ExportSteps({ t }: { t: Tool }) {
   const steps: Step[] = (t.export?.steps ?? []).map((s) => ({ text: s }))
   if (!steps.length) steps.push({ text: <>Find your trade history (sometimes called Trades, Fills or Account statement) and export it as CSV. Claude will look up the exact steps for {t.name} if you get stuck.</> })
-  steps.push({ text: <>Save the file into your <b>Trading Coach → inbox</b> folder. Any file name works.</> })
+  steps.push({ text: <>Save the file into your <b>Trading Assistant → inbox</b> folder. Any file name works.</> })
   if (t.export?.help_url) steps[0] = { ...steps[0], link: { href: t.export.help_url, label: `${t.name} help: export` } }
   return (
     <Section>
@@ -606,7 +605,7 @@ export function Folder({ a }: P) {
   const mac = a.os === 'mac'
   return (
     <>
-      <LargeTitle eyebrow="Step 9" title="Get your Trading Coach folder" subtitle="One folder on your computer holds your dashboard and your data. It never gets uploaded anywhere." icon={<IconTile><FolderOpen className="size-7" /></IconTile>} />
+      <LargeTitle eyebrow="Step 9" title="Get your Trading Assistant folder" subtitle="One folder on your computer holds your dashboard and your data. It never gets uploaded anywhere." icon={<IconTile><FolderOpen className="size-7" /></IconTile>} />
       <Section>
         <a href={ZIP} className="flex h-[54px] w-full items-center justify-center gap-2 rounded-2xl text-[17px] font-semibold text-[var(--cta-ink)]" style={{ background: 'var(--cta)' }}>
           <Download className="size-5" />
@@ -620,19 +619,19 @@ export function Folder({ a }: P) {
               ? [
                   { text: <>Open <b>Downloads</b> and double-click <b>Jo-s-Trading-Platform-main.zip</b>. It unzips itself.</> },
                   { text: <>Drag the new <b>Jo-s-Trading-Platform-main</b> folder into <b>Documents</b>.</> },
-                  { text: <>Click the folder once, press <b>Return</b>, and rename it <b>Trading Coach</b>.</> },
+                  { text: <>Click the folder once, press <b>Return</b>, and rename it <b>Trading Assistant</b>.</> },
                 ]
               : [
                   { text: <>Open <b>Downloads</b>, right-click <b>Jo-s-Trading-Platform-main.zip</b> and choose <b>Extract All…</b></> },
                   { text: <>Set the destination to your <b>Documents</b> folder and click <b>Extract</b>.</> },
-                  { text: <>Right-click the new folder, choose <b>Rename</b>, and call it <b>Trading Coach</b>.</> },
+                  { text: <>Right-click the new folder, choose <b>Rename</b>, and call it <b>Trading Assistant</b>.</> },
                 ]
           }
         />
       </Section>
       {a.broker && ['export', 'advanced', 'second'].includes(fitOf(byId(a.broker.id))) && (
         <Section>
-          <Callout tone="gold">Now move the trade export from step 7 into <b>Trading Coach → inbox</b>.</Callout>
+          <Callout tone="gold">Now move the trade export from step 7 into <b>Trading Assistant → inbox</b>.</Callout>
         </Section>
       )}
     </>
@@ -649,7 +648,7 @@ export function StartClaude({ a }: P) {
         <StepList
           steps={[
             { text: <>Open <b>Claude Desktop</b> and start a new task (Cowork).</> },
-            { text: <>Choose your <b>Trading Coach</b> folder in Documents when it asks for a folder.</> },
+            { text: <>Choose your <b>Trading Assistant</b> folder in Documents when it asks for a folder.</> },
             { text: <>Copy the prompt below, paste it in and send. Your answers from this setup are already inside.</> },
             { text: <>Claude takes it from here, one step at a time, like this page did. About 15 minutes, and it ends by opening your dashboard.</> },
           ]}
@@ -659,10 +658,10 @@ export function StartClaude({ a }: P) {
         <CopyBlock text={setupPrompt(a)} label="Copy setup prompt" />
       </Section>
       <Section>
-        <Callout title="Need a break partway?">Close it any time. Claude saves your progress. Later, open the Trading Coach folder in Claude again and say <b>“continue my setup”</b>. It picks up exactly where you stopped.</Callout>
+        <Callout title="Need a break partway?">Close it any time. Claude saves your progress. Later, open the Trading Assistant folder in Claude again and say <b>“continue my setup”</b>. It picks up exactly where you stopped.</Callout>
       </Section>
       <Section>
-        <p className="text-[13px] leading-relaxed text-muted-foreground">Using Claude Code instead of Cowork? Open the Trading Coach folder there and paste the same prompt. It works the same way.</p>
+        <p className="text-[13px] leading-relaxed text-muted-foreground">Using Claude Code instead of Cowork? Open the Trading Assistant folder there and paste the same prompt. It works the same way.</p>
       </Section>
     </>
   )
@@ -682,13 +681,13 @@ export function KeepRunning({ a }: P) {
         <Callout tone="gold" title="Claude makes the schedule for you">At the end of setup Claude creates the weekday morning update and the weekend review, and asks you to approve them. When it asks about connector access for scheduled runs, choose <b>Allow for all scheduled runs</b>, or the morning run will wait for a click.</Callout>
       </Section>
       <Accordion type="single" collapsible className="px-5 pb-6">
-        <AccordionItem value="manual" className="rounded-2xl border border-border bg-row px-4">
+        <AccordionItem value="manual" className="glass rounded-[22px] px-4">
           <AccordionTrigger className="text-[15px]">Set the schedule up by hand instead</AccordionTrigger>
           <AccordionContent>
             <StepList
               steps={[
                 { text: <>In Claude Desktop, click <b>Scheduled</b> in the sidebar, then <b>New task</b>.</> },
-                { text: <>Name it <b>Morning update</b>, choose your Trading Coach folder, set <b>Weekdays</b> at {a.brief_time}.</> },
+                { text: <>Name it <b>Morning update</b>, choose your Trading Assistant folder, set <b>Weekdays</b> at {a.brief_time}.</> },
                 { text: <>Paste the morning update prompt (copy below) and save.</> },
                 { text: <>Repeat for <b>Weekly review</b>, set to <b>Weekly</b> on Saturday morning.</> },
               ]}
@@ -719,7 +718,7 @@ export function Rhythm({ a }: P) {
       <LargeTitle eyebrow="Step 12" title="Your daily rhythm" subtitle="That's it. Here's how the coach fits into a normal week." icon={<IconTile><Clock className="size-7" /></IconTile>} />
       <div className="space-y-3 px-4 pb-6">
         {items.map((it) => (
-          <div key={it.when} className="rounded-2xl gold-trim bg-row p-4">
+          <div key={it.when} className="glass rounded-[22px] p-4">
             <div className="flex items-center gap-3">
               <span className="grid size-9 place-items-center rounded-[10px] bg-secondary text-gold [&_svg]:size-[18px]">{it.icon}</span>
               <div className="min-w-0 flex-1">
@@ -736,7 +735,7 @@ export function Rhythm({ a }: P) {
         ))}
       </div>
       <Section>
-        <Callout title="Bookmark your dashboard">Open <b>Documents → Trading Coach → dashboard.html</b> and bookmark it in your browser. It always shows the latest numbers.</Callout>
+        <Callout title="Bookmark your dashboard">Open <b>Documents → Trading Assistant → dashboard.html</b> and bookmark it in your browser. It always shows the latest numbers.</Callout>
       </Section>
     </>
   )
@@ -747,9 +746,9 @@ export function Rhythm({ a }: P) {
 const FAQ: { q: string; a: React.ReactNode }[] = [
   { q: "The morning brief didn't appear", a: <>Check that the computer was on and Claude Desktop was open. Claude runs one catch-up when it wakes. In Claude, open <b>Scheduled</b> → your task → <b>History</b> to see what happened. If it's waiting for approval, choose “Allow for all scheduled runs”.</> },
   { q: 'A connector says it expired', a: <>Go to <b>Customize → Connectors</b>, open it, and click <b>Connect</b> again to sign back in.</> },
-  { q: 'The dashboard says “Not set up yet”', a: <>Setup hasn't finished, or the data file wasn't built. Paste the “Fix something” prompt into Claude with the Trading Coach folder selected.</> },
+  { q: 'The dashboard says “Not set up yet”', a: <>Setup hasn't finished, or the data file wasn't built. Paste the “Fix something” prompt into Claude with the Trading Assistant folder selected.</> },
   { q: "Claude didn't recognise my CSV", a: <>That's normal the first time. Claude shows a 5-row preview and asks which column is which, then remembers it.</> },
-  { q: 'Times on the dashboard look shifted', a: <>Your time zone is probably wrong. Ask Claude: “Set my Trading Coach time zone to …”.</> },
+  { q: 'Times on the dashboard look shifted', a: <>Your time zone is probably wrong. Ask Claude: “Set my Trading Assistant time zone to …”.</> },
 ]
 
 export function Help() {
@@ -764,7 +763,7 @@ export function Help() {
         <CopyBlock text={prompts['continue-setup'].text} label="Copy “Continue my setup”" maxHeight={100} />
       </Section>
       <div className="px-4 pb-6">
-      <Accordion type="single" collapsible className="overflow-hidden rounded-2xl gold-trim bg-row">
+      <Accordion type="single" collapsible className="glass overflow-hidden rounded-[22px]">
         {FAQ.map((f, i) => (
           <AccordionItem key={i} value={String(i)} className="border-border px-4 last:border-b-0">
             <AccordionTrigger className="text-[15.5px]">{f.q}</AccordionTrigger>
@@ -775,11 +774,11 @@ export function Help() {
       </div>
       <Section>
         <Callout tone="gold" title="Plan B: phone only">
-          Rather not leave a computer on? Claude can run the morning update in the cloud instead: it reads your platform connector and Notion and writes the brief to a Notion page you read on your phone. You lose the local dashboard but keep the brief and can still ask questions. Tell Claude: “Switch my Trading Coach to phone-only mode.”
+          Rather not leave a computer on? Claude can run the morning update in the cloud instead: it reads your platform connector and Notion and writes the brief to a Notion page you read on your phone. You lose the local dashboard but keep the brief and can still ask questions. Tell Claude: “Switch my Trading Assistant to phone-only mode.”
         </Callout>
       </Section>
       <Section>
-        <p className="text-center text-[12.5px] leading-relaxed text-muted-foreground">Educational and journaling tool. Not investment advice. Trading Coach never places, changes or suggests trades.</p>
+        <p className="text-center text-[12.5px] leading-relaxed text-muted-foreground">Educational and journaling tool. Not investment advice. Trading Assistant never places, changes or suggests trades.</p>
       </Section>
     </>
   )

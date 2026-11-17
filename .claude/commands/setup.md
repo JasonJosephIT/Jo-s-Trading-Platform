@@ -1,5 +1,5 @@
 ---
-description: Setup. Once, in Claude Desktop, with the Trading Coach folder selected. The wizard fills in your answers.
+description: Setup. Once, in Claude Desktop, with the Trading Assistant folder selected. The wizard fills in your answers.
 ---
 
 Read CLAUDE.md in this folder and follow the SETUP flow exactly.

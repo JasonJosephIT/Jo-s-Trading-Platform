@@ -5,7 +5,7 @@ next_date: 2026-11-18
 updated: 2026-11-17
 ---
 
-# Trading Coach status
+# Trading Assistant status
 
 ## Now
 - Live 2026-11-17: https://jasonjosephit.github.io/Jo-s-Trading-Platform/setup.html and /dashboard.html?demo=1 (repo JasonJosephIT/Jo-s-Trading-Platform, Pages from main root).
@@ -19,12 +19,14 @@ updated: 2026-11-17
 4. Test the Notion journal flow against her real journal shape (this build was dry-run on synthetic data only; the session's Notion connector could only view pages).
 
 ## Decisions
-- 2026-11-17 — The Duet skill ships as a plugin, `trading-coach-assistant`, with this repo as its marketplace (`trading-coach`). Her Claude installs it in setup step 11 with two pre-allowed `claude plugin` commands (no clicks if her permission option is accept-all); `.plugin` file fallback for Cowork. Whether Duet picks up plugins is untested; skill-upload fallback in `duet/README.md`.
-- 2026-11-17 — Claude Duet slot: Duet has no hooks and can't read the folder, but loads account skills, memory and connectors, so `duet/` holds a `trading-coach-assistant` skill (nudges: brief missing, before the open, `[Mkt]` report coming, limits, journal after the session; read-only, no trade calls) plus a first message to paste. Untested until she has Duet access.
+- 2026-11-17 — Renamed to **Trading Assistant** everywhere she sees it (setup page, dashboard, CLAUDE.md, prompts, docs, her folder `~/Documents/Trading Assistant`); plugin and marketplace ids are now `trading-assistant`. Repo name and internal slugs unchanged.
+- 2026-11-17 — Setup page uses a CSS-only Liquid Glass look (frosted translucent cards, light rims, specular sheen, gold glass buttons, glass segmented control and chips; falls back to solid for reduced transparency / more contrast). No SVG refraction filters (Chromium-only; she likely uses Safari). "Hello, Jo." is set in Great Vibes script (bundled, works offline) with a left-to-right write-in.
+- 2026-11-17 — The Duet skill ships as a plugin, `trading-assistant`, with this repo as its marketplace (`trading-assistant`). Her Claude installs it in setup step 11 with two pre-allowed `claude plugin` commands (no clicks if her permission option is accept-all); `.plugin` file fallback for Cowork. Whether Duet picks up plugins is untested; skill-upload fallback in `duet/README.md`.
+- 2026-11-17 — Claude Duet slot: Duet has no hooks and can't read the folder, but loads account skills, memory and connectors, so `duet/` holds a `trading-assistant` skill (nudges: brief missing, before the open, `[Mkt]` report coming, limits, journal after the session; read-only, no trade calls) plus a first message to paste. Untested until she has Duet access.
 - 2026-11-17 — v2 parked; ship v1. The setup link greets her by name with `?name=Jo` ("Hello, Jo. Let's set up your trading workstation."). Sample insights cite up to 12 example trades while `n` counts all; documented in contracts.md, not a bug.
 - 2026-11-17 — v2 direction: setup, dashboard and a connector Status tab live in one private Claude Artifact; her data may live in the Artifact's db on claude.ai (privacy change accepted). The morning run stays a Claude Code scheduled task. Ponytail: reuse the wizard and dashboard; borrow Upptime/Gatus status rows and the Healthchecks push heartbeat; no servers. Plan: `docs/v2-plan.md` / `.html`.
 - 2026-11-17 — Second blind test (fresh chat setup, stop at trades, resume) passed end to end: 10 trades imported, dashboard built, .ics written. Fixes: one default export per platform (Tradovate → Performance), NT8 is Windows-only so Mac users get Tradovate steps, full-mapping rule for rewritten CSV mappings, extra chat questions (Notion shape, brief page, calendar events), event picking matches the setup page, steps waiting on her no longer block (doctor shows "Ready for daily use"), no jargon to her.
-- 2026-11-17 — Published to Jason's existing public repo `Jo-s-Trading-Platform` instead of a new `trading-coach` repo; unzip folder is `Jo-s-Trading-Platform-main`, renamed to `Trading Coach`.
+- 2026-11-17 — Published to Jason's existing public repo `Jo-s-Trading-Platform` instead of a new `trading-assistant` repo; unzip folder is `Jo-s-Trading-Platform-main`, renamed to `Trading Assistant`.
 - 2026-11-17 — Wizard is React + shadcn/ui (Radix, Nova preset) + Tailwind v4, built to one self-contained `setup.html` (vite-plugin-singlefile) so it works on GitHub Pages and `file://`. Dashboard stays vanilla JS + vendored Chart.js (fixed layout, Claude never edits it).
 - 2026-11-17 — Look: dark default, royal purple (#6a35c2) fading to near-black (#07040d), gold (#dcb64f) as trim and CTA; light mode is ivory with royal ink. P&L uses a colourblind-safe green/orange pair plus ▲/▼ and signs.
 - 2026-11-17 — Onboarding feels like an iPhone app: one step per screen, segmented progress bar, back chevron + edge swipe, grouped lists, segmented controls, sticky gold CTA, bottom-sheet step list.

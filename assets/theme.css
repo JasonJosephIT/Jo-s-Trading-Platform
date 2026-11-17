@@ -1,4 +1,4 @@
-/* Trading Coach theme: royal purple → black gradients, gold trim.
+/* Trading Assistant theme: royal purple → black gradients, gold trim.
    Shared by setup.html (wizard) and dashboard.html. Tokens follow shadcn/ui names. */
 :root {
   --royal-50: #f4effb;

@@ -6,8 +6,8 @@
       "Bash(python3 scripts/normalize_csv.py:*)",
       "Bash(python3 scripts/insights_stats.py:*)",
       "Bash(claude plugin marketplace add JasonJosephIT/Jo-s-Trading-Platform:*)",
-      "Bash(claude plugin install trading-coach-assistant@trading-coach:*)",
-      "Bash(claude plugin marketplace update trading-coach:*)"
+      "Bash(claude plugin install trading-assistant@trading-assistant:*)",
+      "Bash(claude plugin marketplace update trading-assistant:*)"
     ]
   }
 }

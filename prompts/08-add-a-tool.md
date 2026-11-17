@@ -1,6 +1,6 @@
 # Add a tool
 
-*When:* You started using a new app (platform, calendar, news) and want the coach to use it.
+*When:* You started using a new app (platform, calendar, news) and want the assistant to use it.
 
 Copy everything in the box below into Claude.
 

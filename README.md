@@ -1,6 +1,6 @@
-# Trading Coach
+# Trading Assistant
 
-Turns Claude into your trading-journal dashboard and morning coach. You keep journaling in Notion; Claude pulls in your trades, links them to what you wrote, and every trading morning gives you a short brief and an up-to-date dashboard.
+Turns Claude into your trading-journal dashboard and morning assistant. You keep journaling in Notion; Claude pulls in your trades, links them to what you wrote, and every trading morning gives you a short brief and an up-to-date dashboard.
 
 **[Start the setup →](https://jasonjosephit.github.io/Jo-s-Trading-Platform/setup.html)** · **[See the demo dashboard →](https://jasonjosephit.github.io/Jo-s-Trading-Platform/dashboard.html?demo=1)**
 
@@ -9,21 +9,21 @@ Turns Claude into your trading-journal dashboard and morning coach. You keep jou
 ## Quick start (about 20 minutes, no terminal)
 
 1. **Open the setup** link above. It walks you through every step page by page, like setting up a new app: what you trade, which apps you use (it checks each one works with Claude and lines up a second option if not), your risk rules, and connecting Notion and your trading platform.
-2. **Download this folder** (the setup gives you the button), unzip it into Documents and name it `Trading Coach`.
+2. **Download this folder** (the setup gives you the button), unzip it into Documents and name it `Trading Assistant`.
 3. **Paste one prompt into Claude Desktop** with that folder selected. Claude asks a few questions, imports your history, builds your dashboard and schedules the daily update.
 
 You need a paid Claude plan and [Claude Desktop](https://claude.com/download).
 
 **Other ways in, if you prefer:**
-- **Skip the setup page:** open the `Trading Coach` folder in Claude (a Cowork task, or Claude Code) and say *"set up my Trading Coach"*. Claude asks the same questions in chat.
+- **Skip the setup page:** open the `Trading Assistant` folder in Claude (a Cowork task, or Claude Code) and say *"set up my Trading Assistant"*. Claude asks the same questions in chat.
 - **Just paste this page's link into Claude Code** and say *"set this up for me"*. It downloads the folder into Documents and starts.
 - **Stopped halfway?** Open the folder in Claude again and say *"continue my setup"*. Progress is saved after every step.
 
 ## For Claude: start here
 
-If someone gave you this repo or folder, you are setting up a personal trading-journal coach for a non-technical trader, on your own. Nobody else will help her.
+If someone gave you this repo or folder, you are setting up a personal trading-journal assistant for a non-technical trader, on your own. Nobody else will help her.
 
-1. **Get the folder onto her computer.** If you're already working inside it, skip this. With Claude Code: `git clone https://github.com/JasonJosephIT/Jo-s-Trading-Platform.git ~/Documents/"Trading Coach"` (or download and unzip `archive/refs/heads/main.zip`), then work from there. If you can't write to her computer, send her to the [setup page](https://jasonjosephit.github.io/Jo-s-Trading-Platform/setup.html).
+1. **Get the folder onto her computer.** If you're already working inside it, skip this. With Claude Code: `git clone https://github.com/JasonJosephIT/Jo-s-Trading-Platform.git ~/Documents/"Trading Assistant"` (or download and unzip `archive/refs/heads/main.zip`), then work from there. If you can't write to her computer, send her to the [setup page](https://jasonjosephit.github.io/Jo-s-Trading-Platform/setup.html).
 2. **Read [`CLAUDE.md`](CLAUDE.md).** It's your operating manual: the setup steps, the daily flows, the rules (read-only with trading platforms, no trade advice, never invent data) and how to guide her.
 3. **Run `python3 scripts/doctor.py`.** It tells you which of the 11 setup steps is next and what state her data is in. Resume from there.
 4. **Guide her the way the setup page does:** one step per message, `Step N of 11` headers, numbered choices, exact clicks for anything she must do, and a check that it worked. Do everything else yourself, and save progress with `python3 scripts/doctor.py --mark <step> done "<note>"`.
@@ -43,7 +43,7 @@ Notion (journal) plus your trading platform through a Claude connector where one
 
 ## Privacy
 
-Your data stays on your computer and in your Notion. This public repo contains only empty templates and made-up sample data. The coach is read-only with your platform and never places or suggests trades. See [docs/privacy.md](docs/privacy.md).
+Your data stays on your computer and in your Notion. This public repo contains only empty templates and made-up sample data. The assistant is read-only with your platform and never places or suggests trades. See [docs/privacy.md](docs/privacy.md).
 
 *Educational/journaling tool. Not investment advice.*
 

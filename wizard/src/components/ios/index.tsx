@@ -16,7 +16,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
     <div className="min-h-dvh w-full md:flex md:items-center md:justify-center md:p-6" style={{ background: 'var(--app-bg)' }}>
       <div
         className={cn(
-          'relative mx-auto flex min-h-dvh w-full flex-col',
+          'glass-orbs relative isolate mx-auto flex min-h-dvh w-full flex-col',
           'md:min-h-0 md:h-[min(900px,calc(100dvh-48px))] md:max-w-[460px] md:overflow-hidden md:rounded-[44px] md:gold-trim',
           'md:shadow-[0_40px_120px_-30px_rgba(74,31,148,.65),0_0_0_8px_rgba(7,4,13,.55)]',
         )}
@@ -43,21 +43,21 @@ export function NavBar({
 }) {
   return (
     <div className="sticky top-0 z-20 flex h-12 items-center gap-1 px-2 pt-[env(safe-area-inset-top)] backdrop-blur-xl">
-      <div className="w-24">
+      <div className="w-24 shrink-0">
         {onBack && (
-          <button onClick={onBack} className="flex h-10 items-center gap-0.5 rounded-full pr-3 text-[17px] text-gold outline-none focus-visible:ring-2 focus-visible:ring-ring">
+          <button onClick={onBack} className="glass press flex h-10 items-center gap-0.5 rounded-full pl-1 pr-3.5 text-[16px] font-medium text-gold outline-none focus-visible:ring-2 focus-visible:ring-ring">
             <ChevronLeft className="size-6" strokeWidth={2.2} />
             Back
           </button>
         )}
       </div>
       <div className="flex-1 truncate text-center text-[15px] font-semibold tracking-tight text-foreground/90">{title}</div>
-      <div className="flex w-24 justify-end gap-1">
-        <button aria-label={dark ? 'Use light mode' : 'Use dark mode'} onClick={onToggleTheme} className="grid size-10 place-items-center rounded-full text-muted-foreground hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring outline-none">
+      <div className="glass flex w-auto justify-end gap-0 rounded-full p-0.5">
+        <button aria-label={dark ? 'Use light mode' : 'Use dark mode'} onClick={onToggleTheme} className="press grid size-9 place-items-center rounded-full text-muted-foreground hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring outline-none">
           {dark ? <Sun className="size-[18px]" /> : <Moon className="size-[18px]" />}
         </button>
         {onSteps && (
-          <button aria-label="All steps" onClick={onSteps} className="grid size-10 place-items-center rounded-full text-gold focus-visible:ring-2 focus-visible:ring-ring outline-none">
+          <button aria-label="All steps" onClick={onSteps} className="press grid size-9 place-items-center rounded-full text-gold focus-visible:ring-2 focus-visible:ring-ring outline-none">
             <ListChecks className="size-5" />
           </button>
         )}
@@ -103,7 +103,7 @@ export function ListGroup({ header, footer, children, className }: { header?: Re
   return (
     <section className={cn('px-4 pb-6', className)}>
       {header && <h2 className="px-4 pb-2 text-[13px] font-medium uppercase tracking-[0.06em] text-muted-foreground">{header}</h2>}
-      <div className="overflow-hidden rounded-2xl gold-trim bg-row backdrop-blur-md [&>*+*]:border-t [&>*+*]:border-border">{children}</div>
+      <div className="glass overflow-hidden rounded-[22px] [&>*+*]:border-t [&>*+*]:border-border">{children}</div>
       {footer && <p className="px-4 pt-2 text-[13px] leading-snug text-muted-foreground">{footer}</p>}
     </section>
   )
@@ -169,13 +169,13 @@ export function Segmented<T extends string>({ value, onChange, options, label }:
       onValueChange={(v) => v && onChange(v as T)}
       aria-label={label}
       spacing={0}
-      className="w-full rounded-[11px] bg-foreground/[0.07] p-[3px]"
+      className="glass w-full rounded-full p-[3px]"
     >
       {options.map((o) => (
         <ToggleGroupItem
           key={o.value}
           value={o.value}
-          className="h-9 flex-1 rounded-[9px] text-[14px] font-medium text-foreground/80 data-[state=on]:bg-card data-[state=on]:text-foreground data-[state=on]:shadow-[0_2px_8px_rgba(0,0,0,.25)] dark:data-[state=on]:bg-[#3a2470]"
+          className="press h-9 flex-1 rounded-full text-[14px] font-medium text-foreground/80 transition-[background,box-shadow] duration-200 data-[state=on]:bg-[var(--glass-fill-strong)] data-[state=on]:text-foreground data-[state=on]:shadow-[inset_0_1px_0_var(--glass-rim),0_4px_12px_-4px_rgba(0,0,0,.35)]"
         >
           {o.label}
         </ToggleGroupItem>
@@ -188,7 +188,7 @@ export function Segmented<T extends string>({ value, onChange, options, label }:
 
 export function BottomBar({ primary, onPrimary, secondary, onSecondary, disabled, hint }: { primary: string; onPrimary: () => void; secondary?: string; onSecondary?: () => void; disabled?: boolean; hint?: string }) {
   return (
-    <div className="sticky bottom-0 z-20 mt-auto px-5 pt-3 pb-[max(20px,env(safe-area-inset-bottom))] backdrop-blur-xl" style={{ background: 'linear-gradient(to top, var(--background) 55%, transparent)' }}>
+    <div className="sticky bottom-0 z-20 mt-auto px-5 pt-6 pb-[max(20px,env(safe-area-inset-bottom))]" style={{ background: 'linear-gradient(to top, color-mix(in oklab, var(--background) 70%, transparent) 40%, transparent)' }}>
       {hint && <p className="pb-2 text-center text-[13px] text-muted-foreground">{hint}</p>}
       <GoldButton onClick={onPrimary} disabled={disabled}>
         {primary}
@@ -207,10 +207,9 @@ export function GoldButton({ children, className, ...props }: React.ComponentPro
     <button
       {...props}
       className={cn(
-        'h-[54px] w-full rounded-2xl text-[17px] font-semibold tracking-tight text-[var(--cta-ink)] shadow-[0_10px_30px_-10px_rgba(220,182,79,.6)] transition-[transform,filter] active:scale-[0.985] hover:brightness-105 disabled:opacity-40 disabled:shadow-none outline-none focus-visible:ring-3 focus-visible:ring-ring/60',
+        'glass-gold press h-[54px] w-full rounded-full text-[17px] font-semibold tracking-tight text-[var(--cta-ink)] hover:brightness-105 disabled:opacity-40 disabled:shadow-none outline-none focus-visible:ring-3 focus-visible:ring-ring/60',
         className,
       )}
-      style={{ background: 'var(--cta)' }}
     >
       {children}
     </button>
@@ -277,10 +276,9 @@ export function Chips({ options, selected, onToggle, label }: { options: { value
             aria-pressed={on}
             onClick={() => onToggle(o.value)}
             className={cn(
-              'flex min-h-10 items-center gap-1.5 rounded-full border px-3.5 text-[15px] transition-colors outline-none focus-visible:ring-2 focus-visible:ring-ring',
-              on ? 'border-transparent font-medium text-[var(--cta-ink)]' : 'border-border bg-row text-foreground/90 hover:border-trim',
+              'press flex min-h-10 items-center gap-1.5 rounded-full px-3.5 text-[15px] outline-none focus-visible:ring-2 focus-visible:ring-ring',
+              on ? 'glass-gold font-medium text-[var(--cta-ink)]' : 'glass text-foreground/90',
             )}
-            style={on ? { background: 'var(--cta)' } : undefined}
           >
             {on && <Check className="size-3.5" strokeWidth={3} />}
             {o.label}
@@ -303,7 +301,7 @@ export function ChipInput({ values, onChange, placeholder, label }: { values: st
     <div>
       <div className="flex flex-wrap gap-2">
         {values.map((v) => (
-          <span key={v} className="flex min-h-9 items-center gap-1 rounded-full border border-trim bg-row pl-3.5 pr-1 text-[15px]">
+          <span key={v} className="flex min-h-9 items-center gap-1 glass rounded-full pl-3.5 pr-1 text-[15px]">
             {v}
             <button aria-label={`Remove ${v}`} onClick={() => onChange(values.filter((x) => x !== v))} className="grid size-7 place-items-center rounded-full text-muted-foreground hover:text-foreground">
               <X className="size-3.5" />
@@ -366,7 +364,7 @@ export function Callout({ children, tone = 'info', title }: { children: React.Re
       className={cn(
         'flex gap-3 rounded-2xl border p-4 text-[14.5px] leading-relaxed',
         tone === 'gold' && 'gold-trim border-transparent bg-gold/[0.08]',
-        tone === 'info' && 'border-border bg-row',
+        tone === 'info' && 'glass border-transparent',
         tone === 'warn' && 'border-destructive/40 bg-destructive/10',
       )}
     >

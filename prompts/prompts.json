@@ -5,7 +5,7 @@
       "id": "setup",
       "file": "01-setup.md",
       "title": "Setup",
-      "when": "Once, in Claude Desktop, with the Trading Coach folder selected. The wizard fills in your answers.",
+      "when": "Once, in Claude Desktop, with the Trading Assistant folder selected. The wizard fills in your answers.",
       "text": "Read CLAUDE.md in this folder and follow the SETUP flow exactly.\nMy answers from the setup wizard are below. Ask me only about anything missing or unclear,\none question at a time, with multiple-choice options where possible.\nFor every tool listed under tools.to_research, look up whether it has a Claude connector\nor a way to export my trades, show me what you found with links, and let me confirm before you use it.\nDo not change how I write my journal. Never place, modify, or suggest specific trades.\n\n{{ANSWERS}}"
     },
     {
@@ -13,7 +13,7 @@
       "file": "09-continue-setup.md",
       "title": "Continue my setup",
       "when": "Stopped partway, or opening the folder again? This picks up exactly where you left off.",
-      "text": "Read CLAUDE.md in this folder, run scripts/doctor.py, and continue my Trading Coach setup\nfrom where I left off. Guide me one step at a time, and do everything you can yourself."
+      "text": "Read CLAUDE.md in this folder, run scripts/doctor.py, and continue my Trading Assistant setup\nfrom where I left off. Guide me one step at a time, and do everything you can yourself."
     },
     {
       "id": "morning-update",
@@ -55,13 +55,13 @@
       "file": "07-fix-something.md",
       "title": "Fix something",
       "when": "Something looks wrong or a run failed.",
-      "text": "Something's off with my Trading Coach: <what I see>. Read CLAUDE.md, diagnose, fix it,\nand tell me in plain words what you changed."
+      "text": "Something's off with my Trading Assistant: <what I see>. Read CLAUDE.md, diagnose, fix it,\nand tell me in plain words what you changed."
     },
     {
       "id": "add-tool",
       "file": "08-add-a-tool.md",
       "title": "Add a tool",
-      "when": "You started using a new app (platform, calendar, news) and want the coach to use it.",
+      "when": "You started using a new app (platform, calendar, news) and want the assistant to use it.",
       "text": "Run the ADD_TOOL flow from CLAUDE.md for: <the app I use>.\nCheck whether Claude has a connector for it, and if not, the best second option\n(an export, a calendar file, or web search). Show me the options with links, let me pick,\nthen walk me through it one step at a time and update config/profile.json."
     }
   ]

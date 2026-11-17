@@ -1,5 +1,5 @@
 ---
-description: Add a tool. You started using a new app (platform, calendar, news) and want the coach to use it.
+description: Add a tool. You started using a new app (platform, calendar, news) and want the assistant to use it.
 ---
 
 Run the ADD_TOOL flow from CLAUDE.md for: $ARGUMENTS.

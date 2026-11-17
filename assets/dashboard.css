@@ -1,4 +1,4 @@
-/* Trading Coach dashboard. Builds on assets/theme.css tokens. Layout is fixed; daily runs only change data/data.js. */
+/* Trading Assistant dashboard. Builds on assets/theme.css tokens. Layout is fixed; daily runs only change data/data.js. */
 
 :root {
   --font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Inter, Roboto, "Helvetica Neue", Arial, sans-serif;

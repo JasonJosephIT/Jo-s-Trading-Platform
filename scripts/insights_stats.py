@@ -183,7 +183,7 @@ def compute(root, sample=False):
 
 
 def main(argv=None):
-    ap = argparse.ArgumentParser(description="Pattern numbers for Trading Coach insights (JSON).")
+    ap = argparse.ArgumentParser(description="Pattern numbers for Trading Assistant insights (JSON).")
     ap.add_argument("--root", default=os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
     ap.add_argument("--sample", action="store_true")
     ap.add_argument("--ids", action="store_true", help="include trade_ids in every group (long)")

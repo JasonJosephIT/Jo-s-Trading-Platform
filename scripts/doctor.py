@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Where does this Trading Coach folder stand? Claude runs this first, every time.
+"""Where does this Trading Assistant folder stand? Claude runs this first, every time.
 
 Usage:
   python3 scripts/doctor.py              # plain-words report
@@ -184,7 +184,7 @@ def report(r):
 
 
 def main(argv=None):
-    ap = argparse.ArgumentParser(description="Report where this Trading Coach folder stands.")
+    ap = argparse.ArgumentParser(description="Report where this Trading Assistant folder stands.")
     ap.add_argument("--root", default=os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
     ap.add_argument("--json", action="store_true")
     ap.add_argument("--mark", nargs="+", metavar=("STEP", "STATUS"), help="STEP STATUS [NOTE]")

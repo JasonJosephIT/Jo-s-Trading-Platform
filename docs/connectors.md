@@ -11,7 +11,7 @@ Generated from `catalog/tools.json` (checked 2026-11-17). Edit the catalog, then
 - **Keep it running:** Settings > This computer > System: turn on 'Keep computer awake' (the computer will not idle-sleep while Claude Desktop is open; closing a laptop lid still sleeps it) and 'Run on startup' (Claude Desktop opens at login). Claude Code docs also name the page 'Settings > Desktop app'. Known bugs: Windows 'Run on startup' may not stick; macOS keep-awake may also keep the display on.
 - **Turning off individual tools:** Yes, but documented for Team and Enterprise only: Customize > Connectors > select the connector > Tool permissions groups tools (read-only vs write/delete) and lets an Owner set each category or tool to Always allow, Needs approval or Blocked, org-wide. Anthropic's help article does not say whether individual Pro/Max users get the same panel; not confirmed. Safest default for a read-only coach: connect only read-only connectors, leave order-capable connectors disconnected, and keep approvals on 'Needs approval'.
 
-The coach only ever uses read tools, whatever a connector offers.
+The assistant only ever uses read tools, whatever a connector offers.
 
 ## Trading platforms and brokers
 

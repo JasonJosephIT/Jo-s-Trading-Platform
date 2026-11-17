@@ -1,4 +1,4 @@
-/* Trading Coach dashboard. Reads window.TC_DATA (or window.TC_DATA_SAMPLE with ?demo=1), computes everything with
+/* Trading Assistant dashboard. Reads window.TC_DATA (or window.TC_DATA_SAMPLE with ?demo=1), computes everything with
  * window.TCMetrics, draws with the vendored Chart.js. No network access, works from file://.
  * Test hooks: ?demo=1 loads the sample, ?preset=day|swing|futures-prop overrides the layout preset. */
 (function () {
@@ -358,7 +358,7 @@
       panelMsg(id, e && e.message === 'mixed currencies'
         ? 'These trades are in more than one currency. Filter to one account to see this.'
         : 'This panel could not be drawn from the current data.');
-      if (window.console) console.warn('[Trading Coach] ' + id + ':', e);
+      if (window.console) console.warn('[Trading Assistant] ' + id + ':', e);
     }
   }
 
@@ -366,7 +366,7 @@
   function renderCoach() {
     var ins = DATA.insights || {};
     var brief = ins.brief || null;
-    $('brief-date').textContent = brief && brief.date ? fmtDay(brief.date, true) : 'Coach';
+    $('brief-date').textContent = brief && brief.date ? fmtDay(brief.date, true) : 'Brief';
     $('brief-md').innerHTML = brief && brief.markdown ? md(brief.markdown)
       : '<p>Your first brief arrives after the next morning run.</p>';
     if (ins.focus_rule) { $('focus-text').textContent = ins.focus_rule; $('focus-rule').hidden = false; }
@@ -1207,7 +1207,7 @@
   function start() {
     try { boot(); }
     catch (e) {
-      if (window.console) console.error('[Trading Coach] could not start:', e);
+      if (window.console) console.error('[Trading Assistant] could not start:', e);
       showEmpty();
     }
   }

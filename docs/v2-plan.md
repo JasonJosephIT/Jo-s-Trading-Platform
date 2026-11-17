@@ -1,9 +1,9 @@
-# v2 plan: Trading Coach as one Claude Artifact
+# v2 plan: Trading Assistant as one Claude Artifact
 
 Status: **parked** (2026-11-17). v1 is what ships. These are notes for her Claude: build this only if she asks for "the dashboard on my phone", "one link" or "a status page". Start with ticket 1 (spike) and keep v1 working the whole time; v2 only adds to it.
 
 ## Goal
-Her whole Trading Coach lives at one private claude.ai link she can open on her phone or Mac:
+Her whole Trading Assistant lives at one private claude.ai link she can open on her phone or Mac:
 1. **Hello screen + setup** ("Hello, Jo. Let's set up your trading workstation."), iPhone-onboarding style.
 2. **Dashboard**: the existing dashboard, unchanged in look, reading data Claude stores in the page.
 3. **Status** (like AO's harness settings): each connector connected or not, and when the morning run last worked.

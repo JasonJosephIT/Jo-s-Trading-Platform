@@ -1,6 +1,6 @@
 # Setup
 
-*When:* Once, in Claude Desktop, with the Trading Coach folder selected. The wizard fills in your answers.
+*When:* Once, in Claude Desktop, with the Trading Assistant folder selected. The wizard fills in your answers.
 
 Copy everything in the box below into Claude.
 

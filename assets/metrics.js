@@ -1,4 +1,4 @@
-/* Trading Coach metrics. Pure functions, no DOM. Works as a <script> (window.TCMetrics) and via require().
+/* Trading Assistant metrics. Pure functions, no DOM. Works as a <script> (window.TCMetrics) and via require().
  * Scratch handling: scratches (pnl_net === 0) count in n but not in winRate's denominator (winRate = wins / (wins + losses)).
  * Expectancy R: over trades with a known R, (win% x avg win R) - (loss% x avg loss R), where win%/loss% use the known-R trade count.
  */

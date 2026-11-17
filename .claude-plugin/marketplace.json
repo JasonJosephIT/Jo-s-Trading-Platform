@@ -1,12 +1,12 @@
 {
-  "name": "trading-coach",
-  "description": "Trading Coach add-ons: the trading-day assistant skill for Claude Duet and Claude.",
+  "name": "trading-assistant",
+  "description": "Trading Assistant add-ons: the trading-day assistant skill for Claude Duet and Claude.",
   "owner": {
-    "name": "Trading Coach"
+    "name": "Trading Assistant"
   },
   "plugins": [
     {
-      "name": "trading-coach-assistant",
+      "name": "trading-assistant",
       "source": "./duet",
       "description": "Trading-day nudges for Claude Duet and Claude: brief missing, before the open, market reports, limits, journal. Read-only."
     }

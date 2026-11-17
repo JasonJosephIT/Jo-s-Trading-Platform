@@ -2,16 +2,16 @@
 
 ## Where your data lives
 
-- **On your computer**, in your Trading Coach folder: trades (`data/trades.csv`), extracted journal notes (`data/journal.json`), insights, briefs and settings.
-- **In your Notion**, where it already is. The coach reads your journal and, if you turn it on, writes a "Morning Brief" page.
+- **On your computer**, in your Trading Assistant folder: trades (`data/trades.csv`), extracted journal notes (`data/journal.json`), insights, briefs and settings.
+- **In your Notion**, where it already is. The assistant reads your journal and, if you turn it on, writes a "Morning Brief" page.
 - **Nowhere else.** Nothing is uploaded to GitHub or any other service. The public repo you downloaded contains only empty templates and made-up sample data.
 
 Claude itself processes your data when it runs, under your Claude account's own privacy settings.
 
-## What the coach will never do
+## What the assistant will never do
 
 - Place, change, cancel or draft an order, or change risk settings, even if asked.
-- Tell you what to buy or sell. It's a journaling and process coach, not an advisor.
+- Tell you what to buy or sell. It's a journaling and process assistant, not an advisor.
 - Invent journal entries or trades. Missing information stays blank.
 - Send your trades or journal into a web search.
 

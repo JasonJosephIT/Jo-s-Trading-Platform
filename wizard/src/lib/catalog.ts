@@ -94,7 +94,7 @@ export function secondOption(t: Tool | undefined, category: Category): string | 
   }
   if (category === 'journal') {
     if (fit === 'directory') return null
-    if (t?.id === 'obsidian') return 'Your vault is plain files on your computer. Put it (or a copy of the journal folder) inside the Trading Coach folder and Claude reads it directly.'
+    if (t?.id === 'obsidian') return 'Your vault is plain files on your computer. Put it (or a copy of the journal folder) inside the Trading Assistant folder and Claude reads it directly.'
     return 'Keep journaling where you are and drop an export (PDF, text or CSV) into the inbox folder, or start new entries in Notion. Claude can help you move old ones.'
   }
   if (category === 'broker' || category === 'prop' || category === 'crypto') {
