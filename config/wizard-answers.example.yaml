@@ -41,7 +41,7 @@ notion:
   brief_page: create            # "create" or null
 calendar:
   add_market_events: true
-  event_ids: [eia-wpsr, eia-ngs, cftc-cot, fomc, bls-cpi, bls-nfp]   # ids from catalog/market-events.json
+  event_ids: [eia-wpsr, api-wsb, opec-plus, fomc, bls-cpi, bls-nfp]   # ids from catalog/market-events.json; she trims the list in setup step 10
 market_data:
   web_search: true
   alpha_vantage: false

@@ -135,8 +135,13 @@ def check(root):
     if os.path.exists(_p(root, "data", "sample")) and profile.get("name") == "Sample Trader":
         warnings.append("config/profile.json looks like the sample profile")
 
+    waiting = [{"step": x["id"], "title": x["title"], "number": x["number"], "note": x.get("note")}
+               for x in steps if x["status"] == "in_progress"]
     return {
         "set_up": nxt is None,
+        # Everything else is done; only steps waiting on her are left. Daily flows can run.
+        "ready": all(x["status"] != "pending" for x in steps) and bool(waiting),
+        "waiting": waiting,
         "next": {"step": nxt["id"] if nxt else None, "title": nxt["title"] if nxt else None,
                  "number": nxt["number"] if nxt else None, "of": len(STEPS)},
         "steps": steps,
@@ -158,6 +163,9 @@ def report(r):
     lines = []
     if r["set_up"]:
         lines.append("Setup is complete. Daily mode: run the flow she asks for (or MORNING_UPDATE).")
+    elif r.get("ready"):
+        left = ", ".join(f"{w['number']} {w['title']}" for w in r["waiting"])
+        lines.append(f"Ready for daily use. Still waiting on her: {left}. Finish these when she can; run daily flows meanwhile.")
     else:
         n = r["next"]
         lines.append(f"Setup: next is step {n['number']} of {n['of']}: {n['title']} ({n['step']}).")
@@ -166,7 +174,7 @@ def report(r):
         lines.append(f"  [{mark_}] {s['number']:>2}. {s['title']}" + (f"  ({s['note']})" if s.get("note") else ""))
     lines.append("  ([x] done  [-] skipped  [>] waiting on her  [ ] to do)")
     t = r["trades"]
-    lines.append(f"Trades: {t['count']}" + (f", last exit {t['last_exit']}" if t["last_exit"] else ""))
+    lines.append(f"Trades: {t['count']}" + (f", last trade {t['last_exit'][:16].replace('T', ' ')}" if t["last_exit"] else ""))
     lines.append(f"Journal entries: {r['journal']['count']}" + (f", latest {r['journal']['last_date']}" if r["journal"]["last_date"] else ""))
     lines.append(f"Dashboard data built: {'yes, ' + str(r['data_js'].get('updated')) if r['data_js']['built'] else 'no'}")
     lines.append(f"Latest brief: {r['latest_brief'] or 'none yet'}")

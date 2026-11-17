@@ -17,10 +17,10 @@
   "watchlist": [],
   "data_source": "csv",
   "tools": {
-    "broker": { "name": "", "path": "csv", "status": "unconfirmed" },
+    "broker": { "name": "", "catalog_id": null, "category": "broker", "path": "csv", "fit": null, "status": "unconfirmed" },
     "charting": [],
-    "journal": { "name": "Notion", "status": "connector" },
-    "calendar": { "name": "", "status": "skip" },
+    "journal": { "name": "Notion", "catalog_id": "notion", "category": "journal", "path": "connector", "fit": "directory", "status": "unconfirmed" },
+    "calendar": { "name": "", "catalog_id": null, "category": "calendar", "path": "none", "fit": null, "status": "skip" },
     "news": [],
     "other": []
   },

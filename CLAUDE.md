@@ -11,6 +11,7 @@ Read this whole file at the start of every flow. Read `docs/contracts.md` before
 1. Run `python3 scripts/doctor.py`. It tells you which setup step is next (from `config/setup-state.json`), how many trades and journal entries exist, whether the dashboard data is built, and what's waiting in `inbox/`.
 2. Decide what to do:
    - **Her message contains the setup wizard's YAML answers** → run SETUP from the step doctor names (step 1 on a fresh folder).
+   - **Doctor says "Ready for daily use"** (only steps waiting on her are left) → run the flow she asks for, and in one line offer to finish a waiting step if she can do it now.
    - **Setup isn't finished and she says anything like "set me up", "continue", "hi"** → greet her in one line, say where she left off, and continue SETUP from there. If there are no wizard answers yet (no YAML in her message and no `config/wizard-answers.yaml`), use "Setup without the wizard" below.
    - **Setup is finished** → run the flow she asks for (prompts name them: MORNING_UPDATE, CHECKIN, LOG_DAY, WEEKLY_REVIEW, ADD_TOOL), or answer her question from her data.
    - **Doctor shows warnings** (files in `inbox/`, stale `data.js`) → fix them quietly first, then tell her in one line.
@@ -36,6 +37,8 @@ The setup page she clicked through was an app-style walkthrough: one screen per 
 - **Save progress after every step:** `python3 scripts/doctor.py --mark <step> done "<short note>"` (or `skipped`). If she stops halfway, the next session resumes from there.
 - **Show progress like an app:** after each step, one line: `✓ Trades: 212 imported (Jan–Nov). Next: your journal.`
 - **Doctor's checklist marks:** `[x]` done, `[-]` skipped, `[>]` in progress (waiting on her), `[ ]` not started. Use `in_progress` with a note when you're waiting on her ("waiting for NinjaTrader export").
+- **Don't stall on a step that waits on her.** Mark it `in_progress` with a note, then carry on with the next steps that don't need it: the journal (5), Notion brief page (9) and calendar (10) don't need trades; first insights (6) and the dashboard (7) do, and schedules (8) are worth setting up anyway (the morning update imports whatever lands in `inbox/`). Doctor always names the first unfinished step; go back to it when she has what's needed. If she never sends the file, the morning update picks it up whenever it lands.
+- **Use her words, not ours.** Say "your trades", "your export file", "how I read your file". Never say fills, round trips, preset, mapping, normalize, YAML or JSON to her.
 - **Celebrate small wins in one line, never more.** No walls of text; under 120 words per message unless she asks for detail.
 - **If she's stuck or something can't work,** offer the second option (see `catalog/tools.json` and `docs/connectors.md`) instead of giving up, and mark the step with a note so it's easy to revisit.
 
@@ -105,9 +108,9 @@ If she has no wizard answers (she opened the folder and said "set me up"), give 
 2. **Answer here instead:** ask these, one per message, in this order, with numbered options where shown. Accept "skip" or "not sure" for anything; use the default in brackets.
    1. What should I call you? (optional)
    2. Mac or Windows?
-   3. Where do you place trades? (free text; look it up in `catalog/tools.json` by name or alias)
-   4. Where do you journal? **1.** Notion **2.** Google Sheets/Docs **3.** Excel **4.** Somewhere else
-   5. Which calendar do you use? **1.** Google **2.** Outlook **3.** Apple **4.** None
+   3. Where do you place trades? (free text; look it up in `catalog/tools.json` by name or alias). If she names a prop firm (Topstep, Apex…), also ask which app she clicks Buy and Sell in, since the trades come from that app. NinjaTrader 8 desktop is Windows-only: on a Mac, "NinjaTrader" means the NinjaTrader/Tradovate web or desktop app, so use the Tradovate steps.
+   4. Where do you journal? **1.** Notion **2.** Google Sheets/Docs **3.** Excel **4.** Somewhere else. If Notion: "Is it one database (a table) or separate pages? **1.** Database **2.** Pages **3.** Not sure", then "Want each morning brief copied to a Notion page so you can read it on your phone? **1.** Yes **2.** No".
+   5. Which calendar do you use? **1.** Google **2.** Outlook **3.** Apple **4.** None. If not None: "Want scheduled market reports (oil inventories, Fed, jobs, inflation) put on that calendar? **1.** Yes **2.** No".
    6. Any charting, news or other apps you use while trading? (free text, or "none")
    7. What do you trade? (pick any) **1.** Crude oil & energy **2.** Natural gas **3.** Gold & metals **4.** Grains & ags **5.** Index futures **6.** Stocks **7.** Options **8.** Forex **9.** Crypto **10.** CFDs
    8. Which contracts or tickers do you trade most? (e.g. CL, MCL, GC)
@@ -118,11 +121,11 @@ If she has no wizard answers (she opened the folder and said "set me up"), give 
    13. Max trades a day [4], and how many losses in a row before you step away [2].
    14. *(prop/funded only)* The **firm's** rules: trailing drawdown and daily loss limit, in dollars. Keep these separate from her own stop in 12.
    15. The setups you take (names in your own words), or "not sure yet".
-   Then build the shape in `config/wizard-answers.example.yaml` and save it to `config/wizard-answers.yaml`. Event ids for the calendar come from `catalog/market-events.json` (pick those whose `symbols` match her contracts, plus the macro ones: `fomc`, `bls-cpi`, `bls-nfp`); confirm them in step 10.
+   Then build the shape in `config/wizard-answers.example.yaml` and save it to `config/wizard-answers.yaml`. Event ids for the calendar come from `catalog/market-events.json`, picked the way the setup page does: every event whose `symbols` include one of her contracts or whose `markets` match hers, plus the macro set (`fomc`, `bls-cpi`, `bls-ppi`, `bls-nfp`, `bea-gdp`, `bea-pce`, `ism-manufacturing`). She trims the list in step 10.
 
 #### The steps
 
-1. **`config` · Config.** Copy `config/profile.example.json` → `config/profile.json`, `config/my-rules.example.md` → `config/my-rules.md`, `config/csv-mapping.example.json` → `config/csv-mapping.json` (skip any that already exist). Merge the wizard answers into `profile.json` (`name` if given, else leave `""`; `timezone`, `markets`, `instruments`, `style`, `layout_preset`, `session`, `brief_time`, risk fields, `prop_rules`, `setups`, `tools`, `calendar`, `notion`). Fill `my-rules.md` from her risk answers: replace the example numbers with hers and the bracketed placeholder lines with her setups, one `- ` bullet each. `max_daily_loss` is always her own stop; the firm's limits go only in `prop_rules`.
+1. **`config` · Config.** Copy `config/profile.example.json` → `config/profile.json`, `config/my-rules.example.md` → `config/my-rules.md`, `config/csv-mapping.example.json` → `config/csv-mapping.json` (skip any that already exist). Merge the wizard answers into `profile.json` (`name` if given, else leave `""`; `timezone`, `markets`, `instruments`, `style`, `layout_preset`, `session`, `brief_time`, risk fields, `prop_rules`, `setups`, `tools`, `calendar`, `notion`). Fill `my-rules.md` from her risk answers: replace the example numbers with hers and the bracketed placeholder lines with her setups, one `- ` bullet each. `max_daily_loss` is always her own stop; the firm's limits go only in `prop_rules`. The YAML nests risk under `risk:`; `profile.json` keeps those keys flat at the top level (`default_risk_per_trade`, `max_daily_loss`, `max_trades_per_day`, `stop_after_consecutive_losses`, `prop_rules`). Copy `tools` as the YAML has it (`name`, `catalog_id`, `category`, `path`, `fit`) and add `status` as you confirm each one in step 2. Every number in `my-rules.md` must be hers, including the losses-in-a-row line.
 
 2. **`toolkit` · Toolkit check.** For each tool in `tools`:
    - Look it up in `catalog/tools.json`. If `verified` is false, or it was checked more than 60 days ago, confirm the key fact with a quick web search (official sources only). If web search isn't available, use the catalog as it is and say "checked on <verified_on>" so she knows it may be dated.
@@ -135,8 +138,8 @@ If she has no wizard answers (she opened the folder and said "set me up"), give 
    - **Which path:** if her platform has a connector, prefer it (the daily update then needs nothing from her), connected with **read/view access only**. Some connectors (e.g. NinjaTrader/Tradovate, Robinhood) also offer order tools: tell her plainly that you'll only ever use the read tools, and when the sign-in asks what Claude may do, she should allow viewing only. If she'd rather not connect a platform that can trade, use the export path; it works the same, she just drops a fresh export in `inbox/` when she wants the numbers updated.
    - **Account name:** use a short label she recognises (ask: "What do you call this account? e.g. Topstep 50K, IBKR main"). Pass it as `--account` to `normalize_csv.py` and use it for connector trades, so several accounts stay apart.
    - If her platform's connector is connected: confirm it works by reading account info, then pull filled orders / fills for the last 90 days (or as far back as it allows). Use read tools only.
-   - Else look in `inbox/`. If empty, give her the export steps from `catalog/tools.json` (with the `help_url`) and wait for the file.
-   - For a CSV: pick the closest preset in `config/csv-mapping.json` (most presets are `"verified": false`; their column names are a best guess until her real file proves them). Compare the preset's columns with the file's header row; if any don't match, rewrite the mapping from the actual header. Show her a 5-row preview of how you'll read it (symbol, side, qty, time, price), and confirm. Save the mapping. Run `python3 scripts/normalize_csv.py inbox/<file> --mapping config/csv-mapping.json --out data/trades.csv --timezone <her tz>`. Then sanity-check with her: "I found N trades from <first date> to <last date>, net $X. Does that roughly match what <platform> shows?" If not, fix the mapping (timezone, fills vs round trips, multipliers) and re-run; dedupe makes re-runs safe once you delete the bad rows from `data/trades.csv`. When it matches, set the preset's `"verified": true` in her `config/csv-mapping.json`. Move the file to `archive/` as `YYYY-MM-DD_<name>`.
+   - Else look in `inbox/`. If empty, give her the export steps from `catalog/tools.json` (with the `help_url`) and wait for the file. Ask for **one** report, not a choice: for NinjaTrader/Tradovate that's Account Reports → **Performance** (one row per trade, matches the `tradovate_performance` preset); for TopstepX the **Trades** tab. Ask for as far back as it goes (ideally 90 days).
+   - For a CSV: pick the closest preset in `config/csv-mapping.json` (most presets are `"verified": false`; their column names are a best guess until her real file proves them). Compare the preset's columns with the file's header row; if any don't match, rewrite the mapping from the actual header as a complete mapping, not a partial override (top-level keys replace the preset's keys outright): every `columns` entry from her header, `row_filter: {}` unless her file has the column it filters on, and a fee column in `columns.fees` (then `fee_per_unit_per_side: 0`). Show her a 5-row preview (again after any rewrite) of how you'll read it (symbol, side, qty, time, price), and confirm. Save the mapping. Run `python3 scripts/normalize_csv.py inbox/<file> --mapping config/csv-mapping.json --out data/trades.csv --timezone <her tz>`. Then sanity-check with her: "I found N trades from <first date> to <last date>, net $X. Does that roughly match what <platform> shows?" If not, fix the mapping (timezone, fills vs round trips, multipliers) and re-run; dedupe makes re-runs safe once you delete the bad rows from `data/trades.csv`. When it matches, set the preset's `"verified": true` in her `config/csv-mapping.json`. Move the file to `archive/` as `YYYY-MM-DD_<name>`.
    - For connector data: write it as round trips in the `trades.csv` shape (pair fills FIFO per account+symbol; or write the fills to a temp CSV and use `normalize_csv.py` with the generic preset).
 
 5. **`journal` · Journal.**
@@ -159,7 +162,7 @@ If she has no wizard answers (she opened the folder and said "set me up"), give 
 
 10. **`calendar` · Calendar** (if `calendar.add_market_events`; otherwise mark it `skipped`): confirm the event list with her (names, not ids), then run CALENDAR_SYNC once for the next 2 weeks. No calendar connector (or Apple Calendar) → the `.ics` path in CALENDAR_SYNC.
 
-11. **`wrapup` · Wrap up** in 5 lines: what's connected, where her data is, when the next brief arrives, how to read it on her phone, and "if anything looks off, open this folder in Claude and tell me what you see". Then run `python3 scripts/doctor.py` once more and confirm it says setup is complete.
+11. **`wrapup` · Wrap up** in 5 lines: what's connected, where her data is, when the next brief arrives, how to read it on her phone, and "if anything looks off, open this folder in Claude and tell me what you see". Then run `python3 scripts/doctor.py` once more and confirm it says setup is complete, or "Ready for daily use" with only steps waiting on her. Name those in the wrap-up as what's left ("Your journal joins in once Notion is connected").
 
 ### MORNING_UPDATE (scheduled, weekdays)
 
@@ -195,7 +198,7 @@ Get the numbers from `python3 scripts/insights_stats.py` (same formulas as `asse
 - Sequences: trades within 10 minutes after a loss (revenge), trades after the daily limit or past max trades.
 - State: mood and sleep vs outcome.
 - Plan adherence trend.
-Each insight: a title with the number, evidence (`trade_ids`, `journal_ids`, `n`), confidence by n (see Rule 8), and one process suggestion. The `focus_rule` targets the costliest current leak. With no journal yet, write insights from trades only (setups, timing, after-loss trades, symbols) and make one of them "Connect your journal to see how mood, sleep and mistakes affect results".
+R uses each trade's `initial_risk`, or her `default_risk_per_trade` when that's empty; when most trades use the default, say R is based on her planned risk. Each insight: a title with the number, evidence (`trade_ids`, `journal_ids`, `n`), confidence by n (see Rule 8), and one process suggestion. The `focus_rule` targets the costliest current leak. With no journal yet, write insights from trades only (setups, timing, after-loss trades, symbols) and make one of them "Connect your journal to see how mood, sleep and mistakes affect results".
 
 ### CHECKIN (interactive, ~2 minutes)
 
@@ -213,6 +216,7 @@ For the week just ended: scorecard (net $ and R, trades, win %, PF, expectancy, 
 
 For events in `calendar.event_ids` (see `catalog/market-events.json`), find the actual dates and times for the period on the official schedule pages. Convert to her time zone.
 - Calendar connector (e.g. Google Calendar, Outlook): create events in a calendar named `calendar.calendar_name` if it exists, otherwise her main calendar, titled `[Mkt] <event name>`, 15-minute duration, with the official link in the description. Before creating, list existing `[Mkt]` events in that range and skip duplicates. Ask before the first sync.
+- If you can't open the official schedule page, use the catalog time and add "time not re-checked; see <link>" to the event description. Holiday weeks (Thanksgiving, Christmas, Good Friday) often shift EIA and BLS releases.
 - No connector (e.g. Apple Calendar): write `trading-events.ics` into this folder with the same events (stable UIDs `<event-id>-<date>@trading-coach`, so re-imports update instead of duplicating) and tell her to double-click it.
 
 ### ADD_TOOL

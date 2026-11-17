@@ -69,6 +69,21 @@ class DoctorTests(unittest.TestCase):
         self.assertTrue(r["set_up"])
         self.assertEqual(r["next"]["step"], None)
 
+    def test_only_waiting_steps_left_means_ready_for_daily_use(self):
+        waiting = {"journal", "schedules", "notion_brief"}
+        for s in doctor.STEPS:
+            doctor.mark(self.root, s["id"], "in_progress" if s["id"] in waiting else "done")
+        r = doctor.check(self.root)
+        self.assertFalse(r["set_up"])
+        self.assertTrue(r["ready"])
+        self.assertEqual([w["step"] for w in r["waiting"]], ["journal", "schedules", "notion_brief"])
+        self.assertIn("Ready for daily use", doctor.report(r))
+
+    def test_last_exit_is_shown_short(self):
+        with open(os.path.join(self.root, "data/trades.csv"), "w") as f:
+            f.write("trade_id,account,symbol,exit_time\nt1,A,CL,2026-11-16T10:40:27-05:00\n")
+        self.assertIn("last trade 2026-11-16 10:40", doctor.report(doctor.check(self.root)))
+
 
 if __name__ == "__main__":
     unittest.main()
