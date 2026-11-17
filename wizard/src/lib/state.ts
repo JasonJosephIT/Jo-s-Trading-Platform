@@ -12,8 +12,6 @@ export type Style = 'day' | 'swing' | 'futures-prop'
 export type Answers = {
   name: string
   os: 'mac' | 'windows'
-  hasPlan: boolean
-  hasDesktop: boolean
   markets: string[]
   instruments: string[]
   style: Style
@@ -77,8 +75,6 @@ export function defaults(): Answers {
   return {
     name: '',
     os: detectOs(),
-    hasPlan: false,
-    hasDesktop: false,
     markets: [],
     instruments: [],
     style: 'day',

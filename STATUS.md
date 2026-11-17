@@ -19,6 +19,7 @@ updated: 2026-11-17
 4. Test the Notion journal flow against her real journal shape (this build was dry-run on synthetic data only; the session's Notion connector could only view pages).
 
 ## Decisions
+- 2026-11-17 — She already has Claude: setup step 1 is now "About you" (computer + name); the paid-plan and Claude Desktop checks are gone.
 - 2026-11-17 — Renamed to **Trading Assistant** everywhere she sees it (setup page, dashboard, CLAUDE.md, prompts, docs, her folder `~/Documents/Trading Assistant`); plugin and marketplace ids are now `trading-assistant`. Repo name and internal slugs unchanged.
 - 2026-11-17 — Setup page uses a CSS-only Liquid Glass look (frosted translucent cards, light rims, specular sheen, gold glass buttons, glass segmented control and chips; falls back to solid for reduced transparency / more contrast). No SVG refraction filters (Chromium-only; she likely uses Safari). "Hello, Jo." is set in Great Vibes script (bundled, works offline) with a left-to-right write-in.
 - 2026-11-17 — The Duet skill ships as a plugin, `trading-assistant`, with this repo as its marketplace (`trading-assistant`). Her Claude installs it in setup step 11 with two pre-allowed `claude plugin` commands (no clicks if her permission option is accept-all); `.plugin` file fallback for Cowork. Whether Duet picks up plugins is untested; skill-upload fallback in `duet/README.md`.

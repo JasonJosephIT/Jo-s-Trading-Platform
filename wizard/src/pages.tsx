@@ -19,8 +19,6 @@ type P = { a: Answers; set: <K extends keyof Answers>(k: K, v: Answers[K]) => vo
 const prompts = Object.fromEntries(promptsJson.prompts.map((p) => [p.id, p]))
 export const setupPrompt = (a: Answers) => prompts.setup.text.replace('{{ANSWERS}}', answersYaml(a))
 
-const CLAUDE_DL = 'https://claude.com/download'
-const PRICING = 'https://claude.com/pricing'
 const CONNECTORS_HELP = 'https://support.claude.com/en/articles/11175166-getting-started-with-custom-connectors-using-remote-mcp'
 
 /* ---------- small shared bits ---------- */
@@ -171,15 +169,7 @@ function Crest() {
 export function Basics({ a, set }: P) {
   return (
     <>
-      <LargeTitle eyebrow="Step 1" title="Check what you have" subtitle="Two things to have before you start. Tap each one once it's done." icon={<IconTile><Laptop className="size-7" /></IconTile>} />
-      <ListGroup header="You need">
-        <ListRow title="A paid Claude plan" detail="Pro or higher. Scheduled tasks need it." accessory="check" checked={a.hasPlan} onClick={() => set('hasPlan', !a.hasPlan)} />
-        <ListRow title="Claude Desktop on your computer" detail="The app, not just the website." accessory="check" checked={a.hasDesktop} onClick={() => set('hasDesktop', !a.hasDesktop)} />
-      </ListGroup>
-      <ListGroup header="Don't have them yet?">
-        <ListRow icon={<Sparkles />} title="See Claude plans" href={PRICING} accessory="external" />
-        <ListRow icon={<Download />} title="Download Claude Desktop" href={CLAUDE_DL} accessory="external" />
-      </ListGroup>
+      <LargeTitle eyebrow="Step 1" title="About you" subtitle="Two quick questions so Claude sets things up the right way for you." icon={<IconTile><Laptop className="size-7" /></IconTile>} />
       <Section>
         <FieldLabel>Your computer</FieldLabel>
         <Segmented label="Your computer" value={a.os} onChange={(v) => set('os', v)} options={[{ value: 'mac', label: 'Mac' }, { value: 'windows', label: 'Windows' }]} />

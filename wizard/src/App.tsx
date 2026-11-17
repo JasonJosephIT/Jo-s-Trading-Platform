@@ -18,7 +18,7 @@ type PageDef = {
 
 const PAGES: PageDef[] = [
   { id: 'welcome', title: 'Welcome', Comp: Pages.Welcome, cta: 'Get started' },
-  { id: 'basics', title: 'Check what you have', Comp: Pages.Basics, ready: (a) => a.hasPlan && a.hasDesktop, hint: (a) => (a.hasPlan && a.hasDesktop ? undefined : 'Tap both items once you have them.') },
+  { id: 'basics', title: 'About you', Comp: Pages.Basics },
   { id: 'toolkit', title: 'What you use', Comp: Pages.Toolkit, cta: 'Check compatibility' },
   { id: 'fit', title: 'How your tools fit', Comp: Pages.Compatibility, cta: 'Looks good' },
   { id: 'trading', title: 'About your trading', Comp: Pages.Trading, ready: (a) => a.markets.length > 0, hint: (a) => (a.markets.length ? undefined : 'Pick at least one market.') },
