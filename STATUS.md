@@ -13,12 +13,13 @@ updated: 2026-11-17
 
 
 ## Next
-1. Send her the setup link (ready 2026-11-17); collect her answers to: which platform, Mac or Windows, Notion database or pages.
-2. Build v2 in a new session from `docs/v2-plan.md`, starting with ticket 1 (spike).
+1. Send her the setup link (ready 2026-11-17): https://jasonjosephit.github.io/Jo-s-Trading-Platform/setup.html?name=Jo ; collect her answers to: which platform, Mac or Windows, Notion database or pages.
+2. v2 is parked: `docs/v2-plan.md` is notes her Claude follows only if she asks (CLAUDE.md points to it).
 3. Verify the unverified CSV presets (Tradovate, NinjaTrader, thinkorswim, IBKR Flex, Webull) against a real export once she drops one in `inbox/`.
 4. Test the Notion journal flow against her real journal shape (this build was dry-run on synthetic data only; the session's Notion connector could only view pages).
 
 ## Decisions
+- 2026-11-17 — v2 parked; ship v1. The setup link greets her by name with `?name=Jo` ("Hello, Jo. Let's set up your trading workstation."). Sample insights cite up to 12 example trades while `n` counts all; documented in contracts.md, not a bug.
 - 2026-11-17 — v2 direction: setup, dashboard and a connector Status tab live in one private Claude Artifact; her data may live in the Artifact's db on claude.ai (privacy change accepted). The morning run stays a Claude Code scheduled task. Ponytail: reuse the wizard and dashboard; borrow Upptime/Gatus status rows and the Healthchecks push heartbeat; no servers. Plan: `docs/v2-plan.md` / `.html`.
 - 2026-11-17 — Second blind test (fresh chat setup, stop at trades, resume) passed end to end: 10 trades imported, dashboard built, .ics written. Fixes: one default export per platform (Tradovate → Performance), NT8 is Windows-only so Mac users get Tradovate steps, full-mapping rule for rewritten CSV mappings, extra chat questions (Notion shape, brief page, calendar events), event picking matches the setup page, steps waiting on her no longer block (doctor shows "Ready for daily use"), no jargon to her.
 - 2026-11-17 — Published to Jason's existing public repo `Jo-s-Trading-Platform` instead of a new `trading-coach` repo; unzip folder is `Jo-s-Trading-Platform-main`, renamed to `Trading Coach`.
@@ -32,7 +33,6 @@ updated: 2026-11-17
 
 ## Open items / waiting on
 - Not tested in Safari or Edge (Chromium only).
-- Sample insights list slightly fewer trade ids than their `n` (e.g. n 13, 12 ids).
 - Her platform is unknown; the wizard handles it.
 - Per-tool connector toggles are documented for Team/Enterprise only; unconfirmed for Pro/Max.
 - Unconfirmed in catalog: several futures-platform export pages, OPEC+ dates, China customs timing, USDA Grain Stocks/Acreage dates.

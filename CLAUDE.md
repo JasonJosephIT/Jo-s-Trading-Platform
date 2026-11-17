@@ -227,6 +227,10 @@ She names an app. Check `catalog/tools.json`, then confirm with a web search (of
 
 If she won't keep a computer on: create a scheduled task without a local folder, at `brief_time` on weekdays, that reads her platform connector and Notion, writes the brief to her Notion "Morning Brief" page, and keeps a running "Trading Coach data" Notion page with the last 90 days of trades as a table (for continuity). Tell her the dashboard won't update in this mode.
 
+## Later: one link for everything (v2, only if she asks)
+
+If she asks to see her dashboard on her phone, wants one link for everything, or wants a page showing which connectors are connected, read `docs/v2-plan.md` and follow it: it publishes this same dashboard as a private Claude Artifact, adds a Status tab, and keeps the morning run as a scheduled task. Tell her the privacy change first (her numbers would also be stored in that private page on claude.ai) and get her yes. Never start it on your own.
+
 ## If you can't run Python
 
 Build `data/data.js` yourself, following `docs/contracts.md` exactly: `window.TC_DATA = { updated, profile, trades, journal, insights };` with numbers as numbers, empty values as `null`, and `tags` as arrays. Then check it by reading it back and making sure it's valid JavaScript.

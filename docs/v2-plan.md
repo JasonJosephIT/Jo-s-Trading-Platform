@@ -1,6 +1,6 @@
 # v2 plan: Trading Coach as one Claude Artifact
 
-Status: draft for review (2026-11-17). Build in a new session.
+Status: **parked** (2026-11-17). v1 is what ships. These are notes for her Claude: build this only if she asks for "the dashboard on my phone", "one link" or "a status page". Start with ticket 1 (spike) and keep v1 working the whole time; v2 only adds to it.
 
 ## Goal
 Her whole Trading Coach lives at one private claude.ai link she can open on her phone or Mac:

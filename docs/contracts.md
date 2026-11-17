@@ -35,7 +35,7 @@ Missing fields are `null` (arrays may be `[]`). Never invent values.
 ```json
 { "generated": "2026-11-17T07:31:00-05:00", "focus_rule": "No entries in the first 15 min",
   "insights": [ { "title": "Revenge trades after a loss cost you −6.2R this month",
-     "evidence": { "trade_ids": ["…"], "journal_ids": ["…"], "n": 11 },
+     "evidence": { "trade_ids": ["…"], "journal_ids": ["…"], "n": 11 },   // trade_ids: up to ~12 examples, worst first; n counts every trade behind it
      "confidence": "early|moderate|strong", "suggestion": "process change, never a trade call" } ],
   "brief": { "date": "2026-11-17", "markdown": "…" } }
 ```

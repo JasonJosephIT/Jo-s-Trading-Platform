@@ -107,6 +107,16 @@ export function defaults(): Answers {
   }
 }
 
+/** First name from the link (?name=Jo), so the welcome screen can greet her. */
+export function linkName(): string {
+  try {
+    const n = new URLSearchParams(window.location.search).get('name') ?? ''
+    return n.replace(/[^\p{L}\p{M}' -]/gu, '').trim().slice(0, 30)
+  } catch {
+    return ''
+  }
+}
+
 function load(): Answers {
   let raw: string | null = memory.value
   try {
@@ -115,7 +125,9 @@ function load(): Answers {
     /* storage blocked: keep in memory */
   }
   try {
-    return raw ? { ...defaults(), ...JSON.parse(raw) } : defaults()
+    const a: Answers = raw ? { ...defaults(), ...JSON.parse(raw) } : defaults()
+    if (!a.name && linkName()) a.name = linkName()
+    return a
   } catch {
     return defaults()
   }

@@ -11,7 +11,7 @@ import {
   Segmented, StepList, Stepper, TextField, copyText, type Step,
 } from '@/components/ios'
 import { byId, claudeFacts, eventsFor, fitExplain, fitLabel, fitOf, search, secondOption, verifiedOn, type Category, type Fit, type Tool } from '@/lib/catalog'
-import { MARKETS, PAGES, ZIP, answersYaml, toggle, toolsSummary, type Answers, type Pick } from '@/lib/state'
+import { MARKETS, PAGES, ZIP, answersYaml, linkName, toggle, toolsSummary, type Answers, type Pick } from '@/lib/state'
 import { cn } from '@/lib/utils'
 
 type P = { a: Answers; set: <K extends keyof Answers>(k: K, v: Answers[K]) => void; go: (id: string) => void }
@@ -116,14 +116,25 @@ function ToolPicker({
 /* ---------- 0. Welcome ---------- */
 
 export function Welcome() {
+  const name = linkName()
   return (
     <>
       <div className="relative mx-5 mt-2 overflow-hidden rounded-[28px] gold-trim px-6 pt-8 pb-7 text-white" style={{ background: 'var(--hero-bg)' }}>
         <div className="pointer-events-none absolute -top-24 -right-16 size-64 rounded-full opacity-40 blur-3xl" style={{ background: 'radial-gradient(circle, #dcb64f 0%, transparent 70%)' }} />
         <Crest />
         <p className="mt-6 text-[13px] font-semibold uppercase tracking-[0.12em] text-[#ecd27e]">Trading Coach</p>
-        <h1 className="mt-1 text-[32px] leading-[1.08] font-bold tracking-[-0.02em] text-balance">Your journal, your numbers, a calm morning plan.</h1>
-        <p className="mt-3 text-[16px] leading-relaxed text-white/75">Set up once in about 20 minutes. Every trading morning after that, it updates itself.</p>
+        {name ? (
+          <>
+            <h1 className="mt-1 text-[40px] leading-[1.05] font-bold tracking-[-0.03em] text-[#f6e7b4]">Hello, {name}.</h1>
+            <p className="mt-2 text-[20px] leading-snug font-semibold text-white text-balance">Let's set up your trading workstation.</p>
+            <p className="mt-3 text-[16px] leading-relaxed text-white/75">Your journal, your numbers, a calm morning plan. About 20 minutes once; after that it updates itself every trading morning.</p>
+          </>
+        ) : (
+          <>
+            <h1 className="mt-1 text-[32px] leading-[1.08] font-bold tracking-[-0.02em] text-balance">Your journal, your numbers, a calm morning plan.</h1>
+            <p className="mt-3 text-[16px] leading-relaxed text-white/75">Set up once in about 20 minutes. Every trading morning after that, it updates itself.</p>
+          </>
+        )}
       </div>
       <ListGroup header="What you get" className="pt-6">
         <ListRow icon={<Sunrise />} title="A morning brief" detail="Your limits, today's focus and the market events that matter, ready before the open." />
