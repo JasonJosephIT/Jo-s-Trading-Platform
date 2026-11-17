@@ -1,0 +1,31 @@
+{
+  "name": "",
+  "timezone": "America/New_York",
+  "markets": ["futures"],
+  "instruments": ["CL", "GC", "NG"],
+  "style": "futures-prop",
+  "session": { "start": "09:00", "end": "14:30" },
+  "brief_time": "07:30",
+  "account_currency": "USD",
+  "default_risk_per_trade": 100,
+  "max_daily_loss": 300,
+  "max_trades_per_day": 4,
+  "stop_after_consecutive_losses": 2,
+  "prop_rules": { "trailing_drawdown": null, "daily_loss_limit": null },
+  "setups": ["opening range break", "VWAP reclaim", "inventory report fade"],
+  "mistake_tags": ["fomo", "revenge", "oversize", "moved_stop", "early_exit", "overtrading", "off_plan"],
+  "watchlist": [],
+  "data_source": "csv",
+  "tools": {
+    "broker": { "name": "", "path": "csv", "status": "unconfirmed" },
+    "charting": [],
+    "journal": { "name": "Notion", "status": "connector" },
+    "calendar": { "name": "", "status": "skip" },
+    "news": [],
+    "other": []
+  },
+  "calendar": { "add_market_events": false, "calendar_name": "Trading", "event_types": [] },
+  "notion": { "journal_location": "", "journal_shape": "database", "brief_page": null },
+  "layout_preset": "futures-prop",
+  "panels": {}
+}

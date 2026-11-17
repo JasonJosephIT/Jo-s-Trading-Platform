@@ -1,0 +1,174 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "@fontsource-variable/geist";
+
+/* Trading Coach: royal purple → black gradients, gold trim.
+   Same palette as ../assets/theme.css (used by the dashboard). Dark is the default. */
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-heading: var(--font-sans);
+  --font-sans: 'Geist Variable', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --color-gold: var(--gold);
+  --color-gold-soft: var(--gold-soft);
+  --color-royal: var(--royal);
+  --color-trim: var(--trim);
+  --color-row: var(--row);
+  --color-success: var(--success);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+}
+
+/* Light: ivory with royal ink and gold trim */
+:root {
+  --background: #fbf9fe;
+  --foreground: #1a0f33;
+  --card: #ffffff;
+  --card-foreground: #1a0f33;
+  --popover: #ffffff;
+  --popover-foreground: #1a0f33;
+  --primary: #4b1f96;
+  --primary-foreground: #ffffff;
+  --secondary: #efe6fb;
+  --secondary-foreground: #261050;
+  --muted: #f1ebfa;
+  --muted-foreground: #5d5277;
+  --accent: #efe6fb;
+  --accent-foreground: #261050;
+  --destructive: #c4421f;
+  --border: rgba(61, 26, 122, 0.14);
+  --input: rgba(61, 26, 122, 0.18);
+  --ring: #9a7720;
+  --radius: 0.875rem;
+  --gold: #8a6a1a;
+  --gold-soft: #f6e7b4;
+  --royal: #5326a3;
+  --trim: rgba(154, 119, 32, 0.55);
+  --row: #ffffff;
+  --success: #0f8a63;
+  --app-bg: radial-gradient(120% 70% at 50% -10%, #e2d2fa 0%, #f5effd 45%, #fbf9fe 100%);
+  --hero-bg: linear-gradient(165deg, #6a35c2 0%, #3d1a7a 45%, #160a2e 100%);
+  --cta: linear-gradient(135deg, #f6e7b4 0%, #dcb64f 42%, #b48a26 100%);
+  --cta-ink: #1b0c38;
+  --trim-gradient: linear-gradient(135deg, rgba(220, 182, 79, 0.95), rgba(154, 119, 32, 0.35) 45%, rgba(220, 182, 79, 0.75));
+}
+
+/* Dark: royal purple fading into black */
+.dark {
+  --background: #07040d;
+  --foreground: #f5f1fb;
+  --card: #120a24;
+  --card-foreground: #f5f1fb;
+  --popover: #160c2c;
+  --popover-foreground: #f5f1fb;
+  --primary: #dcb64f;
+  --primary-foreground: #160a2e;
+  --secondary: #24124a;
+  --secondary-foreground: #f5f1fb;
+  --muted: #1c1135;
+  --muted-foreground: #b9add3;
+  --accent: #2a1656;
+  --accent-foreground: #f5f1fb;
+  --destructive: #ff7a59;
+  --border: rgba(203, 181, 236, 0.13);
+  --input: rgba(203, 181, 236, 0.18);
+  --ring: #dcb64f;
+  --gold: #dcb64f;
+  --gold-soft: #3a2a0c;
+  --royal: #a37be6;
+  --trim: rgba(220, 182, 79, 0.45);
+  --row: rgba(30, 16, 60, 0.72);
+  --success: #3ccf9a;
+  --app-bg: radial-gradient(130% 75% at 50% -12%, #4a1f94 0%, #23104a 34%, #0d0719 66%, #07040d 100%);
+  --hero-bg: linear-gradient(165deg, #6a35c2 0%, #2c1260 42%, #07040d 100%);
+  --cta: linear-gradient(135deg, #f6e7b4 0%, #dcb64f 42%, #b48a26 100%);
+  --cta-ink: #160a2e;
+  --trim-gradient: linear-gradient(135deg, rgba(246, 231, 180, 0.9), rgba(220, 182, 79, 0.4) 40%, rgba(154, 119, 32, 0.15) 70%, rgba(220, 182, 79, 0.6));
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    @apply font-sans;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-font-smoothing: antialiased;
+  }
+  body {
+    @apply text-foreground;
+    background: var(--background);
+    min-height: 100dvh;
+  }
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
+@layer components {
+  /* 1px gold gradient border for any rounded box */
+  .gold-trim {
+    position: relative;
+  }
+  .gold-trim::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: var(--trim-gradient);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+  .gold-text {
+    background: var(--cta);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@keyframes page-in-right {
+  from { opacity: 0; transform: translateX(28px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes page-in-left {
+  from { opacity: 0; transform: translateX(-28px); }
+  to { opacity: 1; transform: none; }
+}
+.page-forward { animation: page-in-right 320ms cubic-bezier(0.22, 1, 0.36, 1) both; }
+.page-back { animation: page-in-left 320ms cubic-bezier(0.22, 1, 0.36, 1) both; }
+
+@media (prefers-reduced-motion: reduce) {
+  .page-forward, .page-back { animation: none; }
+}

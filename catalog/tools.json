@@ -1,0 +1,463 @@
+{
+  "verified_on": "2026-11-17",
+  "claude": {
+    "add_connector_path": "Customize > Connectors, then click the + next to Connectors and browse the directory (or from a chat: + > Connectors > Manage connectors > +). Then click Connect/Install and sign in. Some broker docs still say 'Settings > Connectors'; the current Anthropic path is Customize > Connectors.",
+    "custom_connector_note": "For a service not in the directory: Customize > Connectors > Add > Custom > Web, paste the server's remote MCP URL, then Connect and sign in in the browser. Custom connectors run from Anthropic's cloud, so never paste a remote URL into claude_desktop_config.json. Free plan: one custom connector. Local (stdio) servers such as tastytrade's need a developer-style setup.",
+    "desktop_download": "https://claude.com/download",
+    "keep_awake_setting": "Settings > This computer > System: turn on 'Keep computer awake' (the computer will not idle-sleep while Claude Desktop is open; closing a laptop lid still sleeps it) and 'Run on startup' (Claude Desktop opens at login). Claude Code docs also name the page 'Settings > Desktop app'. Known bugs: Windows 'Run on startup' may not stick; macOS keep-awake may also keep the display on.",
+    "scheduled_tasks": "Available on all paid plans (Pro, Max, Ultra, Team, Enterprise). Create: click Scheduled in the left sidebar > New task > Create with Claude or Set up manually (name, prompt, approval mode, frequency hourly/daily/weekdays/weekly/manual, optional model and folder), or just describe the task in a chat. A task with a local folder / 'Require this computer' (or 'Only on this computer') runs only while the computer is awake and Claude Desktop is open; tasks without a folder run remotely on schedule. Missed runs (local): when the app opens or the computer wakes, Desktop runs ONE catch-up for the most recent missed time and discards older ones (7-day window), so a 9am task can run at 11pm. Connector tools need a lasting approval ('Allow for all scheduled runs' in Cowork / 'Always allow' in Code) or the run stalls waiting for a click. Minimum interval is 1 hour in the forms. Open bug reports exist about dropped Cowork scheduled runs, so check the task's History page.",
+    "per_tool_toggles": "Yes, but documented for Team and Enterprise only: Customize > Connectors > select the connector > Tool permissions groups tools (read-only vs write/delete) and lets an Owner set each category or tool to Always allow, Needs approval or Blocked, org-wide. Anthropic's help article does not say whether individual Pro/Max users get the same panel; not confirmed. Safest default for a read-only coach: connect only read-only connectors, leave order-capable connectors disconnected, and keep approvals on 'Needs approval'.",
+    "sources": [
+      "https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities",
+      "https://support.claude.com/en/articles/11724452-use-the-connectors-directory-to-extend-claude-s-capabilities",
+      "https://claude.com/docs/connectors/directory.md",
+      "https://claude.com/docs/connectors/custom/add-unlisted",
+      "https://support.claude.com/en/articles/13854387-schedule-recurring-tasks-in-claude-cowork.md",
+      "https://code.claude.com/docs/en/desktop-scheduled-tasks",
+      "https://claude.com/docs/third-party/claude-desktop/scheduled-tasks"
+    ]
+  },
+  "items": [
+    {
+      "id": "ibkr", "name": "Interactive Brokers", "aliases": ["IBKR", "TWS", "IBKR Desktop", "Trader Workstation"],
+      "category": "broker", "markets": ["stocks", "options", "futures", "forex", "commodities"],
+      "path": "connector",
+      "connector": { "name": "Interactive Brokers (IBKR)", "in_directory": true, "notes": "Anthropic verified, sign-in required, 10 tools, all get_/search_ names: balances, positions, summary, orders, trades, allocation, price history, snapshots, contract search, get_order_instructions. Claude can draft trade instructions that go to IBKR for your review; page says Claude never submits orders to the market. Read-only coaching works fine. Futures coverage of the connector not stated.", "url": "https://claude.com/marketplace/connectors/interactive-brokers" },
+      "export": { "help_url": "https://www.interactivebrokers.com/campus/trading-lessons/client-portal-reporting/", "steps": ["Client Portal > Performance & Reports > Flex Queries (or Statements).", "Create an Activity or Trade Confirmation Flex Query and pick CSV as the format.", "Click Run and save the file."], "format_notes": "Flex Queries let you pick the columns; the standard Trade Confirmation report cannot be customised. Exact menu names not re-checked in a live account." },
+      "verified": true, "notes": "Best-confirmed connector for a futures-capable broker, but commodity futures coverage by the connector is not stated.",
+      "sources": ["https://claude.com/marketplace/connectors/interactive-brokers", "https://www.interactivebrokers.com/campus/trading-lessons/client-portal-reporting/", "https://investors.interactivebrokers.com/en/trading/ai-integrations.php"]
+    },
+    {
+      "id": "webull", "name": "Webull", "aliases": ["Webull Futures"],
+      "category": "broker", "markets": ["stocks", "options", "futures", "crypto"],
+      "path": "connector",
+      "connector": { "name": "Webull", "in_directory": true, "notes": "Anthropic verified, added July 2026, 71 tools. The 24 visible tools are read-only data (balances, positions, analyst data, crypto, event and futures data) plus 3 watchlist edits. Whether any of the 47 hidden tools place orders was not confirmed. Third-party review says the hosted server needs your confirmation for trades.", "url": "https://claude.com/marketplace/connectors/webull" },
+      "export": { "help_url": "https://www.webull.com/help/faq/992-How-do-I-get-a-copy-of-my-transaction-history", "steps": ["Desktop or web: Account > Orders (Order History) > Export Orders.", "Mobile: Account > History > Export Orders (download icon).", "The CSV arrives by email in a few minutes."], "format_notes": "Includes filled, partial, pending, cancelled and failed orders. Help pages are older; menu names may differ." },
+      "verified": true, "notes": "Hidden tool list should be checked before connecting a live account.",
+      "sources": ["https://claude.com/marketplace/connectors/webull", "https://www.webull.com/help/faq/992-How-do-I-get-a-copy-of-my-transaction-history"]
+    },
+    {
+      "id": "questrade", "name": "Questrade", "aliases": ["Questrade Edge"],
+      "category": "broker", "markets": ["stocks", "options"],
+      "path": "connector",
+      "connector": { "name": "Questrade", "in_directory": true, "notes": "Anthropic verified, added July 2026, 33 tools: account activities, balances, positions, order history, quotes, option chains, watchlists. Also create_order_instruction / create_option_instruction (prepares orders; how they are confirmed is not documented on the listing). Canadian broker; no commodity futures.", "url": "https://claude.com/marketplace/connectors/questrade" },
+      "export": { "help_url": "https://www.questrade.com/learning/questrade-basics/track-your-account-activity/checking-your-account-activity", "steps": ["Account Summary > Activity (transaction history).", "Pick a date range and activity type.", "Use Export (Excel/CSV)."], "format_notes": "One help page says Excel export, another says CSV/PDF for reports; check the export dialog." },
+      "verified": true, "notes": "Not a commodity-futures venue.",
+      "sources": ["https://claude.com/marketplace/connectors/questrade", "https://www.questrade.com/learning/questrade-basics/track-your-account-activity/checking-your-account-activity"]
+    },
+    {
+      "id": "gemini", "name": "Gemini", "aliases": ["Gemini exchange", "Gemini crypto"],
+      "category": "crypto", "markets": ["crypto"],
+      "path": "connector",
+      "connector": { "name": "Gemini", "in_directory": true, "notes": "Made by Gemini Space Station, Anthropic verified, 20 tools, described as read-only: balances, orders, trades, order books, candles, derivative positions, prediction markets. Does not move funds. This is the crypto exchange, not Google's Gemini AI.", "url": "https://claude.com/marketplace/connectors/gemini-mcp" },
+      "export": { "help_url": null, "steps": [], "format_notes": "Export help page not looked up." },
+      "verified": true, "notes": "Slug is gemini-mcp.",
+      "sources": ["https://claude.com/marketplace/connectors/gemini-mcp"]
+    },
+    {
+      "id": "alpaca", "name": "Alpaca", "aliases": ["Alpaca Markets"],
+      "category": "broker", "markets": ["stocks", "options", "crypto"],
+      "path": "advanced",
+      "connector": { "name": "Alpaca MCP Server (alpacahq/alpaca-mcp-server)", "in_directory": false, "notes": "Official open-source server but no Alpaca-hosted remote endpoint; you must run it locally (uvx alpaca-mcp-server) with API keys, or host it yourself. Can place orders unless restricted. Not suitable for a non-developer.", "url": "https://github.com/alpacahq/alpaca-mcp-server" },
+      "export": { "help_url": null, "steps": [], "format_notes": "Not looked up." },
+      "verified": true, "notes": "No futures.",
+      "sources": ["https://github.com/alpacahq/alpaca-mcp-server"]
+    },
+    {
+      "id": "robinhood", "name": "Robinhood", "aliases": [],
+      "category": "broker", "markets": ["stocks", "options", "crypto"],
+      "path": "advanced",
+      "connector": { "name": "Robinhood Trading MCP (custom connector)", "in_directory": false, "notes": "Not found in the Claude directory. Robinhood's help center says add a custom connector with URL https://agent.robinhood.com/mcp/trading and authenticate in the app. You must open a separate agentic (MCP) account; the agent can read your other accounts but only trade in that one. Trade approvals are OFF by default. No futures confirmed.", "url": "https://robinhood.com/us/en/support/articles/setting-up-an-agent/" },
+      "export": { "help_url": null, "steps": [], "format_notes": "Not looked up." },
+      "verified": true, "notes": "Because trading is on by default, not recommended for a read-only coach without turning approvals on.",
+      "sources": ["https://robinhood.com/us/en/support/articles/setting-up-an-agent/", "https://robinhood.com/us/en/support/articles/agentic-trading-overview/"]
+    },
+    {
+      "id": "schwab", "name": "Charles Schwab", "aliases": ["Schwab", "schwab.com"],
+      "category": "broker", "markets": ["stocks", "options", "futures"],
+      "path": "none",
+      "connector": { "name": "Schwab MCP server (pilot)", "in_directory": false, "notes": "Schwab's own press release says its MCP server is in pilot with select clients using Claude and will widen over the coming months. Not generally available. Third-party aggregators (e.g. Truthifi) offer read-only links but are not Schwab products. A 'Schwab Advisor Services' listing is for advisors only.", "url": "https://pressroom.aboutschwab.com/press-releases/press-release/2026/Schwab-Announces-Platform-Enhancements-Including-MCP-Server-to-Connect-Clients-AI-Platforms-With-Their-Schwab-Accounts/default.aspx" },
+      "export": { "help_url": null, "steps": [], "format_notes": "Use the thinkorswim entry for Schwab futures accounts." },
+      "verified": true, "notes": "Wait-list / pilot only.",
+      "sources": ["https://pressroom.aboutschwab.com/press-releases/press-release/2026/Schwab-Announces-Platform-Enhancements-Including-MCP-Server-to-Connect-Clients-AI-Platforms-With-Their-Schwab-Accounts/default.aspx"]
+    },
+    {
+      "id": "fidelity", "name": "Fidelity", "aliases": [],
+      "category": "broker", "markets": ["stocks", "options"],
+      "path": "csv",
+      "connector": { "name": null, "in_directory": false, "notes": "No official connector found (comparison guide says no public retail API).", "url": null },
+      "export": { "help_url": null, "steps": [], "format_notes": "Export help page not confirmed." },
+      "verified": false, "notes": "Unconfirmed: export link not looked up; connector absence based on a third-party comparison.",
+      "sources": ["https://www.stockbrokers.com/guides/ai-agent-brokers"]
+    },
+    {
+      "id": "etrade", "name": "E*TRADE", "aliases": ["ETRADE", "Morgan Stanley E*TRADE"],
+      "category": "broker", "markets": ["stocks", "options", "futures"],
+      "path": "csv",
+      "connector": { "name": null, "in_directory": false, "notes": "No official connector found (community servers only per a comparison guide).", "url": null },
+      "export": { "help_url": null, "steps": [], "format_notes": "Export help page not confirmed." },
+      "verified": false, "notes": "Unconfirmed: export link not looked up.",
+      "sources": ["https://www.stockbrokers.com/guides/ai-agent-brokers"]
+    },
+    {
+      "id": "coinbase", "name": "Coinbase", "aliases": [],
+      "category": "crypto", "markets": ["crypto"],
+      "path": "csv",
+      "connector": { "name": null, "in_directory": false, "notes": "No Coinbase listing found in the Claude directory. Third-party (Composio) servers and Coinbase wallet/agent endpoints exist but were not verified against Coinbase's own docs.", "url": null },
+      "export": { "help_url": null, "steps": [], "format_notes": "Export help page not confirmed." },
+      "verified": false, "notes": "Unconfirmed.",
+      "sources": []
+    },
+    {
+      "id": "kraken", "name": "Kraken", "aliases": [],
+      "category": "crypto", "markets": ["crypto"],
+      "path": "csv",
+      "connector": { "name": null, "in_directory": false, "notes": "No official Kraken MCP found.", "url": null },
+      "export": { "help_url": null, "steps": [], "format_notes": "Export help page not confirmed." },
+      "verified": false, "notes": "Unconfirmed.",
+      "sources": []
+    },
+    {
+      "id": "tastytrade", "name": "tastytrade", "aliases": ["tastyworks", "Tastytrade"],
+      "category": "broker", "markets": ["stocks", "options", "futures"],
+      "path": "advanced",
+      "connector": { "name": "tastytrade MCP (self-hosted)", "in_directory": false, "notes": "Official open source but no tastytrade-hosted endpoint: clone and build with Node 22+, run locally via claude_desktop_config.json with OAuth secrets. Setting TASTYTRADE_READ_ONLY=1 blocks the 14 write tools. Developer-level setup.", "url": "https://developer.tastytrade.com/docs/sdks-and-tools/mcp-server/" },
+      "export": { "help_url": null, "steps": [], "format_notes": "Not looked up." },
+      "verified": true, "notes": "Too technical for a non-developer; use CSV instead.",
+      "sources": ["https://developer.tastytrade.com/docs/sdks-and-tools/mcp-server/"]
+    },
+    {
+      "id": "public", "name": "Public.com", "aliases": ["Public"],
+      "category": "broker", "markets": ["stocks", "options", "crypto"],
+      "path": "connector",
+      "connector": { "name": "Public (directory) / custom connector https://mcp.public.com/mcp", "in_directory": true, "notes": "Per Public's own page the directory version cannot place trades; the custom connector can. Stocks, ETFs, options, crypto; futures not mentioned.", "url": "https://public.com/api/docs/templates/claude" },
+      "export": { "help_url": null, "steps": [], "format_notes": "Not looked up." },
+      "verified": true, "notes": "Directory slug not confirmed; claim comes from Public's page.",
+      "sources": ["https://public.com/api/docs/templates/claude"]
+    },
+    {
+      "id": "tradier", "name": "Tradier", "aliases": [],
+      "category": "broker", "markets": ["stocks", "options"],
+      "path": "advanced",
+      "connector": { "name": "Tradier MCP (hosted)", "in_directory": false, "notes": "Tradier says it has a hosted MCP service (22 tools). Not confirmed in Claude's directory.", "url": "https://docs.tradier.com/docs/tradier-mcp" },
+      "export": { "help_url": null, "steps": [], "format_notes": "Not looked up." },
+      "verified": false, "notes": "Search-result level only; docs page not opened.",
+      "sources": ["https://docs.tradier.com/docs/tradier-mcp"]
+    },
+    {
+      "id": "ninjatrader-tradovate", "name": "NinjaTrader / Tradovate", "aliases": ["Tradovate", "NinjaTrader 8", "NinjaTrader Brokerage", "NT8"],
+      "category": "broker", "markets": ["futures", "commodities"],
+      "path": "connector",
+      "connector": { "name": "NinjaTrader MCP (custom connector)", "in_directory": false, "notes": "Official remote MCP server, available only to Tradovate and NinjaTrader users. Add as a custom connector: demo https://mcp-demo.tradovateapi.com/mcp (simulated money), live https://mcp-live.tradovateapi.com/mcp; OAuth in the browser. Has read tools (my_portfolio, order_history, fill_history, performance_summary) and write tools (place_order, risk settings) gated by access levels you approve. Start on Demo. Beta status not stated; listing in Claude's directory not found.", "url": "https://docs.ninjatrader.com/mcp/connect" },
+      "export": { "help_url": "https://vendor-support.ninjatrader.com/s/article/Tradovate-Account-Reports?language=en_US", "steps": ["Tradovate web app: Account Reports.", "Choose Fills (or Orders / Position History / Performance), set dates and click GO.", "Download as CSV."], "format_notes": "Fills = every filled order; Position History = entry/exit pairs; Performance includes the trade list. NinjaTrader 8 desktop: New > Trade Performance, switch to Trades or Executions, right-click > Export (forum-sourced, not an official help page)." },
+      "verified": true, "notes": "Most relevant path for a futures trader; grant read-only access during authorization.",
+      "sources": ["https://docs.ninjatrader.com/mcp/connect", "https://docs.ninjatrader.com/mcp", "https://vendor-support.ninjatrader.com/s/article/Tradovate-Account-Reports?language=en_US"]
+    },
+    {
+      "id": "tradestation", "name": "TradeStation", "aliases": ["TS", "TradeStation Securities"],
+      "category": "broker", "markets": ["stocks", "options", "futures"],
+      "path": "connector",
+      "connector": { "name": "TradeStation MCP", "in_directory": false, "notes": "TradeStation launched an MCP connection in Jan 2026, first for Claude. Per TradeStation it needs an account balance of at least $10,000 and a Claude Pro subscription; you click Connect in Claude's connector list and log in. Orders need your explicit confirmation. Directory listing not confirmed (the TradeStation page returned 403 to my fetch).", "url": "https://tradestation.com/platforms-and-tools/mcp/" },
+      "export": { "help_url": "https://www.tradestation.com/insights/2025/05/20/hub-track-trades-generate-reports/", "steps": ["Client HUB > Activity tab.", "Set a custom time frame.", "Download CSV."], "format_notes": "Activity shows completed buys and sells; unclear whether cancelled orders are included. Futures statements are PDFs." },
+      "verified": false, "notes": "Connector details come from search summaries of TradeStation and press sources, not a directly opened page.",
+      "sources": ["https://tradestation.com/platforms-and-tools/mcp/", "https://www.businesswire.com/news/home/20260112743966/en/TradeStation-Securities-Releases-MCP-Connection-Allowing-Users-to-Connect-Trading-Accounts-with-Third-Party-AI-Platforms"]
+    },
+    {
+      "id": "thinkorswim", "name": "thinkorswim (Schwab)", "aliases": ["TOS", "think or swim", "thinkorswim desktop"],
+      "category": "charting", "markets": ["stocks", "options", "futures", "forex"],
+      "path": "csv",
+      "connector": { "name": null, "in_directory": false, "notes": "No general connector (Schwab MCP is a pilot).", "url": null },
+      "export": { "help_url": "https://www.schwab.com/learn/story/using-account-statement-on-thinkorswim", "steps": ["Monitor tab > Account Statement.", "Set the date range; Trade History lists fills.", "Look for an export / save option in the statement view."], "format_notes": "Trade history shows fills only. A CSV export button was not confirmed from Schwab pages." },
+      "verified": false, "notes": "CSV export not confirmed.",
+      "sources": ["https://www.schwab.com/learn/story/using-account-statement-on-thinkorswim", "https://www.schwab.com/learn/story/how-to-use-monitor-tab-on-thinkorswim"]
+    },
+    {
+      "id": "topstep", "name": "TopstepX / Topstep", "aliases": ["Topstep", "TopstepX", "Topstep Trading Combine"],
+      "category": "prop", "markets": ["futures", "commodities"],
+      "path": "csv",
+      "connector": { "name": null, "in_directory": false, "notes": "No Claude connector found. TopstepX has an API (API access article) for developers.", "url": "https://help.topstep.com/en/articles/11187768-topstepx-api-access" },
+      "export": { "help_url": "https://help.topstep.com/en/articles/14434175-topstepx", "steps": ["In TopstepX open the Orders or Trades tab at the bottom.", "Click Export, choose a date range, click Export again.", "Open the file in Excel or Google Sheets."], "format_notes": "Trades tab = completed round trips (symbol, size, times, entry/exit, P&L, fees); Orders tab = individual orders. File type (CSV) assumed from help text." },
+      "verified": false, "notes": "Steps come from a search summary of the Topstep help center; article opened only via search, not read in full.",
+      "sources": ["https://help.topstep.com/en/articles/14434175-topstepx"]
+    },
+    {
+      "id": "apex", "name": "Apex Trader Funding", "aliases": ["Apex", "Apex Trader"],
+      "category": "prop", "markets": ["futures", "commodities"],
+      "path": "csv",
+      "connector": { "name": null, "in_directory": false, "notes": "No Claude connector. Apex accounts run on Tradovate or Rithmic, so use those platforms' exports.", "url": null },
+      "export": { "help_url": null, "steps": ["Export from the platform you trade on (Tradovate Account Reports, or NinjaTrader Trade Performance)."], "format_notes": "Warning from Apex: blown accounts are removed from Tradovate at end of day and history becomes inaccessible, so export first. History cannot move between Tradovate and Rithmic." },
+      "verified": false, "notes": "No Apex-specific export article found.",
+      "sources": ["https://apextraderfunding.com/help-center/tradovate/tradovate-frequently-asked-questions/"]
+    },
+    {
+      "id": "amp", "name": "AMP Futures", "aliases": ["AMP", "AMP Global Clearing"],
+      "category": "broker", "markets": ["futures", "commodities"],
+      "path": "csv",
+      "connector": { "name": null, "in_directory": false, "notes": "No connector found. AMP accounts connect through platforms such as NinjaTrader, Sierra Chart or Rithmic.", "url": null },
+      "export": { "help_url": null, "steps": ["Export from your trading platform, or download daily statements from the AMP client portal."], "format_notes": "Not verified." },
+      "verified": false, "notes": "Not researched in detail.",
+      "sources": []
+    },
+    {
+      "id": "optimus", "name": "Optimus Futures", "aliases": ["Optimus"],
+      "category": "broker", "markets": ["futures", "commodities"],
+      "path": "csv",
+      "connector": { "name": null, "in_directory": false, "notes": "No connector found.", "url": null },
+      "export": { "help_url": null, "steps": ["Export from your trading platform or the broker's client portal statements."], "format_notes": "Not verified." },
+      "verified": false, "notes": "Not researched in detail.",
+      "sources": []
+    },
+    {
+      "id": "rithmic", "name": "Rithmic / R|Trader Pro", "aliases": ["Rithmic", "R Trader", "RTrader Pro"],
+      "category": "broker", "markets": ["futures", "commodities"],
+      "path": "csv",
+      "connector": { "name": null, "in_directory": false, "notes": "Rithmic is a data and order-routing feed used by many futures brokers and prop firms; no Claude connector found.", "url": null },
+      "export": { "help_url": null, "steps": ["In R|Trader Pro use the Orders/Fills window export, or use your broker's statements."], "format_notes": "Not verified." },
+      "verified": false, "notes": "Not researched in detail.",
+      "sources": []
+    },
+    {
+      "id": "metatrader", "name": "MetaTrader 4 / 5", "aliases": ["MT4", "MT5", "MetaTrader"],
+      "category": "broker", "markets": ["forex", "commodities"],
+      "path": "csv",
+      "connector": { "name": null, "in_directory": false, "notes": "No official connector. MetaTrader is a platform; CFD commodity access depends on your broker.", "url": null },
+      "export": { "help_url": "https://www.metatrader5.com/en/terminal/help/trading/report", "steps": ["MT5: History tab (Toolbox) > right-click > Report, choose HTML or PDF (File menu export).", "MT4: Account History tab > right-click > Save as Detailed Report (HTML)."], "format_notes": "Official docs show HTML/PDF reports, not CSV of account deals. A CSV needs a spreadsheet conversion; Claude can read the HTML report directly." },
+      "verified": true, "notes": "Plain HTML report works with Claude without conversion.",
+      "sources": ["https://www.metatrader5.com/en/terminal/help/trading/report", "https://www.metatrader4.com/en/trading-platform/help/overview/terminal/terminal_account_history"]
+    },
+    {
+      "id": "plus500", "name": "Plus500", "aliases": ["Plus500 CFD", "Plus500 Futures"],
+      "category": "broker", "markets": ["forex", "commodities", "futures"],
+      "path": "csv",
+      "connector": { "name": null, "in_directory": false, "notes": "No connector found.", "url": null },
+      "export": { "help_url": null, "steps": [], "format_notes": "Not researched." },
+      "verified": false, "notes": "Not researched.",
+      "sources": []
+    },
+    {
+      "id": "sierra-chart", "name": "Sierra Chart", "aliases": ["SC"],
+      "category": "charting", "markets": ["futures", "stocks", "forex"],
+      "path": "csv",
+      "connector": { "name": null, "in_directory": false, "notes": "No connector.", "url": null },
+      "export": { "help_url": "https://www.sierrachart.com/index.php?page=doc%2FTradeActivityLog.php", "steps": ["Trade > Trade Activity Log > Trade Activity tab.", "In Display Settings set Trade Activity Type to Fills (or All Activity).", "File > Export; file lands in the SavedTradeActivity folder."], "format_notes": "Exports a tab-delimited text file, not true CSV; open it in a spreadsheet and save as CSV, or give Claude the text file." },
+      "verified": true, "notes": "",
+      "sources": ["https://www.sierrachart.com/index.php?page=doc%2FTradeActivityLog.php"]
+    },
+    {
+      "id": "tradingview", "name": "TradingView", "aliases": ["TV", "TradingView paper trading"],
+      "category": "charting", "markets": ["stocks", "futures", "forex", "crypto", "commodities"],
+      "path": "csv",
+      "connector": { "name": null, "in_directory": false, "notes": "No TradingView connector found in Claude's directory.", "url": null },
+      "export": { "help_url": "https://www.tradingview.com/support/solutions/43000663814-how-can-i-download-trading-data/", "steps": ["Open the Trading Panel, then the broker's dropdown menu.", "Choose Export data (or Download data).", "Pick the History tab and export."], "format_notes": "Each tab exports separately; plan limits may apply. Exact label not confirmed on one page." },
+      "verified": true, "notes": "Works for connected brokers and Paper Trading.",
+      "sources": ["https://www.tradingview.com/support/solutions/43000663814-how-can-i-download-trading-data/", "https://www.tradingview.com/support/solutions/43000613680-how-to-export-strategy-data/"]
+    },
+    {
+      "id": "notion", "name": "Notion", "aliases": ["Notion journal"],
+      "category": "journal", "markets": [],
+      "path": "connector",
+      "connector": { "name": "Notion", "in_directory": true, "notes": "Anthropic verified, made by Notion, URL https://mcp.notion.com/mcp, 69 tools: search pages and databases, read, create and update pages, query data sources. Access = your own Notion permissions (no per-page picker found for Claude's MCP link); Claude can read and write anything you can. Keep the journal in a dedicated teamspace or database if you want a clear boundary.", "url": "https://claude.com/marketplace/connectors/notion" },
+      "export": { "help_url": null, "steps": [], "format_notes": "Not needed when the connector is used." },
+      "verified": true, "notes": "Notion's help says the MCP tools act with your full Notion permissions.",
+      "sources": ["https://claude.com/marketplace/connectors/notion", "https://www.notion.com/help/notion-mcp"]
+    },
+    {
+      "id": "google-sheets-docs", "name": "Google Sheets / Docs / Drive", "aliases": ["Google Drive", "Google Sheets", "Google Docs"],
+      "category": "journal", "markets": [],
+      "path": "connector",
+      "connector": { "name": "Google Drive", "in_directory": true, "notes": "Anthropic verified, made by Google. Search files; read Docs, Sheets, Slides, PDFs; create/update/share/trash files (CSV reading not confirmed on the listing). Good place to keep exported CSVs.", "url": "https://claude.com/marketplace/connectors/google-drive" },
+      "export": { "help_url": null, "steps": [], "format_notes": "" },
+      "verified": true, "notes": "Writes are possible; prefer a dedicated folder.",
+      "sources": ["https://claude.com/marketplace/connectors/google-drive"]
+    },
+    {
+      "id": "excel-onedrive", "name": "Excel / OneDrive / Microsoft 365", "aliases": ["Excel", "OneDrive", "Office 365", "Microsoft 365"],
+      "category": "journal", "markets": [],
+      "path": "connector",
+      "connector": { "name": "Microsoft 365", "in_directory": true, "notes": "Anthropic verified, made by Anthropic. Tools: SharePoint search, Outlook email search, Outlook calendar search, find meeting availability, Teams chat search. No Excel-specific or OneDrive file tools listed.", "url": "https://claude.com/marketplace/connectors/microsoft-365" },
+      "export": { "help_url": null, "steps": [], "format_notes": "For an Excel journal, drop the .xlsx/.csv into a Claude Desktop project folder instead." },
+      "verified": true, "notes": "Search/read only; cannot create calendar events or edit Excel.",
+      "sources": ["https://claude.com/marketplace/connectors/microsoft-365"]
+    },
+    {
+      "id": "apple-notes", "name": "Apple Notes", "aliases": ["Notes app"],
+      "category": "journal", "markets": [],
+      "path": "none",
+      "connector": { "name": null, "in_directory": false, "notes": "No connector. Copy notes into a text file or Notion.", "url": null },
+      "export": { "help_url": null, "steps": ["Copy the notes into a .md or .txt file and put it in a Claude project folder."], "format_notes": "" },
+      "verified": false, "notes": "Absence of a connector inferred from the directory search, not a definitive check.",
+      "sources": []
+    },
+    {
+      "id": "obsidian", "name": "Obsidian", "aliases": ["Obsidian vault"],
+      "category": "journal", "markets": [],
+      "path": "none",
+      "connector": { "name": null, "in_directory": false, "notes": "No directory connector. A vault is just a folder of Markdown files; point Claude Desktop at that folder.", "url": null },
+      "export": { "help_url": null, "steps": ["Share the vault folder with Claude Desktop (Cowork / project folder)."], "format_notes": "" },
+      "verified": false, "notes": "Folder-access route not tested.",
+      "sources": []
+    },
+    {
+      "id": "tradezella", "name": "TradeZella", "aliases": ["Trade Zella"],
+      "category": "journal", "markets": [],
+      "path": "csv",
+      "connector": { "name": null, "in_directory": false, "notes": "No connector found.", "url": null },
+      "export": { "help_url": "https://help.tradezella.com/en/articles/9725069-how-to-export-data-to-a-csv-file-from-the-trade-log-page", "steps": ["Open the Trade Log page.", "Use the export to CSV option.", "Save the file."], "format_notes": "One-way export; the file cannot be re-imported." },
+      "verified": true, "notes": "",
+      "sources": ["https://help.tradezella.com/en/articles/9725069-how-to-export-data-to-a-csv-file-from-the-trade-log-page"]
+    },
+    {
+      "id": "tradervue", "name": "Tradervue", "aliases": [],
+      "category": "journal", "markets": [],
+      "path": "csv",
+      "connector": { "name": null, "in_directory": false, "notes": "No connector found.", "url": null },
+      "export": { "help_url": null, "steps": [], "format_notes": "Export page not confirmed." },
+      "verified": false, "notes": "Export steps not found.",
+      "sources": []
+    },
+    {
+      "id": "edgewonk", "name": "Edgewonk", "aliases": [],
+      "category": "journal", "markets": [],
+      "path": "csv",
+      "connector": { "name": null, "in_directory": false, "notes": "No connector found.", "url": null },
+      "export": { "help_url": "https://edgewonk.com/import", "steps": [], "format_notes": "Page covers importing into Edgewonk; export steps not confirmed." },
+      "verified": false, "notes": "Export steps not found.",
+      "sources": ["https://edgewonk.com/import"]
+    },
+    {
+      "id": "google-calendar", "name": "Google Calendar", "aliases": ["GCal"],
+      "category": "calendar", "markets": [],
+      "path": "connector",
+      "connector": { "name": "Google Calendar", "in_directory": true, "notes": "Anthropic verified, made by Google. Tools: create_event, update_event, delete_event, get_event, list_events, search_events, list_calendars, respond_to_event, suggest_time. So Claude can add market-event reminders directly.", "url": "https://claude.com/marketplace/connectors/google-calendar" },
+      "export": { "help_url": null, "steps": [], "format_notes": "" },
+      "verified": true, "notes": "",
+      "sources": ["https://claude.com/marketplace/connectors/google-calendar"]
+    },
+    {
+      "id": "outlook-calendar", "name": "Microsoft Outlook / 365 Calendar", "aliases": ["Outlook", "Microsoft 365 calendar"],
+      "category": "calendar", "markets": [],
+      "path": "connector",
+      "connector": { "name": "Microsoft 365", "in_directory": true, "notes": "Read-only: outlook_calendar_search and find_meeting_availability. No event creation listed, so use an .ics file import for market-event reminders.", "url": "https://claude.com/marketplace/connectors/microsoft-365" },
+      "export": { "help_url": null, "steps": [], "format_notes": "Claude can write an .ics file you import into Outlook." },
+      "verified": true, "notes": "",
+      "sources": ["https://claude.com/marketplace/connectors/microsoft-365"]
+    },
+    {
+      "id": "apple-calendar", "name": "Apple iCloud Calendar", "aliases": ["iCloud Calendar", "Apple Calendar"],
+      "category": "calendar", "markets": [],
+      "path": "none",
+      "connector": { "name": null, "in_directory": false, "notes": "No directory connector found. Use an .ics file import (open the file to add events).", "url": null },
+      "export": { "help_url": null, "steps": [], "format_notes": "" },
+      "verified": false, "notes": "Absence of a connector inferred, not definitively checked.",
+      "sources": []
+    },
+    {
+      "id": "alpha-vantage", "name": "Alpha Vantage", "aliases": [],
+      "category": "market_data", "markets": ["stocks", "forex", "crypto", "commodities"],
+      "path": "connector",
+      "connector": { "name": "Alpha Vantage MCP Server", "in_directory": true, "notes": "Anthropic verified, made by Alpha Vantage Inc, sign-in required, 126 tools. Free API key: 25 requests per day (official Alpha Vantage support page); paid plans from about $50/month remove the daily cap. Some endpoints are premium-only. The per-minute limit of 5 is from third parties, not confirmed on the official page.", "url": "https://claude.com/marketplace/connectors/alpha-vantage" },
+      "export": { "help_url": null, "steps": [], "format_notes": "" },
+      "verified": true, "notes": "Free tier (25/day) is thin for daily coaching; fine for a few lookups.",
+      "sources": ["https://claude.com/marketplace/connectors/alpha-vantage", "https://www.alphavantage.co/support/"]
+    },
+    {
+      "id": "financial-datasets", "name": "Financial Datasets", "aliases": [],
+      "category": "market_data", "markets": ["stocks"],
+      "path": "connector",
+      "connector": { "name": "Financial Datasets", "in_directory": true, "notes": "Anthropic verified, 28 tools: stock prices, financial statements, filings, insider trades, news, interest rates, macro data. Pricing not stated on the listing. Equities focus.", "url": "https://claude.com/marketplace/connectors/financial-datasets" },
+      "export": { "help_url": null, "steps": [], "format_notes": "" },
+      "verified": true, "notes": "Paid/free status not confirmed.",
+      "sources": ["https://claude.com/marketplace/connectors/financial-datasets"]
+    },
+    {
+      "id": "bigdata", "name": "Bigdata.com", "aliases": ["RavenPack"],
+      "category": "news", "markets": ["stocks", "commodities"],
+      "path": "connector",
+      "connector": { "name": "Bigdata.com", "in_directory": true, "notes": "Made by RavenPack, Anthropic verified, 27 tools (tearsheets, document search, events calendar, screening). Listing says you pay only for the excerpts you use, so it is usage-billed (paid).", "url": "https://claude.com/marketplace/connectors/bigdata" },
+      "export": { "help_url": null, "steps": [], "format_notes": "" },
+      "verified": true, "notes": "Paid.",
+      "sources": ["https://claude.com/marketplace/connectors/bigdata"]
+    },
+    {
+      "id": "mt-newswires", "name": "MT Newswires", "aliases": ["MTNewswires"],
+      "category": "news", "markets": ["stocks", "commodities", "forex"],
+      "path": "connector",
+      "connector": { "name": "MT Newswires", "in_directory": true, "notes": "Anthropic verified. Real-time financial news incl. commodities, FX, macro. Listing says individual subscribers can contact support, so a subscription is likely required (not stated).", "url": "https://claude.com/marketplace/connectors/mt-newswires" },
+      "export": { "help_url": null, "steps": [], "format_notes": "" },
+      "verified": true, "notes": "Likely paid; pricing not stated.",
+      "sources": ["https://claude.com/marketplace/connectors/mt-newswires"]
+    },
+    {
+      "id": "coindesk", "name": "CoinDesk Data & Indices", "aliases": ["CoinDesk"],
+      "category": "crypto", "markets": ["crypto"],
+      "path": "connector",
+      "connector": { "name": "CoinDesk Data & Indices Connector", "in_directory": true, "notes": "Anthropic verified, added May 2026, 25 tools: crypto spot, futures, options, funding rates, indices, news. Pricing not stated.", "url": "https://claude.com/marketplace/connectors/coindesk" },
+      "export": { "help_url": null, "steps": [], "format_notes": "" },
+      "verified": true, "notes": "Crypto only.",
+      "sources": ["https://claude.com/marketplace/connectors/coindesk"]
+    },
+    {
+      "id": "morningstar", "name": "Morningstar", "aliases": [],
+      "category": "market_data", "markets": ["stocks", "funds"],
+      "path": "connector",
+      "connector": { "name": "Morningstar", "in_directory": true, "notes": "Anthropic verified, 6 tools (ID lookup, data, analyst research, articles, screener, fund holdings). Pricing not stated; funds and equities, not commodity futures.", "url": "https://claude.com/marketplace/connectors/morningstar" },
+      "export": { "help_url": null, "steps": [], "format_notes": "" },
+      "verified": true, "notes": "",
+      "sources": ["https://claude.com/marketplace/connectors/morningstar"]
+    },
+    {
+      "id": "factset", "name": "FactSet", "aliases": [],
+      "category": "market_data", "markets": ["stocks"],
+      "path": "connector",
+      "connector": { "name": "FactSet", "in_directory": true, "notes": "Anthropic verified, sign-in required. Institutional data; FactSet subscription presumably needed (not stated). Not relevant for an individual commodity trader.", "url": "https://claude.com/marketplace/connectors/factset" },
+      "export": { "help_url": null, "steps": [], "format_notes": "" },
+      "verified": true, "notes": "Paid / institutional.",
+      "sources": ["https://claude.com/marketplace/connectors/factset"]
+    },
+    {
+      "id": "sp-global", "name": "S&P Global", "aliases": ["S&P Capital IQ", "Platts"],
+      "category": "market_data", "markets": ["stocks", "commodities"],
+      "path": "connector",
+      "connector": { "name": "S&P Global", "in_directory": true, "notes": "Anthropic verified, sign-in required; access terms not stated, presumably an S&P subscription. Institutional.", "url": "https://claude.com/marketplace/connectors/s-p-global" },
+      "export": { "help_url": null, "steps": [], "format_notes": "" },
+      "verified": true, "notes": "Paid / institutional.",
+      "sources": ["https://claude.com/marketplace/connectors/s-p-global"]
+    },
+    {
+      "id": "polygon-massive", "name": "Polygon.io / Massive", "aliases": ["Polygon", "Massive"],
+      "category": "market_data", "markets": ["stocks", "options", "forex", "crypto", "futures"],
+      "path": "advanced",
+      "connector": { "name": "Massive MCP (mcp_massive)", "in_directory": false, "notes": "Polygon.io was renamed Massive in Oct 2025. Open-source MCP server (experimental) plus a hosted endpoint https://mcp.massive.com. Free plan: 5 requests/minute, end-of-day data. Futures likely a paid entitlement (unconfirmed). Not found in Claude's directory.", "url": "https://github.com/massive-com/mcp_massive" },
+      "export": { "help_url": null, "steps": [], "format_notes": "" },
+      "verified": false, "notes": "Not in directory; details from search results.",
+      "sources": ["https://github.com/massive-com/mcp_massive"]
+    },
+    {
+      "id": "gmail", "name": "Gmail", "aliases": ["Google Mail"],
+      "category": "other", "markets": [],
+      "path": "connector",
+      "connector": { "name": "Gmail", "in_directory": true, "notes": "Anthropic verified, made by Google. Can search and read mail (broker confirmations) and also send, reply, forward and create drafts. If you only want it to read, set sending tools to Needs approval or disconnect when not needed.", "url": "https://claude.com/marketplace/connectors/gmail" },
+      "export": { "help_url": null, "steps": [], "format_notes": "" },
+      "verified": true, "notes": "Send-capable.",
+      "sources": ["https://claude.com/marketplace/connectors/gmail"]
+    },
+    {
+      "id": "slack", "name": "Slack", "aliases": ["Slack trading room"],
+      "category": "other", "markets": [],
+      "path": "connector",
+      "connector": { "name": "Slack", "in_directory": true, "notes": "Anthropic verified, made by Slack. Reads channels and threads, searches, and can post messages.", "url": "https://claude.com/marketplace/connectors/slack" },
+      "export": { "help_url": null, "steps": [], "format_notes": "" },
+      "verified": true, "notes": "",
+      "sources": ["https://claude.com/marketplace/connectors/slack"]
+    },
+    {
+      "id": "discord", "name": "Discord", "aliases": ["Discord trading room"],
+      "category": "other", "markets": [],
+      "path": "none",
+      "connector": { "name": null, "in_directory": false, "notes": "No Discord connector found in the directory (a guess at the slug returned 404; not a full search).", "url": null },
+      "export": { "help_url": null, "steps": ["Copy the messages you want to analyse into a text file."], "format_notes": "" },
+      "verified": false, "notes": "Not exhaustively checked.",
+      "sources": []
+    }
+  ]
+}

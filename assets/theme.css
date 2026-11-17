@@ -1,0 +1,113 @@
+/* Trading Coach theme: royal purple → black gradients, gold trim.
+   Shared by setup.html (wizard) and dashboard.html. Tokens follow shadcn/ui names. */
+:root {
+  --royal-50: #f4effb;
+  --royal-200: #cbb5ec;
+  --royal-400: #8d5fd6;
+  --royal-500: #6a35c2;   /* royal purple */
+  --royal-600: #5326a3;
+  --royal-700: #3d1a7a;
+  --royal-800: #261050;
+  --royal-900: #160a2e;
+  --ink: #07040d;         /* near-black */
+  --gold-200: #f6e7b4;
+  --gold-300: #ecd27e;
+  --gold-400: #dcb64f;    /* gold trim */
+  --gold-500: #c39a2e;
+  --gold-600: #9a7720;
+
+  --gradient-bg: radial-gradient(120% 80% at 50% -10%, #3d1a7a 0%, #1c0b3c 38%, #0b0616 70%, #07040d 100%);
+  --gradient-card: linear-gradient(160deg, rgba(106,53,194,.22) 0%, rgba(22,10,46,.65) 55%, rgba(7,4,13,.85) 100%);
+  --gradient-gold: linear-gradient(135deg, #f6e7b4 0%, #dcb64f 40%, #9a7720 100%);
+  --gradient-trim: linear-gradient(135deg, rgba(246,231,180,.9), rgba(220,182,79,.55) 35%, rgba(154,119,32,.25) 70%, rgba(220,182,79,.6));
+
+  /* shadcn-style semantic tokens (dark is the default) */
+  --background: #07040d;
+  --foreground: #f5f1fb;
+  --card: #120a24;
+  --card-foreground: #f5f1fb;
+  --muted: #1d1236;
+  --muted-foreground: #b5a8cf;
+  --primary: #dcb64f;
+  --primary-foreground: #160a2e;
+  --secondary: #261050;
+  --secondary-foreground: #f5f1fb;
+  --accent: #6a35c2;
+  --accent-foreground: #ffffff;
+  --border: rgba(220,182,79,.28);
+  --border-soft: rgba(203,181,236,.14);
+  --ring: #dcb64f;
+  --radius: 18px;
+
+  /* P&L only. Colourblind-safe pair (blue-green / orange-red); always paired with ▲/▼ and signs. */
+  --gain: #3ccf9a;
+  --loss: #ff7a59;
+  --neutral: #b5a8cf;
+  color-scheme: dark;
+}
+
+:root[data-theme="light"] {
+  --gradient-bg: radial-gradient(120% 80% at 50% -10%, #e9ddfb 0%, #f7f2fd 45%, #fbf9fe 100%);
+  --gradient-card: linear-gradient(160deg, rgba(255,255,255,.95) 0%, rgba(244,239,251,.95) 100%);
+  --background: #fbf9fe;
+  --foreground: #1a0f33;
+  --card: #ffffff;
+  --card-foreground: #1a0f33;
+  --muted: #f1ebfa;
+  --muted-foreground: #5d5277;
+  --primary: #5326a3;
+  --primary-foreground: #ffffff;
+  --secondary: #efe6fb;
+  --secondary-foreground: #261050;
+  --accent: #6a35c2;
+  --accent-foreground: #ffffff;
+  --border: rgba(154,119,32,.45);
+  --border-soft: rgba(61,26,122,.12);
+  --ring: #9a7720;
+  --gain: #0f8a63;
+  --loss: #c4421f;
+  --neutral: #5d5277;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --gradient-bg: radial-gradient(120% 80% at 50% -10%, #e9ddfb 0%, #f7f2fd 45%, #fbf9fe 100%);
+    --gradient-card: linear-gradient(160deg, rgba(255,255,255,.95) 0%, rgba(244,239,251,.95) 100%);
+    --background: #fbf9fe;
+    --foreground: #1a0f33;
+    --card: #ffffff;
+    --card-foreground: #1a0f33;
+    --muted: #f1ebfa;
+    --muted-foreground: #5d5277;
+    --primary: #5326a3;
+    --primary-foreground: #ffffff;
+    --secondary: #efe6fb;
+    --secondary-foreground: #261050;
+    --border: rgba(154,119,32,.45);
+    --border-soft: rgba(61,26,122,.12);
+    --ring: #9a7720;
+    --gain: #0f8a63;
+    --loss: #c4421f;
+    --neutral: #5d5277;
+    color-scheme: light;
+  }
+}
+
+/* Gold trim helper: a 1px gradient border on any rounded box. */
+.gold-trim {
+  position: relative;
+  border-radius: var(--radius);
+}
+.gold-trim::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: var(--gradient-trim);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}

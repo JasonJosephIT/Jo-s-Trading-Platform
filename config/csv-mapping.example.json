@@ -1,0 +1,122 @@
+{
+  "_doc": {
+    "how_to_use": "Copy to config/csv-mapping.json. Set \"preset\" to one of the names under \"presets\", then add any keys below at the top level to override that preset. Run: python3 scripts/normalize_csv.py inbox/file.csv --mapping config/csv-mapping.json --out data/trades.csv",
+    "kind": "\"fills\" (one row per execution; matched FIFO into round trips) or \"round_trips\" (one row per finished trade).",
+    "columns": "Canonical field -> the CSV's column name. Fills: symbol, side (optional if qty is signed), qty, price, time, fees, account, order_id, asset_class. Round trips: symbol, side, qty, entry_time, exit_time, entry_price, exit_price, fees, pnl_gross, account, order_id; or buy_time, sell_time, buy_price, sell_price instead of side/entry/exit (side is then derived from which came first).",
+    "date_format": "Python strptime format, \"iso\" for ISO 8601, or \"epoch_ms\". Times without an offset are read in \"timezone\" (override with --timezone).",
+    "time_strip_regex": "Optional regex removed from time cells before parsing (for example a trailing timezone name).",
+    "header_row_contains": "Optional list of column names; skips leading report sections until the row that has them all, and stops at the next blank line.",
+    "row_filter": "Optional {column: [allowed values]}; other rows are ignored (for example only Filled orders).",
+    "side_values": "Optional {buy: [...], sell: [...]}; case-insensitive. Defaults cover B/Buy/Bot/Bought and S/Sell/Sld/Sold.",
+    "asset_class": "stock | option | future | crypto | forex | other. Default for every row.",
+    "asset_class_values": "Optional map from a per-row asset class column's values to the above, e.g. {\"FUT\": \"future\"}.",
+    "multipliers": "Optional {ROOT: dollars per point} that adds to or overrides the built-in futures table (CL 1000, MCL 100, GC 100, MGC 10, NG 10000, ES 50, MES 5, NQ 20, MNQ 2, ZC/ZS/ZW 50, and more). Options default to 100. Everything else is 1.",
+    "fee_per_unit_per_side": "Used only when the file has no fees column: dollars per contract or share per side.",
+    "source": "Written to the source column, for example csv:tradovate.",
+    "verified": "true = column names were checked against a real export. false = taken from the vendor's documented layout or memory; run one file and check the numbers before trusting it."
+  },
+  "preset": "generic_round_trip",
+  "timezone": "America/New_York",
+  "presets": {
+    "generic_round_trip": {
+      "verified": true,
+      "notes": "Already one row per trade. Header: account,symbol,side,qty,entry_time,exit_time,entry_price,exit_price,fees. Times in ISO 8601.",
+      "kind": "round_trips",
+      "asset_class": "future",
+      "date_format": "iso",
+      "timezone": "America/New_York",
+      "source": "csv:generic",
+      "columns": {
+        "account": "account", "symbol": "symbol", "side": "side", "qty": "qty",
+        "entry_time": "entry_time", "exit_time": "exit_time",
+        "entry_price": "entry_price", "exit_price": "exit_price", "fees": "fees"
+      }
+    },
+    "tradovate_performance": {
+      "verified": false,
+      "notes": "Tradovate Account Reports > Performance > Export CSV (one row per round trip). Column names from Tradovate's documented export (fill ids, buy/sell prices, bought/sold timestamps); not checked against a real file. The pnl column is ignored and recomputed from prices and the multiplier table. No commission column: set fee_per_unit_per_side.",
+      "kind": "round_trips",
+      "asset_class": "future",
+      "date_format": "%m/%d/%Y %H:%M:%S",
+      "timezone": "America/New_York",
+      "source": "csv:tradovate",
+      "fee_per_unit_per_side": 0,
+      "columns": {
+        "symbol": "symbol", "qty": "qty",
+        "buy_price": "buyPrice", "sell_price": "sellPrice",
+        "buy_time": "boughtTimestamp", "sell_time": "soldTimestamp",
+        "order_id": "buyFillId"
+      }
+    },
+    "tradovate_orders_fills": {
+      "verified": false,
+      "notes": "Tradovate Orders export (one row per order; the avg fill price and filled qty are used as one fill). Column names from memory of the Orders report; not checked against a real file. Only rows with Status = Filled are used.",
+      "kind": "fills",
+      "asset_class": "future",
+      "date_format": "%m/%d/%Y %H:%M:%S",
+      "timezone": "America/New_York",
+      "source": "csv:tradovate",
+      "fee_per_unit_per_side": 0,
+      "row_filter": { "Status": ["Filled"] },
+      "columns": {
+        "account": "Account", "symbol": "Contract", "side": "B/S", "qty": "filledQty",
+        "price": "avgPrice", "time": "Fill Time", "order_id": "orderId"
+      }
+    },
+    "ninjatrader_trade_performance": {
+      "verified": false,
+      "notes": "NinjaTrader 8 Trade Performance grid > right-click > Export. One row per trade. Column names from the documented grid; not checked against a real export. Profit and commission columns are ignored for pnl; pnl is recomputed from prices. Check the time format (12-hour with AM/PM assumed).",
+      "kind": "round_trips",
+      "asset_class": "future",
+      "date_format": "%m/%d/%Y %I:%M:%S %p",
+      "timezone": "America/New_York",
+      "source": "csv:ninjatrader",
+      "side_values": { "buy": ["Long"], "sell": ["Short"] },
+      "columns": {
+        "account": "Account", "symbol": "Instrument", "side": "Market pos.", "qty": "Qty",
+        "entry_price": "Entry price", "exit_price": "Exit price",
+        "entry_time": "Entry time", "exit_time": "Exit time",
+        "fees": "Commission", "order_id": "Trade number"
+      }
+    },
+    "thinkorswim_account_statement": {
+      "verified": false,
+      "notes": "thinkorswim > Monitor > Account Statement > Export. The file has several sections; the Account Trade History block is found by its header row. Stocks, with a signed Qty. Not checked against a real export. Dates are two-digit-year (11/16/26 09:42:10).",
+      "kind": "fills",
+      "asset_class": "stock",
+      "date_format": "%m/%d/%y %H:%M:%S",
+      "timezone": "America/New_York",
+      "source": "csv:thinkorswim",
+      "header_row_contains": ["Exec Time", "Side", "Symbol", "Price"],
+      "fee_per_unit_per_side": 0,
+      "columns": { "symbol": "Symbol", "side": "Side", "qty": "Qty", "price": "Price", "time": "Exec Time" }
+    },
+    "ibkr_flex_trades": {
+      "verified": false,
+      "notes": "IBKR Flex Query (Trades section) as CSV with fields ClientAccountID, AssetClass, Symbol, DateTime, Quantity, TradePrice, IBCommission, Buy/Sell, Multiplier. Date format 'yyyyMMdd;HHmmss' must be chosen in the Flex query. Not checked against a real export. Commission comes as a negative number; the sign is dropped. For futures set the Symbol field to the contract (e.g. CLZ6).",
+      "kind": "fills",
+      "asset_class": "stock",
+      "asset_class_values": { "STK": "stock", "FUT": "future", "OPT": "option", "CASH": "forex", "CRYPTO": "crypto" },
+      "date_format": "%Y%m%d;%H%M%S",
+      "timezone": "America/New_York",
+      "source": "csv:ibkr",
+      "columns": {
+        "account": "ClientAccountID", "asset_class": "AssetClass", "symbol": "Symbol", "side": "Buy/Sell",
+        "qty": "Quantity", "price": "TradePrice", "time": "DateTime", "fees": "IBCommission", "order_id": "TradeID"
+      }
+    },
+    "webull_orders": {
+      "verified": false,
+      "notes": "Webull app/web > Orders > Export. Filled orders only. Column names from memory; not checked against a real file. Times carry a trailing zone name such as EST, which is stripped; set timezone to the account's zone. No commission column.",
+      "kind": "fills",
+      "asset_class": "stock",
+      "date_format": "%m/%d/%Y %H:%M:%S",
+      "time_strip_regex": "\\s+[A-Za-z]{2,4}$",
+      "timezone": "America/New_York",
+      "source": "csv:webull",
+      "fee_per_unit_per_side": 0,
+      "row_filter": { "Status": ["Filled"] },
+      "columns": { "symbol": "Symbol", "side": "Side", "qty": "Filled", "price": "Avg Price", "time": "Filled Time" }
+    }
+  }
+}

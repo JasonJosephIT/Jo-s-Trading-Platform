@@ -1,0 +1,81 @@
+{
+  "name": "Sample Trader",
+  "timezone": "America/New_York",
+  "markets": [
+    "futures"
+  ],
+  "instruments": [
+    "CL",
+    "MCL",
+    "GC",
+    "MGC",
+    "NG",
+    "ZC"
+  ],
+  "style": "futures-prop",
+  "session": {
+    "start": "09:00",
+    "end": "14:30"
+  },
+  "brief_time": "07:30",
+  "account_currency": "USD",
+  "default_risk_per_trade": 100,
+  "max_daily_loss": 500,
+  "max_trades_per_day": 4,
+  "stop_after_consecutive_losses": 2,
+  "prop_rules": {
+    "trailing_drawdown": 2000,
+    "daily_loss_limit": 1000
+  },
+  "setups": [
+    "opening range break",
+    "VWAP reclaim",
+    "inventory report fade",
+    "trend pullback"
+  ],
+  "mistake_tags": [
+    "fomo",
+    "revenge",
+    "oversize",
+    "moved_stop",
+    "early_exit",
+    "overtrading",
+    "off_plan"
+  ],
+  "watchlist": [
+    "CL",
+    "GC",
+    "NG"
+  ],
+  "data_source": "csv",
+  "tools": {
+    "broker": {
+      "name": "Sample (synthetic)",
+      "path": "csv",
+      "status": "confirmed"
+    },
+    "charting": [],
+    "journal": {
+      "name": "Notion",
+      "status": "connector"
+    },
+    "calendar": {
+      "name": "",
+      "status": "skip"
+    },
+    "news": [],
+    "other": []
+  },
+  "calendar": {
+    "add_market_events": false,
+    "calendar_name": "Trading",
+    "event_types": []
+  },
+  "notion": {
+    "journal_location": "",
+    "journal_shape": "database",
+    "brief_page": null
+  },
+  "layout_preset": "futures-prop",
+  "panels": {}
+}

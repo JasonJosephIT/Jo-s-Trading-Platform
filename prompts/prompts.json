@@ -1,0 +1,61 @@
+{
+  "_note": "Single source for every copy-paste prompt. scripts/gen_prompts.mjs writes prompts/*.md from this file and the setup wizard imports it, so the two never drift. Edit here, then run: node scripts/gen_prompts.mjs",
+  "prompts": [
+    {
+      "id": "setup",
+      "file": "01-setup.md",
+      "title": "Setup",
+      "when": "Once, in Claude Desktop, with the Trading Coach folder selected. The wizard fills in your answers.",
+      "text": "Read CLAUDE.md in this folder and follow the SETUP flow exactly.\nMy answers from the setup wizard are below. Ask me only about anything missing or unclear,\none question at a time, with multiple-choice options where possible.\nFor every tool listed under tools.to_research, look up whether it has a Claude connector\nor a way to export my trades, show me what you found with links, and let me confirm before you use it.\nDo not change how I write my journal. Never place, modify, or suggest specific trades.\n\n{{ANSWERS}}"
+    },
+    {
+      "id": "morning-update",
+      "file": "02-morning-update.md",
+      "title": "Morning update (scheduled)",
+      "when": "Runs by itself every weekday at your brief time. Claude creates this task during setup.",
+      "text": "Read CLAUDE.md and run the MORNING_UPDATE flow for today. Finish with the brief saved and\ndata/data.js rebuilt. If any source fails, still produce the brief with what you have and\nsay what was missing at the top."
+    },
+    {
+      "id": "checkin",
+      "file": "03-morning-checkin.md",
+      "title": "Morning check-in",
+      "when": "Each trading morning, about 2 minutes.",
+      "text": "Run the CHECKIN flow from CLAUDE.md: ask me mood (1–5), sleep, and anything on my mind,\nthen remind me of today's risk limits and focus rule, and save my answers to today's Notion entry."
+    },
+    {
+      "id": "log-day",
+      "file": "04-log-my-day.md",
+      "title": "Log my day",
+      "when": "After the close, if you'd rather talk than type your journal.",
+      "text": "Run the LOG_DAY flow from CLAUDE.md. I'll talk; you turn it into today's journal entry in\nNotion in my usual format, link it to today's trades, and ask me only about missing basics\n(did I follow my plan? any mistakes?)."
+    },
+    {
+      "id": "weekly-review",
+      "file": "05-weekly-review.md",
+      "title": "Weekly review (scheduled)",
+      "when": "Runs by itself on the weekend. Use it by hand any time.",
+      "text": "Run the WEEKLY_REVIEW flow from CLAUDE.md for the week just ended."
+    },
+    {
+      "id": "ask",
+      "file": "06-ask-my-data.md",
+      "title": "Ask my data",
+      "when": "Any question about your own trading.",
+      "text": "Using data/ and my Notion journal (see CLAUDE.md), answer: <my question>.\nShow the numbers, the sample size, and which trades/journal entries you used."
+    },
+    {
+      "id": "fix",
+      "file": "07-fix-something.md",
+      "title": "Fix something",
+      "when": "Something looks wrong or a run failed.",
+      "text": "Something's off with my Trading Coach: <what I see>. Read CLAUDE.md, diagnose, fix it,\nand tell me in plain words what you changed."
+    },
+    {
+      "id": "add-tool",
+      "file": "08-add-a-tool.md",
+      "title": "Add a tool",
+      "when": "You started using a new app (platform, calendar, news) and want the coach to use it.",
+      "text": "Run the ADD_TOOL flow from CLAUDE.md for: <the app I use>.\nCheck whether Claude has a connector for it, and if not, the best second option\n(an export, a calendar file, or web search). Show me the options with links, let me pick,\nthen walk me through it one step at a time and update config/profile.json."
+    }
+  ]
+}

@@ -1,0 +1,154 @@
+trade_id,account,symbol,asset_class,side,qty,entry_time,exit_time,entry_price,exit_price,fees,pnl_gross,pnl_net,initial_risk,risk_source,setup,tags,source,source_ref
+5214966c62137d5a,DEMO-SIM (synthetic),CL,future,short,1,2026-07-15T10:32:43-04:00,2026-07-15T10:43:24-04:00,61.65,61.35,4.2,300,295.8,120,broker_stop,inventory report fade,,sample,sample-seed-42
+f480d82c0717b42f,DEMO-SIM (synthetic),MGC,future,short,12,2026-07-15T11:38:17-04:00,2026-07-15T11:55:19-04:00,4181.8,4182.4,15.6,-72,-87.6,,,VWAP reclaim,,sample,sample-seed-42
+43bf66ea6f8e60f9,DEMO-SIM (synthetic),MGC,future,long,12,2026-07-17T09:09:04-04:00,2026-07-17T09:22:10-04:00,4162.5,4163.7,15.6,144,128.4,96,journal,opening range break,,sample,sample-seed-42
+9cbb66c4123e30f8,DEMO-SIM (synthetic),GC,future,long,1,2026-07-20T12:57:19-04:00,2026-07-20T13:03:30-04:00,4233.8,4232.8,4.2,-100,-104.2,120,journal,VWAP reclaim,,sample,sample-seed-42
+c77cf05e81d20687,DEMO-SIM (synthetic),MGC,future,short,16,2026-07-20T13:56:15-04:00,2026-07-20T14:04:46-04:00,4217.4,4218.1,20.8,-112,-132.8,128,journal,trend pullback,,sample,sample-seed-42
+170c3cc2a02a53cb,DEMO-SIM (synthetic),CL,future,short,2,2026-07-21T11:47:29-04:00,2026-07-21T12:10:06-04:00,62.62,62.69,8.4,-140,-148.4,160,journal,VWAP reclaim,,sample,sample-seed-42
+7c069b886aaaca92,DEMO-SIM (synthetic),CL,future,short,1,2026-07-21T13:24:25-04:00,2026-07-21T13:44:21-04:00,62.77,62.87,4.2,-100,-104.2,120,journal,trend pullback,,sample,sample-seed-42
+8a0fd936b0fac9da,DEMO-SIM (synthetic),CL,future,long,1,2026-07-22T10:32:28-04:00,2026-07-22T10:42:21-04:00,62.92,63.18,4.2,260,255.8,100,journal,inventory report fade,,sample,sample-seed-42
+bc0624cc34ea553e,DEMO-SIM (synthetic),ZC,future,long,1,2026-07-22T11:21:52-04:00,2026-07-22T11:51:55-04:00,436,440.5,4.8,225,220.2,,,trend pullback,,sample,sample-seed-42
+1a14ee3149c3af42,DEMO-SIM (synthetic),ZC,future,short,1,2026-07-22T13:02:08-04:00,2026-07-22T13:41:19-04:00,435,431,4.8,200,195.2,125,broker_stop,VWAP reclaim,,sample,sample-seed-42
+c55606faf81754f2,DEMO-SIM (synthetic),CL,future,long,1,2026-07-23T11:10:30-04:00,2026-07-23T11:22:20-04:00,63.17,63.3,4.2,130,125.8,,,VWAP reclaim,,sample,sample-seed-42
+515d434fec6cb432,DEMO-SIM (synthetic),NG,future,long,2,2026-07-23T12:40:20-04:00,2026-07-23T13:09:18-04:00,3.398,3.413,8.4,300,291.6,,,trend pullback,,sample,sample-seed-42
+023d98895a6dfe14,DEMO-SIM (synthetic),GC,future,long,1,2026-07-24T10:34:31-04:00,2026-07-24T10:47:36-04:00,4280.1,4282.5,4.2,240,235.8,120,broker_stop,VWAP reclaim,,sample,sample-seed-42
+c7e86f6866dd8a87,DEMO-SIM (synthetic),MCL,future,short,10,2026-07-24T11:12:17-04:00,2026-07-24T11:19:52-04:00,63.73,63.61,13,120,107,100,broker_stop,VWAP reclaim,,sample,sample-seed-42
+9a3f6839f92358d5,DEMO-SIM (synthetic),NG,future,short,2,2026-07-27T10:19:59-04:00,2026-07-27T10:49:36-04:00,3.352,3.341,8.4,220,211.6,160,journal,VWAP reclaim,,sample,sample-seed-42
+44f38d72c22dd631,DEMO-SIM (synthetic),GC,future,long,1,2026-07-27T11:59:34-04:00,2026-07-27T12:29:11-04:00,4275.6,4276.1,4.2,50,45.8,100,broker_stop,trend pullback,early_exit,sample,sample-seed-42
+7a72b1c1f0fdb9b4,DEMO-SIM (synthetic),MCL,future,short,12,2026-07-29T10:31:46-04:00,2026-07-29T10:43:29-04:00,63.71,63.51,15.6,240,224.4,,,inventory report fade,,sample,sample-seed-42
+01bdd202e218a93b,DEMO-SIM (synthetic),GC,future,short,1,2026-07-29T11:24:13-04:00,2026-07-29T11:31:28-04:00,4261.5,4259.5,4.2,200,195.8,,,VWAP reclaim,,sample,sample-seed-42
+ed9e0eb53a4ab77a,DEMO-SIM (synthetic),GC,future,long,1,2026-07-31T10:05:52-04:00,2026-07-31T10:18:54-04:00,4220.2,4217.8,4.2,-240,-244.2,120,broker_stop,VWAP reclaim,moved_stop,sample,sample-seed-42
+5d2fe3af80b18f2d,DEMO-SIM (synthetic),GC,future,long,2,2026-07-31T10:22:08-04:00,2026-07-31T10:49:40-04:00,4213.2,4211.9,8.4,-260,-268.4,200,journal,VWAP reclaim,revenge,sample,sample-seed-42
+66e1626e3be52c21,DEMO-SIM (synthetic),MCL,future,long,12,2026-07-31T11:04:42-04:00,2026-07-31T11:32:09-04:00,63.64,63.76,15.6,144,128.4,96,journal,trend pullback,,sample,sample-seed-42
+6b722de09dfed437,DEMO-SIM (synthetic),CL,future,short,1,2026-08-03T13:27:04-04:00,2026-08-03T14:04:28-04:00,64.69,64.77,4.2,-80,-84.2,100,journal,trend pullback,,sample,sample-seed-42
+93acda41b1908ed8,DEMO-SIM (synthetic),MGC,future,short,32,2026-08-03T14:07:25-04:00,2026-08-03T14:40:34-04:00,4224.5,4225.4,41.6,-288,-329.6,,,trend pullback,revenge|oversize,sample,sample-seed-42
+86b69e6a152b701c,DEMO-SIM (synthetic),CL,future,short,2,2026-08-05T10:34:34-04:00,2026-08-05T10:58:02-04:00,66.07,65.77,8.4,600,591.6,200,broker_stop,inventory report fade,,sample,sample-seed-42
+0d1b30816184976a,DEMO-SIM (synthetic),ZC,future,short,2,2026-08-05T11:19:23-04:00,2026-08-05T11:38:44-04:00,456.5,457.75,9.6,-125,-134.6,150,journal,trend pullback,,sample,sample-seed-42
+b1e1aea0b5c78e73,DEMO-SIM (synthetic),NG,future,short,1,2026-08-07T10:26:06-04:00,2026-08-07T10:54:49-04:00,3.346,3.381,4.2,-350,-354.2,120,broker_stop,VWAP reclaim,moved_stop,sample,sample-seed-42
+7d7e757394ca584f,DEMO-SIM (synthetic),MCL,future,short,16,2026-08-10T10:17:10-04:00,2026-08-10T10:38:41-04:00,66.29,66.36,20.8,-112,-132.8,128,broker_stop,trend pullback,,sample,sample-seed-42
+fb0782e0281c0a06,DEMO-SIM (synthetic),CL,future,long,1,2026-08-10T11:48:41-04:00,2026-08-10T12:16:43-04:00,66.46,66.39,4.2,-70,-74.2,80,broker_stop,trend pullback,,sample,sample-seed-42
+efdf0d9319ab3d4e,DEMO-SIM (synthetic),MCL,future,long,12,2026-08-11T10:07:48-04:00,2026-08-11T10:39:21-04:00,66.58,66.64,15.6,72,56.4,96,journal,VWAP reclaim,,sample,sample-seed-42
+78c49f9781b9e234,DEMO-SIM (synthetic),MGC,future,long,12,2026-08-11T11:07:06-04:00,2026-08-11T11:34:16-04:00,4051.1,4053.1,15.6,240,224.4,144,journal,VWAP reclaim,,sample,sample-seed-42
+1d4a9984e24d2284,DEMO-SIM (synthetic),MCL,future,short,12,2026-08-12T10:35:28-04:00,2026-08-12T10:53:23-04:00,66.87,66.71,15.6,192,176.4,120,journal,inventory report fade,,sample,sample-seed-42
+708636940f400005,DEMO-SIM (synthetic),CL,future,long,1,2026-08-12T11:25:49-04:00,2026-08-12T11:34:43-04:00,66.61,66.74,4.2,130,125.8,100,broker_stop,trend pullback,,sample,sample-seed-42
+44e06e562e707e0f,DEMO-SIM (synthetic),CL,future,short,1,2026-08-13T11:55:22-04:00,2026-08-13T12:29:01-04:00,66.68,66.4,4.2,280,275.8,120,journal,VWAP reclaim,,sample,sample-seed-42
+b629102283133ee1,DEMO-SIM (synthetic),MCL,future,short,12,2026-08-13T13:51:26-04:00,2026-08-13T14:06:58-04:00,66.49,66.59,15.6,-120,-135.6,144,journal,VWAP reclaim,,sample,sample-seed-42
+59295cac2d317165,DEMO-SIM (synthetic),MGC,future,long,10,2026-08-18T11:04:22-04:00,2026-08-18T11:31:19-04:00,4118.4,4117.5,13,-90,-103,100,journal,VWAP reclaim,,sample,sample-seed-42
+77122d5bf1fbb3d5,DEMO-SIM (synthetic),MGC,future,short,12,2026-08-18T12:30:13-04:00,2026-08-18T12:58:33-04:00,4106.9,4107.5,15.6,-72,-87.6,96,journal,VWAP reclaim,,sample,sample-seed-42
+068783f9e0ffcf39,DEMO-SIM (synthetic),MGC,future,short,19,2026-08-20T12:35:28-04:00,2026-08-20T13:10:46-04:00,4049.6,4050.2,24.7,-114,-138.7,152,journal,trend pullback,,sample,sample-seed-42
+84e46a742d58c64d,DEMO-SIM (synthetic),ZC,future,long,1,2026-08-20T13:30:04-04:00,2026-08-20T13:37:19-04:00,472,472.75,4.8,37.5,32.7,,,VWAP reclaim,early_exit,sample,sample-seed-42
+d8bfb57f941ba878,DEMO-SIM (synthetic),MCL,future,long,12,2026-08-21T10:15:01-04:00,2026-08-21T10:51:54-04:00,65.4,65.6,15.6,240,224.4,120,broker_stop,VWAP reclaim,,sample,sample-seed-42
+db659258ca2e4efa,DEMO-SIM (synthetic),MCL,future,short,10,2026-08-21T11:21:43-04:00,2026-08-21T11:31:51-04:00,65.28,65.09,13,190,177,,,VWAP reclaim,,sample,sample-seed-42
+dd714ac9788df99a,DEMO-SIM (synthetic),MCL,future,long,8,2026-08-21T12:42:47-04:00,2026-08-21T13:13:15-04:00,65.31,65.51,10.4,160,149.6,96,journal,trend pullback,,sample,sample-seed-42
+66f11b22bc4965af,DEMO-SIM (synthetic),MCL,future,short,15,2026-08-24T09:50:21-04:00,2026-08-24T10:05:35-04:00,64.58,64.39,19.5,285,265.5,,,VWAP reclaim,,sample,sample-seed-42
+3273e8bea5362958,DEMO-SIM (synthetic),ZC,future,short,1,2026-08-24T11:11:14-04:00,2026-08-24T11:50:51-04:00,477.25,472.25,4.8,250,245.2,125,broker_stop,VWAP reclaim,,sample,sample-seed-42
+2fb2449eeceadbc5,DEMO-SIM (synthetic),MGC,future,long,9,2026-08-25T12:57:40-04:00,2026-08-25T13:36:42-04:00,4045.8,4045.1,11.7,-63,-74.7,72,journal,VWAP reclaim,,sample,sample-seed-42
+09bf44842b7f6445,DEMO-SIM (synthetic),GC,future,short,2,2026-08-26T09:03:28-04:00,2026-08-26T09:17:37-04:00,4126.6,4127.4,8.4,-160,-168.4,200,journal,opening range break,,sample,sample-seed-42
+92279b67edaf7f51,DEMO-SIM (synthetic),GC,future,long,2,2026-08-26T10:01:00-04:00,2026-08-26T10:12:45-04:00,4132.7,4130.5,8.4,-440,-448.4,160,journal,VWAP reclaim,moved_stop,sample,sample-seed-42
+f7171caaf3e0aca7,DEMO-SIM (synthetic),MCL,future,short,12,2026-08-26T10:36:48-04:00,2026-08-26T11:05:45-04:00,64.89,64.79,15.6,120,104.4,144,journal,VWAP reclaim,,sample,sample-seed-42
+f98e31459fae95a9,DEMO-SIM (synthetic),MGC,future,short,9,2026-08-27T10:23:23-04:00,2026-08-27T10:42:20-04:00,4147.6,4146.6,11.7,90,78.3,72,journal,VWAP reclaim,,sample,sample-seed-42
+9797111613828ba2,DEMO-SIM (synthetic),MCL,future,long,10,2026-08-27T11:28:16-04:00,2026-08-27T11:53:42-04:00,64.01,64.17,13,160,147,100,journal,VWAP reclaim,,sample,sample-seed-42
+54ea56998edfd2d1,DEMO-SIM (synthetic),MGC,future,short,16,2026-08-28T11:21:38-04:00,2026-08-28T11:28:24-04:00,4175.7,4176.4,20.8,-112,-132.8,128,journal,trend pullback,,sample,sample-seed-42
+d3c080467b5a8a63,DEMO-SIM (synthetic),GC,future,short,1,2026-08-28T11:32:07-04:00,2026-08-28T12:05:22-04:00,4174.5,4175.5,4.2,-100,-104.2,,,VWAP reclaim,revenge,sample,sample-seed-42
+7c8c98460dd0a3f8,DEMO-SIM (synthetic),MCL,future,long,8,2026-08-28T12:50:39-04:00,2026-08-28T13:08:11-04:00,62.91,62.82,10.4,-72,-82.4,80,broker_stop,trend pullback,,sample,sample-seed-42
+33a6ca5eef491ccb,DEMO-SIM (synthetic),GC,future,long,1,2026-08-31T11:09:58-04:00,2026-08-31T11:27:39-04:00,4201.3,4200.7,4.2,-60,-64.2,80,journal,trend pullback,,sample,sample-seed-42
+b70a80613d0bab97,DEMO-SIM (synthetic),CL,future,short,1,2026-08-31T11:35:08-04:00,2026-08-31T11:53:20-04:00,62.34,62.43,4.2,-90,-94.2,80,journal,VWAP reclaim,revenge,sample,sample-seed-42
+90fee2d662197131,DEMO-SIM (synthetic),MCL,future,short,8,2026-09-01T11:46:11-04:00,2026-09-01T12:21:23-04:00,61.44,61.54,10.4,-80,-90.4,96,journal,trend pullback,,sample,sample-seed-42
+4bb7674e9639677c,DEMO-SIM (synthetic),MCL,future,long,12,2026-09-02T09:38:26-04:00,2026-09-02T10:00:38-04:00,60.43,60.34,15.6,-108,-123.6,120,journal,opening range break,,sample,sample-seed-42
+f36fa60bc85371bb,DEMO-SIM (synthetic),GC,future,long,4,2026-09-02T10:05:24-04:00,2026-09-02T10:14:27-04:00,4209.8,4209.1,16.8,-280,-296.8,320,journal,VWAP reclaim,revenge|oversize,sample,sample-seed-42
+c6154b9c65f3cad8,DEMO-SIM (synthetic),MCL,future,short,10,2026-09-03T11:04:35-04:00,2026-09-03T11:23:10-04:00,61.63,61.87,13,-240,-253,120,journal,VWAP reclaim,moved_stop,sample,sample-seed-42
+b3737d24cbb087bf,DEMO-SIM (synthetic),NG,future,long,1,2026-09-03T11:29:11-04:00,2026-09-03T11:43:20-04:00,3.354,3.345,4.2,-90,-94.2,100,broker_stop,VWAP reclaim,revenge,sample,sample-seed-42
+1b172252a4016650,DEMO-SIM (synthetic),MCL,future,long,16,2026-09-03T11:45:55-04:00,2026-09-03T11:57:22-04:00,61.09,61.35,20.8,416,395.2,192,journal,VWAP reclaim,revenge|oversize,sample,sample-seed-42
+ce8bf122a2150a45,DEMO-SIM (synthetic),ZC,future,short,1,2026-09-04T09:14:52-04:00,2026-09-04T09:30:24-04:00,470.5,472.5,4.8,-100,-104.8,,,opening range break,,sample,sample-seed-42
+db671121a8d720c4,DEMO-SIM (synthetic),CL,future,long,1,2026-09-04T09:37:32-04:00,2026-09-04T10:13:41-04:00,61.45,61.3,4.2,-150,-154.2,120,journal,opening range break,revenge,sample,sample-seed-42
+76ec7f56de4f08a8,DEMO-SIM (synthetic),GC,future,short,1,2026-09-08T11:39:26-04:00,2026-09-08T11:43:45-04:00,3995.5,3996.2,4.2,-70,-74.2,,,VWAP reclaim,,sample,sample-seed-42
+1491bef8a3bcb862,DEMO-SIM (synthetic),CL,future,long,1,2026-09-09T10:29:05-04:00,2026-09-09T10:39:36-04:00,60.7,60.61,4.2,-90,-94.2,100,journal,inventory report fade,,sample,sample-seed-42
+9cc5ff8d416249a7,DEMO-SIM (synthetic),MGC,future,short,15,2026-09-09T11:54:48-04:00,2026-09-09T12:07:14-04:00,3991.8,3991.4,19.5,60,40.5,150,journal,VWAP reclaim,early_exit,sample,sample-seed-42
+2f3e03aa0219ba86,DEMO-SIM (synthetic),GC,future,long,1,2026-09-10T10:00:34-04:00,2026-09-10T10:40:18-04:00,3962.4,3961.4,4.2,-100,-104.2,120,broker_stop,VWAP reclaim,,sample,sample-seed-42
+9d3cd5a945240b19,DEMO-SIM (synthetic),MCL,future,short,12,2026-09-10T10:43:36-04:00,2026-09-10T11:08:47-04:00,61.9,62.02,15.6,-144,-159.6,120,journal,VWAP reclaim,revenge,sample,sample-seed-42
+25f3a77093a0a2b9,DEMO-SIM (synthetic),GC,future,short,2,2026-09-10T12:25:07-04:00,2026-09-10T12:41:36-04:00,3951,3950.7,8.4,60,51.6,200,journal,VWAP reclaim,early_exit,sample,sample-seed-42
+0ed115ab6f646365,DEMO-SIM (synthetic),MCL,future,short,8,2026-09-10T14:05:34-04:00,2026-09-10T14:11:52-04:00,61.93,61.65,10.4,224,213.6,96,journal,VWAP reclaim,overtrading,sample,sample-seed-42
+6b922fd3375783fb,DEMO-SIM (synthetic),MGC,future,short,12,2026-09-11T09:58:48-04:00,2026-09-11T10:33:46-04:00,4011.7,4012.4,15.6,-84,-99.6,96,journal,VWAP reclaim,,sample,sample-seed-42
+15c9f479752644e6,DEMO-SIM (synthetic),CL,future,long,1,2026-09-11T10:36:27-04:00,2026-09-11T10:49:06-04:00,62.09,62.16,4.2,70,65.8,,,trend pullback,revenge,sample,sample-seed-42
+f4f5458f69b5fde3,DEMO-SIM (synthetic),MCL,future,long,9,2026-09-11T11:10:48-04:00,2026-09-11T11:30:15-04:00,62.1,62.26,11.7,144,132.3,,,VWAP reclaim,,sample,sample-seed-42
+01fdc6cb1d63873c,DEMO-SIM (synthetic),CL,future,long,1,2026-09-14T11:08:28-04:00,2026-09-14T11:16:16-04:00,62.25,62.36,4.2,110,105.8,,,VWAP reclaim,,sample,sample-seed-42
+721cb3142ec6fce9,DEMO-SIM (synthetic),GC,future,short,1,2026-09-14T12:13:05-04:00,2026-09-14T12:48:28-04:00,4095.3,4093.2,4.2,210,205.8,,,VWAP reclaim,,sample,sample-seed-42
+462bb0d130168ceb,DEMO-SIM (synthetic),MGC,future,short,8,2026-09-14T13:47:15-04:00,2026-09-14T14:05:13-04:00,4090.9,4091.9,10.4,-80,-90.4,,,trend pullback,,sample,sample-seed-42
+b196367868b15fae,DEMO-SIM (synthetic),CL,future,short,1,2026-09-15T09:24:22-04:00,2026-09-15T09:59:55-04:00,62.18,62.06,4.2,120,115.8,120,broker_stop,opening range break,,sample,sample-seed-42
+63c8d6e7019d43b5,DEMO-SIM (synthetic),ZC,future,short,1,2026-09-15T11:04:40-04:00,2026-09-15T11:38:27-04:00,443.5,439.25,4.8,212.5,207.7,125,broker_stop,VWAP reclaim,,sample,sample-seed-42
+f3c603b37e75e9cd,DEMO-SIM (synthetic),MGC,future,long,8,2026-09-15T12:17:50-04:00,2026-09-15T12:43:13-04:00,4117.5,4116.3,10.4,-96,-106.4,,,VWAP reclaim,,sample,sample-seed-42
+a0141cd570147670,DEMO-SIM (synthetic),CL,future,short,2,2026-09-16T10:33:34-04:00,2026-09-16T10:44:17-04:00,61.6,61.44,8.4,320,311.6,160,journal,inventory report fade,,sample,sample-seed-42
+675e56f5a753e23d,DEMO-SIM (synthetic),MCL,future,long,12,2026-09-16T11:19:10-04:00,2026-09-16T11:46:20-04:00,61.44,61.55,15.6,132,116.4,144,journal,trend pullback,,sample,sample-seed-42
+986a8fdb7a658e7f,DEMO-SIM (synthetic),MCL,future,short,12,2026-09-18T09:15:54-04:00,2026-09-18T09:32:32-04:00,62.14,62.2,15.6,-72,-87.6,,,opening range break,,sample,sample-seed-42
+20a7912039cc1246,DEMO-SIM (synthetic),MGC,future,short,8,2026-09-18T10:21:43-04:00,2026-09-18T10:58:52-04:00,3965.5,3963.5,10.4,160,149.6,80,broker_stop,VWAP reclaim,,sample,sample-seed-42
+884945e5ebd35284,DEMO-SIM (synthetic),NG,future,long,2,2026-09-21T10:17:48-04:00,2026-09-21T10:35:50-04:00,3.488,3.481,8.4,-140,-148.4,,,VWAP reclaim,,sample,sample-seed-42
+2f85ca887586ee45,DEMO-SIM (synthetic),MCL,future,short,9,2026-09-21T10:39:17-04:00,2026-09-21T11:05:55-04:00,62.44,62.31,11.7,117,105.3,72,journal,trend pullback,revenge,sample,sample-seed-42
+315d7a89ece06851,DEMO-SIM (synthetic),CL,future,long,1,2026-09-21T11:28:55-04:00,2026-09-21T11:38:08-04:00,63.11,63.21,4.2,100,95.8,100,journal,VWAP reclaim,,sample,sample-seed-42
+ff1a5c0d5d5efe63,DEMO-SIM (synthetic),CL,future,long,2,2026-09-22T11:26:53-04:00,2026-09-22T11:42:15-04:00,62.73,62.83,8.4,200,191.6,160,broker_stop,trend pullback,,sample,sample-seed-42
+88d4b0c30efb4cc3,DEMO-SIM (synthetic),MCL,future,long,9,2026-09-22T11:59:09-04:00,2026-09-22T12:20:36-04:00,62.67,62.77,11.7,90,78.3,72,broker_stop,trend pullback,,sample,sample-seed-42
+52e24ce095edd00f,DEMO-SIM (synthetic),CL,future,long,1,2026-09-23T10:28:26-04:00,2026-09-23T10:45:24-04:00,62.14,62.29,4.2,150,145.8,100,journal,inventory report fade,,sample,sample-seed-42
+fa43314d41673b8e,DEMO-SIM (synthetic),MCL,future,short,12,2026-09-23T11:41:40-04:00,2026-09-23T11:47:50-04:00,61.74,61.61,15.6,156,140.4,120,journal,VWAP reclaim,,sample,sample-seed-42
+908554f78f521f96,DEMO-SIM (synthetic),ZC,future,short,1,2026-09-24T09:05:44-04:00,2026-09-24T09:38:59-04:00,439.5,445.75,4.8,-312.5,-317.3,,,opening range break,fomo|moved_stop,sample,sample-seed-42
+ca5933bb07b7088c,DEMO-SIM (synthetic),MGC,future,long,12,2026-09-24T10:50:29-04:00,2026-09-24T11:01:31-04:00,3838.7,3840.9,15.6,264,248.4,144,journal,VWAP reclaim,,sample,sample-seed-42
+69104eff562b1372,DEMO-SIM (synthetic),MCL,future,long,12,2026-09-28T10:41:46-04:00,2026-09-28T10:58:29-04:00,63.85,63.77,15.6,-96,-111.6,96,broker_stop,trend pullback,,sample,sample-seed-42
+e9d5ecc32f0a6303,DEMO-SIM (synthetic),GC,future,short,1,2026-09-28T12:21:22-04:00,2026-09-28T12:57:54-04:00,3897.2,3895.8,4.2,140,135.8,120,broker_stop,VWAP reclaim,,sample,sample-seed-42
+59d458365961508b,DEMO-SIM (synthetic),NG,future,long,2,2026-09-29T10:00:13-04:00,2026-09-29T10:13:27-04:00,3.387,3.381,8.4,-120,-128.4,160,journal,VWAP reclaim,,sample,sample-seed-42
+b49bb64d3bdddca1,DEMO-SIM (synthetic),CL,future,long,1,2026-09-30T10:32:53-04:00,2026-09-30T10:54:18-04:00,64.48,64.61,4.2,130,125.8,100,journal,inventory report fade,,sample,sample-seed-42
+5d8c69b7f11ec5e8,DEMO-SIM (synthetic),MGC,future,long,9,2026-09-30T11:53:36-04:00,2026-09-30T12:19:08-04:00,3927.4,3929.1,11.7,153,141.3,,,trend pullback,,sample,sample-seed-42
+8692e75e4e0c1600,DEMO-SIM (synthetic),CL,future,short,2,2026-10-01T10:51:57-04:00,2026-10-01T11:13:43-04:00,63.45,63.51,8.4,-120,-128.4,160,journal,VWAP reclaim,,sample,sample-seed-42
+44b6515a1e51cd9d,DEMO-SIM (synthetic),MCL,future,long,8,2026-10-01T11:16:40-04:00,2026-10-01T11:38:50-04:00,63.46,63.31,10.4,-120,-130.4,96,journal,VWAP reclaim,revenge,sample,sample-seed-42
+f69e6275c7ce4316,DEMO-SIM (synthetic),MCL,future,short,12,2026-10-02T10:11:28-04:00,2026-10-02T10:18:29-04:00,62.33,62.18,15.6,180,164.4,,,VWAP reclaim,,sample,sample-seed-42
+604df647d633de6d,DEMO-SIM (synthetic),MCL,future,short,8,2026-10-02T10:56:27-04:00,2026-10-02T11:02:12-04:00,62.14,62.26,10.4,-96,-106.4,,,trend pullback,,sample,sample-seed-42
+a2658bb7ac9deec7,DEMO-SIM (synthetic),MCL,future,long,8,2026-10-05T10:29:10-04:00,2026-10-05T10:36:55-04:00,61.56,61.48,10.4,-64,-74.4,80,journal,VWAP reclaim,,sample,sample-seed-42
+ed7c5af925915192,DEMO-SIM (synthetic),MGC,future,short,10,2026-10-05T10:44:23-04:00,2026-10-05T11:17:16-04:00,4015.9,4017,13,-110,-123,100,journal,VWAP reclaim,revenge,sample,sample-seed-42
+e938edf36b497f01,DEMO-SIM (synthetic),GC,future,short,2,2026-10-05T11:35:57-04:00,2026-10-05T11:54:41-04:00,4018.3,4017.5,8.4,160,151.6,160,journal,VWAP reclaim,,sample,sample-seed-42
+47921d3644bcaf49,DEMO-SIM (synthetic),MCL,future,long,12,2026-10-05T12:56:40-04:00,2026-10-05T13:02:19-04:00,61.68,61.6,15.6,-96,-111.6,96,broker_stop,trend pullback,,sample,sample-seed-42
+ab05a8d247ff8ab3,DEMO-SIM (synthetic),MCL,future,short,15,2026-10-06T09:11:27-04:00,2026-10-06T09:42:41-04:00,60.83,60.68,19.5,225,205.5,150,journal,opening range break,fomo,sample,sample-seed-42
+516ee36c23d706bf,DEMO-SIM (synthetic),CL,future,short,2,2026-10-07T10:30:00-04:00,2026-10-07T10:41:13-04:00,60.08,59.85,8.4,460,451.6,160,journal,inventory report fade,,sample,sample-seed-42
+51a38ef87e46d5d2,DEMO-SIM (synthetic),CL,future,short,2,2026-10-07T11:03:08-04:00,2026-10-07T11:26:37-04:00,60.15,60.23,8.4,-160,-168.4,160,journal,VWAP reclaim,,sample,sample-seed-42
+7b36f3ab77b93c14,DEMO-SIM (synthetic),MGC,future,long,16,2026-10-08T10:28:00-04:00,2026-10-08T10:43:00-04:00,3954.8,3956.1,20.8,208,187.2,128,journal,trend pullback,,sample,sample-seed-42
+ac2023c9b19f23f8,DEMO-SIM (synthetic),MGC,future,short,10,2026-10-08T12:08:07-04:00,2026-10-08T12:35:55-04:00,3955.4,3956.3,13,-90,-103,120,broker_stop,VWAP reclaim,,sample,sample-seed-42
+aa92ac8b096a5de7,DEMO-SIM (synthetic),CL,future,short,1,2026-10-09T10:34:04-04:00,2026-10-09T11:13:14-04:00,58.86,58.75,4.2,110,105.8,80,journal,VWAP reclaim,,sample,sample-seed-42
+c8446702ac1f3e57,DEMO-SIM (synthetic),CL,future,short,1,2026-10-09T12:02:51-04:00,2026-10-09T12:29:06-04:00,58.39,58.2,4.2,190,185.8,80,journal,VWAP reclaim,,sample,sample-seed-42
+ef4f51bd1043b18a,DEMO-SIM (synthetic),CL,future,long,1,2026-10-12T09:12:08-04:00,2026-10-12T09:26:24-04:00,58.01,57.9,4.2,-110,-114.2,120,broker_stop,opening range break,,sample,sample-seed-42
+3c3f753c6ec8735a,DEMO-SIM (synthetic),MGC,future,short,10,2026-10-12T10:13:48-04:00,2026-10-12T10:34:55-04:00,3930.8,3930.3,13,50,37,120,broker_stop,VWAP reclaim,early_exit,sample,sample-seed-42
+fa4da847d740b2fe,DEMO-SIM (synthetic),CL,future,long,1,2026-10-12T11:10:43-04:00,2026-10-12T11:17:09-04:00,58.27,58.15,4.2,-120,-124.2,120,journal,VWAP reclaim,,sample,sample-seed-42
+28ada133e94e6d8c,DEMO-SIM (synthetic),MCL,future,short,18,2026-10-12T11:20:00-04:00,2026-10-12T11:32:39-04:00,58.05,58.16,23.4,-198,-221.4,144,journal,trend pullback,revenge|oversize,sample,sample-seed-42
+9ff89668804c2de5,DEMO-SIM (synthetic),NG,future,long,1,2026-10-13T09:16:46-04:00,2026-10-13T09:30:13-04:00,3.213,3.203,4.2,-100,-104.2,120,broker_stop,opening range break,,sample,sample-seed-42
+21bb68407d2ee8b5,DEMO-SIM (synthetic),GC,future,short,2,2026-10-13T10:43:09-04:00,2026-10-13T11:00:58-04:00,3908.7,3907.7,8.4,200,191.6,200,broker_stop,VWAP reclaim,,sample,sample-seed-42
+48b9dcc9dd651af9,DEMO-SIM (synthetic),MCL,future,long,10,2026-10-15T10:14:55-04:00,2026-10-15T10:47:13-04:00,58.45,58.61,13,160,147,,,VWAP reclaim,,sample,sample-seed-42
+66ce8543202776f1,DEMO-SIM (synthetic),CL,future,short,1,2026-10-15T11:37:08-04:00,2026-10-15T12:02:48-04:00,58.25,58.04,4.2,210,205.8,120,journal,VWAP reclaim,,sample,sample-seed-42
+1849846bb12af20b,DEMO-SIM (synthetic),MCL,future,long,15,2026-10-15T12:51:24-04:00,2026-10-15T13:23:22-04:00,58.41,58.62,19.5,315,295.5,150,journal,VWAP reclaim,,sample,sample-seed-42
+c9521327b3d7a269,DEMO-SIM (synthetic),CL,future,long,1,2026-10-16T11:22:15-04:00,2026-10-16T11:29:17-04:00,58.49,58.38,4.2,-110,-114.2,120,journal,trend pullback,,sample,sample-seed-42
+52ae79eaccebef73,DEMO-SIM (synthetic),CL,future,long,1,2026-10-16T11:33:35-04:00,2026-10-16T12:02:38-04:00,58.16,58,4.2,-160,-164.2,120,broker_stop,trend pullback,revenge,sample,sample-seed-42
+0552498a7e85c5ea,DEMO-SIM (synthetic),GC,future,short,1,2026-10-19T10:20:49-04:00,2026-10-19T10:31:44-04:00,3787.4,3788.4,4.2,-100,-104.2,,,VWAP reclaim,,sample,sample-seed-42
+09bc05c867709a6e,DEMO-SIM (synthetic),CL,future,short,2,2026-10-19T11:05:42-04:00,2026-10-19T11:28:56-04:00,57.21,57.1,8.4,220,211.6,160,journal,VWAP reclaim,,sample,sample-seed-42
+9fd7ec25d9522054,DEMO-SIM (synthetic),CL,future,long,1,2026-10-21T10:32:47-04:00,2026-10-21T10:44:25-04:00,59.33,59.51,4.2,180,175.8,80,journal,inventory report fade,,sample,sample-seed-42
+a45481b375994c33,DEMO-SIM (synthetic),CL,future,long,1,2026-10-21T11:13:03-04:00,2026-10-21T11:31:50-04:00,59.09,59.13,4.2,40,35.8,100,journal,VWAP reclaim,early_exit,sample,sample-seed-42
+69e194a3e9da5824,DEMO-SIM (synthetic),MGC,future,long,12,2026-10-22T09:55:15-04:00,2026-10-22T10:35:31-04:00,3862.7,3864.4,15.6,204,188.4,96,journal,trend pullback,,sample,sample-seed-42
+2fdbc01370252d07,DEMO-SIM (synthetic),ZC,future,short,1,2026-10-23T12:25:23-04:00,2026-10-23T12:38:59-04:00,441.5,435.75,4.8,287.5,282.7,125,journal,VWAP reclaim,,sample,sample-seed-42
+4e1771bbcf7f64f0,DEMO-SIM (synthetic),GC,future,long,1,2026-10-26T10:00:23-04:00,2026-10-26T10:40:34-04:00,3885.3,3882.7,4.2,-260,-264.2,100,journal,trend pullback,moved_stop,sample,sample-seed-42
+2cb9efa954d4225e,DEMO-SIM (synthetic),CL,future,long,1,2026-10-26T10:48:30-04:00,2026-10-26T11:00:49-04:00,59.77,59.66,4.2,-110,-114.2,100,journal,VWAP reclaim,revenge,sample,sample-seed-42
+e792453c26d5bbff,DEMO-SIM (synthetic),NG,future,short,2,2026-10-27T11:27:00-04:00,2026-10-27T11:45:16-04:00,3.29,3.267,8.4,460,451.6,200,journal,VWAP reclaim,,sample,sample-seed-42
+04f1a78d3cea3bce,DEMO-SIM (synthetic),MCL,future,long,8,2026-10-27T12:37:03-04:00,2026-10-27T13:00:50-04:00,60.16,60.05,10.4,-88,-98.4,96,journal,VWAP reclaim,,sample,sample-seed-42
+a5b01d016abbe4d8,DEMO-SIM (synthetic),NG,future,long,1,2026-10-27T13:38:40-04:00,2026-10-27T13:58:45-04:00,3.3,3.294,4.2,-60,-64.2,80,broker_stop,trend pullback,,sample,sample-seed-42
+441e1eedd9347f60,DEMO-SIM (synthetic),MCL,future,long,8,2026-10-28T10:32:44-04:00,2026-10-28T10:46:25-04:00,61.48,61.75,10.4,216,205.6,80,journal,inventory report fade,,sample,sample-seed-42
+43629c2a75d47bc8,DEMO-SIM (synthetic),ZC,future,short,2,2026-10-28T11:02:34-04:00,2026-10-28T11:19:34-04:00,428,425.75,9.6,225,215.4,150,journal,trend pullback,,sample,sample-seed-42
+45af3458a6fbb209,DEMO-SIM (synthetic),CL,future,long,1,2026-11-02T09:43:19-05:00,2026-11-02T09:47:05-05:00,64.12,64.23,4.2,110,105.8,100,journal,opening range break,,sample,sample-seed-42
+ed1e0b3b1cf3b94b,DEMO-SIM (synthetic),GC,future,long,1,2026-11-02T10:47:13-05:00,2026-11-02T11:07:51-05:00,3775.2,3775.6,4.2,40,35.8,80,journal,VWAP reclaim,early_exit,sample,sample-seed-42
+fb5c36b14ae29a51,DEMO-SIM (synthetic),MGC,future,short,12,2026-11-02T11:58:25-05:00,2026-11-02T12:22:37-05:00,3778.5,3779.3,15.6,-96,-111.6,96,broker_stop,trend pullback,,sample,sample-seed-42
+2a01043c53242c72,DEMO-SIM (synthetic),CL,future,short,1,2026-11-03T10:10:19-05:00,2026-11-03T10:42:44-05:00,64.42,64.31,4.2,110,105.8,,,VWAP reclaim,,sample,sample-seed-42
+322319e0be61018b,DEMO-SIM (synthetic),MCL,future,long,12,2026-11-03T11:17:54-05:00,2026-11-03T11:50:15-05:00,64.24,64.4,15.6,192,176.4,96,broker_stop,VWAP reclaim,,sample,sample-seed-42
+30986f3b5b4fecc6,DEMO-SIM (synthetic),GC,future,long,1,2026-11-05T09:35:59-05:00,2026-11-05T09:50:27-05:00,3722.9,3721.8,4.2,-110,-114.2,120,journal,opening range break,,sample,sample-seed-42
+150b5d47e973e0e3,DEMO-SIM (synthetic),NG,future,long,1,2026-11-05T10:03:39-05:00,2026-11-05T10:21:38-05:00,3.396,3.384,4.2,-120,-124.2,120,journal,VWAP reclaim,,sample,sample-seed-42
+e6c0857f34f1b59f,DEMO-SIM (synthetic),CL,future,short,2,2026-11-05T10:25:47-05:00,2026-11-05T10:54:42-05:00,64.86,64.97,8.4,-220,-228.4,200,journal,trend pullback,revenge,sample,sample-seed-42
+105006074dabc037,DEMO-SIM (synthetic),CL,future,short,1,2026-11-09T09:29:45-05:00,2026-11-09T09:59:08-05:00,66.1,66.21,4.2,-110,-114.2,120,broker_stop,opening range break,,sample,sample-seed-42
+80ec9b0baad678a9,DEMO-SIM (synthetic),MGC,future,long,10,2026-11-09T10:45:10-05:00,2026-11-09T11:07:31-05:00,3779.4,3781.1,13,170,157,100,journal,VWAP reclaim,,sample,sample-seed-42
+111e389b561e16a4,DEMO-SIM (synthetic),CL,future,long,1,2026-11-09T12:20:50-05:00,2026-11-09T12:31:52-05:00,66.18,66.06,4.2,-120,-124.2,120,journal,trend pullback,,sample,sample-seed-42
+02e1daac1639d2ad,DEMO-SIM (synthetic),MCL,future,short,19,2026-11-10T09:07:08-05:00,2026-11-10T09:14:47-05:00,66.4,66.47,24.7,-133,-157.7,152,broker_stop,opening range break,,sample,sample-seed-42
+b84281d2f5e24776,DEMO-SIM (synthetic),CL,future,short,1,2026-11-10T09:17:17-05:00,2026-11-10T09:56:46-05:00,65.84,65.67,4.2,170,165.8,,,opening range break,revenge,sample,sample-seed-42
+0caeb2278dc93a08,DEMO-SIM (synthetic),CL,future,short,1,2026-11-11T10:31:21-05:00,2026-11-11T10:49:51-05:00,66.02,65.91,4.2,110,105.8,80,broker_stop,inventory report fade,,sample,sample-seed-42
+1ea8b948b31d7a0a,DEMO-SIM (synthetic),ZC,future,short,2,2026-11-11T11:26:33-05:00,2026-11-11T11:54:04-05:00,447,448.5,9.6,-150,-159.6,,,VWAP reclaim,,sample,sample-seed-42
+df2728667195d5db,DEMO-SIM (synthetic),MGC,future,short,8,2026-11-12T09:25:36-05:00,2026-11-12T09:43:40-05:00,3770.1,3768.4,10.4,136,125.6,80,broker_stop,opening range break,,sample,sample-seed-42
+f8c404f3db3bdbb1,DEMO-SIM (synthetic),CL,future,short,1,2026-11-13T09:03:29-05:00,2026-11-13T09:14:32-05:00,66.57,66.66,4.2,-90,-94.2,120,journal,opening range break,,sample,sample-seed-42
+b25a72b950bd04b5,DEMO-SIM (synthetic),CL,future,long,1,2026-11-13T09:54:31-05:00,2026-11-13T10:00:54-05:00,66.31,66.52,4.2,210,205.8,120,journal,trend pullback,,sample,sample-seed-42

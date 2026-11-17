@@ -1,0 +1,23 @@
+# Personal data never goes into git. Only the sample data is public.
+data/*.csv
+data/*.json
+data/data.js
+!data/sample/
+config/*.json
+config/*.md
+!config/*.example.*
+inbox/*
+archive/*
+briefs/*
+!inbox/.gitkeep
+!archive/.gitkeep
+!briefs/.gitkeep
+trading-events.ics
+
+# Build tooling
+wizard/node_modules/
+wizard/dist/
+node_modules/
+__pycache__/
+*.pyc
+.DS_Store

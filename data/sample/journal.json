@@ -1,0 +1,1524 @@
+[
+  {
+    "id": "sample-j-001",
+    "date": "2026-07-17",
+    "url": null,
+    "linked_trade_ids": [
+      "43bf66ea6f8e60f9"
+    ],
+    "symbols": [
+      "MGC"
+    ],
+    "setup": "opening range break",
+    "mood": 3,
+    "sleep_hours": 8.0,
+    "followed_plan": true,
+    "mistakes": [],
+    "emotions": [
+      "neutral",
+      "focused"
+    ],
+    "lesson": "Waiting for the setup paid; keep doing the boring version.",
+    "excerpt": "Nothing special going in, just the routine. Slept about 8 hours. Ended green on MGC."
+  },
+  {
+    "id": "sample-j-002",
+    "date": "2026-07-20",
+    "url": null,
+    "linked_trade_ids": [
+      "9cbb66c4123e30f8",
+      "c77cf05e81d20687"
+    ],
+    "symbols": [
+      "GC",
+      "MGC"
+    ],
+    "setup": "VWAP reclaim",
+    "mood": 2,
+    "sleep_hours": 6.0,
+    "followed_plan": true,
+    "mistakes": [],
+    "emotions": [
+      "tired",
+      "impatient"
+    ],
+    "lesson": "The loss was inside the plan. Stop-outs are the cost of doing business.",
+    "excerpt": "Off from the start today. Slept about 6 hours. Ended red on GC/MGC."
+  },
+  {
+    "id": "sample-j-003",
+    "date": "2026-07-21",
+    "url": null,
+    "linked_trade_ids": [
+      "170c3cc2a02a53cb",
+      "7c069b886aaaca92"
+    ],
+    "symbols": [
+      "CL"
+    ],
+    "setup": "VWAP reclaim",
+    "mood": 3,
+    "sleep_hours": 7.0,
+    "followed_plan": true,
+    "mistakes": [],
+    "emotions": [
+      "neutral",
+      "focused"
+    ],
+    "lesson": "The loss was inside the plan. Stop-outs are the cost of doing business.",
+    "excerpt": "Nothing special going in, just the routine. Slept about 7 hours. Ended red on CL."
+  },
+  {
+    "id": "sample-j-004",
+    "date": "2026-07-22",
+    "url": null,
+    "linked_trade_ids": [
+      "8a0fd936b0fac9da",
+      "bc0624cc34ea553e",
+      "1a14ee3149c3af42"
+    ],
+    "symbols": [
+      "CL",
+      "ZC"
+    ],
+    "setup": "inventory report fade",
+    "mood": 5,
+    "sleep_hours": 8.5,
+    "followed_plan": true,
+    "mistakes": [],
+    "emotions": [
+      "confident",
+      "calm"
+    ],
+    "lesson": "Waiting for the setup paid; keep doing the boring version.",
+    "excerpt": "Locked in all day. Slept about 8.5 hours. The inventory report setup played out like I wrote it down. Ended green on CL/ZC."
+  },
+  {
+    "id": "sample-j-005",
+    "date": "2026-07-27",
+    "url": null,
+    "linked_trade_ids": [
+      "9a3f6839f92358d5",
+      "44f38d72c22dd631"
+    ],
+    "symbols": [
+      "NG",
+      "GC"
+    ],
+    "setup": "VWAP reclaim",
+    "mood": 2,
+    "sleep_hours": 6.5,
+    "followed_plan": true,
+    "mistakes": [
+      "early_exit"
+    ],
+    "emotions": [
+      "tired",
+      "impatient"
+    ],
+    "lesson": "Let the target do its job; I wrote it down for a reason.",
+    "excerpt": "Off from the start today. Slept about 6.5 hours. Bailed on a winner way too early. Ended green on NG/GC."
+  },
+  {
+    "id": "sample-j-006",
+    "date": "2026-07-29",
+    "url": null,
+    "linked_trade_ids": [
+      "7a72b1c1f0fdb9b4",
+      "01bdd202e218a93b"
+    ],
+    "symbols": [
+      "MCL",
+      "GC"
+    ],
+    "setup": "inventory report fade",
+    "mood": 2,
+    "sleep_hours": 7.5,
+    "followed_plan": true,
+    "mistakes": [],
+    "emotions": [
+      "tired",
+      "impatient"
+    ],
+    "lesson": "Waiting for the setup paid; keep doing the boring version.",
+    "excerpt": "Off from the start today. Slept about 7.5 hours. The inventory report setup played out like I wrote it down. Ended green on MCL/GC."
+  },
+  {
+    "id": "sample-j-007",
+    "date": "2026-07-31",
+    "url": null,
+    "linked_trade_ids": [
+      "ed9e0eb53a4ab77a",
+      "5d2fe3af80b18f2d",
+      "66e1626e3be52c21"
+    ],
+    "symbols": [
+      "GC",
+      "MCL"
+    ],
+    "setup": "VWAP reclaim",
+    "mood": 5,
+    "sleep_hours": 7.5,
+    "followed_plan": false,
+    "mistakes": [
+      "revenge",
+      "moved_stop"
+    ],
+    "emotions": [
+      "confident",
+      "calm",
+      "angry"
+    ],
+    "lesson": "Once the stop is set, it only moves in my favor.",
+    "excerpt": "Best headspace I've had in a while. Slept about 7.5 hours. I moved my stop instead of letting the trade work, and it cost far more than my plan allowed. Ended red on GC/MCL."
+  },
+  {
+    "id": "sample-j-008",
+    "date": "2026-08-03",
+    "url": null,
+    "linked_trade_ids": [
+      "6b722de09dfed437",
+      "93acda41b1908ed8"
+    ],
+    "symbols": [
+      "CL",
+      "MGC"
+    ],
+    "setup": "trend pullback",
+    "mood": 1,
+    "sleep_hours": 6.5,
+    "followed_plan": false,
+    "mistakes": [
+      "revenge",
+      "oversize"
+    ],
+    "emotions": [
+      "tired",
+      "frustrated",
+      "angry"
+    ],
+    "lesson": "After a loss, walk away for 15 minutes before looking at the next setup.",
+    "excerpt": "I barely slept and knew I should have sat this one out. Slept about 6.5 hours. Took a trade right after the stop-out just to get it back. Ended red on CL/MGC."
+  },
+  {
+    "id": "sample-j-009",
+    "date": "2026-08-05",
+    "url": null,
+    "linked_trade_ids": [
+      "86b69e6a152b701c",
+      "0d1b30816184976a"
+    ],
+    "symbols": [
+      "CL",
+      "ZC"
+    ],
+    "setup": "inventory report fade",
+    "mood": 3,
+    "sleep_hours": 7.0,
+    "followed_plan": true,
+    "mistakes": [],
+    "emotions": [
+      "neutral",
+      "focused"
+    ],
+    "lesson": "Waiting for the setup paid; keep doing the boring version.",
+    "excerpt": "Fairly even day. Slept about 7 hours. The inventory report setup played out like I wrote it down. Ended green on CL/ZC."
+  },
+  {
+    "id": "sample-j-010",
+    "date": "2026-08-07",
+    "url": null,
+    "linked_trade_ids": [
+      "b1e1aea0b5c78e73"
+    ],
+    "symbols": [
+      "NG"
+    ],
+    "setup": "VWAP reclaim",
+    "mood": 4,
+    "sleep_hours": 5.5,
+    "followed_plan": false,
+    "mistakes": [
+      "moved_stop"
+    ],
+    "emotions": [
+      "calm",
+      "focused"
+    ],
+    "lesson": "Once the stop is set, it only moves in my favor.",
+    "excerpt": "Good energy and I stuck to the morning routine. Slept about 5.5 hours. I moved my stop instead of letting the trade work, and it cost far more than my plan allowed. Ended red on NG."
+  },
+  {
+    "id": "sample-j-011",
+    "date": "2026-08-11",
+    "url": null,
+    "linked_trade_ids": [
+      "efdf0d9319ab3d4e",
+      "78c49f9781b9e234"
+    ],
+    "symbols": [
+      "MCL",
+      "MGC"
+    ],
+    "setup": "VWAP reclaim",
+    "mood": 4,
+    "sleep_hours": 8.0,
+    "followed_plan": true,
+    "mistakes": [],
+    "emotions": [
+      "calm",
+      "focused"
+    ],
+    "lesson": "Waiting for the setup paid; keep doing the boring version.",
+    "excerpt": "Felt sharp going in. Slept about 8 hours. Ended green on MCL/MGC."
+  },
+  {
+    "id": "sample-j-012",
+    "date": "2026-08-12",
+    "url": null,
+    "linked_trade_ids": [
+      "1d4a9984e24d2284",
+      "708636940f400005"
+    ],
+    "symbols": [
+      "MCL",
+      "CL"
+    ],
+    "setup": "inventory report fade",
+    "mood": 4,
+    "sleep_hours": 6.5,
+    "followed_plan": true,
+    "mistakes": [],
+    "emotions": [
+      "calm",
+      "focused"
+    ],
+    "lesson": "Waiting for the setup paid; keep doing the boring version.",
+    "excerpt": "Felt sharp going in. Slept about 6.5 hours. The inventory report setup played out like I wrote it down. Ended green on MCL/CL."
+  },
+  {
+    "id": "sample-j-013",
+    "date": "2026-08-13",
+    "url": null,
+    "linked_trade_ids": [
+      "44e06e562e707e0f",
+      "b629102283133ee1"
+    ],
+    "symbols": [
+      "CL",
+      "MCL"
+    ],
+    "setup": "VWAP reclaim",
+    "mood": 3,
+    "sleep_hours": 8.0,
+    "followed_plan": true,
+    "mistakes": [],
+    "emotions": [
+      "neutral",
+      "focused"
+    ],
+    "lesson": "Waiting for the setup paid; keep doing the boring version.",
+    "excerpt": "Fairly even day. Slept about 8 hours. Ended green on CL/MCL."
+  },
+  {
+    "id": "sample-j-014",
+    "date": "2026-08-18",
+    "url": null,
+    "linked_trade_ids": [
+      "59295cac2d317165",
+      "77122d5bf1fbb3d5"
+    ],
+    "symbols": [
+      "MGC"
+    ],
+    "setup": "VWAP reclaim",
+    "mood": 2,
+    "sleep_hours": 6.5,
+    "followed_plan": true,
+    "mistakes": [],
+    "emotions": [
+      "tired",
+      "impatient"
+    ],
+    "lesson": "The loss was inside the plan. Stop-outs are the cost of doing business.",
+    "excerpt": "Off from the start today. Slept about 6.5 hours. Ended red on MGC."
+  },
+  {
+    "id": "sample-j-015",
+    "date": "2026-08-20",
+    "url": null,
+    "linked_trade_ids": [
+      "068783f9e0ffcf39",
+      "84e46a742d58c64d"
+    ],
+    "symbols": [
+      "MGC",
+      "ZC"
+    ],
+    "setup": "trend pullback",
+    "mood": 2,
+    "sleep_hours": 7.0,
+    "followed_plan": true,
+    "mistakes": [
+      "early_exit"
+    ],
+    "emotions": [
+      "tired",
+      "impatient"
+    ],
+    "lesson": "Let the target do its job; I wrote it down for a reason.",
+    "excerpt": "Off from the start today. Slept about 7 hours. Bailed on a winner way too early. Ended red on MGC/ZC."
+  },
+  {
+    "id": "sample-j-016",
+    "date": "2026-08-21",
+    "url": null,
+    "linked_trade_ids": [
+      "d8bfb57f941ba878",
+      "db659258ca2e4efa",
+      "dd714ac9788df99a"
+    ],
+    "symbols": [
+      "MCL"
+    ],
+    "setup": "VWAP reclaim",
+    "mood": 4,
+    "sleep_hours": 5.5,
+    "followed_plan": true,
+    "mistakes": [],
+    "emotions": [
+      "calm",
+      "focused"
+    ],
+    "lesson": "Waiting for the setup paid; keep doing the boring version.",
+    "excerpt": "Felt sharp going in. Slept about 5.5 hours. Ended green on MCL."
+  },
+  {
+    "id": "sample-j-017",
+    "date": "2026-08-24",
+    "url": null,
+    "linked_trade_ids": [
+      "66f11b22bc4965af",
+      "3273e8bea5362958"
+    ],
+    "symbols": [
+      "MCL",
+      "ZC"
+    ],
+    "setup": "VWAP reclaim",
+    "mood": 4,
+    "sleep_hours": 6.5,
+    "followed_plan": true,
+    "mistakes": [],
+    "emotions": [
+      "calm",
+      "focused"
+    ],
+    "lesson": "Waiting for the setup paid; keep doing the boring version.",
+    "excerpt": "Felt sharp going in. Slept about 6.5 hours. Ended green on MCL/ZC."
+  },
+  {
+    "id": "sample-j-018",
+    "date": "2026-08-25",
+    "url": null,
+    "linked_trade_ids": [
+      "2fb2449eeceadbc5"
+    ],
+    "symbols": [
+      "MGC"
+    ],
+    "setup": "VWAP reclaim",
+    "mood": 2,
+    "sleep_hours": 6.5,
+    "followed_plan": true,
+    "mistakes": [],
+    "emotions": [
+      "tired",
+      "impatient"
+    ],
+    "lesson": "The loss was inside the plan. Stop-outs are the cost of doing business.",
+    "excerpt": "Off from the start today. Slept about 6.5 hours. Ended red on MGC."
+  },
+  {
+    "id": "sample-j-019",
+    "date": "2026-08-26",
+    "url": null,
+    "linked_trade_ids": [
+      "09bf44842b7f6445",
+      "92279b67edaf7f51",
+      "f7171caaf3e0aca7"
+    ],
+    "symbols": [
+      "GC",
+      "MCL"
+    ],
+    "setup": "opening range break",
+    "mood": 3,
+    "sleep_hours": 6.5,
+    "followed_plan": false,
+    "mistakes": [
+      "moved_stop"
+    ],
+    "emotions": [
+      "neutral",
+      "focused"
+    ],
+    "lesson": "Once the stop is set, it only moves in my favor.",
+    "excerpt": "Fairly even day. Slept about 6.5 hours. I moved my stop instead of letting the trade work, and it cost far more than my plan allowed. Ended red on GC/MCL."
+  },
+  {
+    "id": "sample-j-020",
+    "date": "2026-08-27",
+    "url": null,
+    "linked_trade_ids": [
+      "f98e31459fae95a9",
+      "9797111613828ba2"
+    ],
+    "symbols": [
+      "MGC",
+      "MCL"
+    ],
+    "setup": "VWAP reclaim",
+    "mood": 4,
+    "sleep_hours": 8.0,
+    "followed_plan": true,
+    "mistakes": [],
+    "emotions": [
+      "calm",
+      "focused"
+    ],
+    "lesson": "Waiting for the setup paid; keep doing the boring version.",
+    "excerpt": "Good energy and I stuck to the morning routine. Slept about 8 hours. Ended green on MGC/MCL."
+  },
+  {
+    "id": "sample-j-021",
+    "date": "2026-08-28",
+    "url": null,
+    "linked_trade_ids": [
+      "54ea56998edfd2d1",
+      "d3c080467b5a8a63",
+      "7c8c98460dd0a3f8"
+    ],
+    "symbols": [
+      "MGC",
+      "GC",
+      "MCL"
+    ],
+    "setup": "trend pullback",
+    "mood": 1,
+    "sleep_hours": 4.5,
+    "followed_plan": false,
+    "mistakes": [
+      "revenge"
+    ],
+    "emotions": [
+      "tired",
+      "frustrated",
+      "angry"
+    ],
+    "lesson": "After a loss, walk away for 15 minutes before looking at the next setup.",
+    "excerpt": "I barely slept and knew I should have sat this one out. Slept about 4.5 hours. Took a trade right after the stop-out just to get it back. Ended red on MGC/GC/MCL."
+  },
+  {
+    "id": "sample-j-022",
+    "date": "2026-08-31",
+    "url": null,
+    "linked_trade_ids": [
+      "33a6ca5eef491ccb",
+      "b70a80613d0bab97"
+    ],
+    "symbols": [
+      "GC",
+      "CL"
+    ],
+    "setup": "trend pullback",
+    "mood": 2,
+    "sleep_hours": 5.0,
+    "followed_plan": false,
+    "mistakes": [
+      "revenge"
+    ],
+    "emotions": [
+      "tired",
+      "impatient",
+      "angry"
+    ],
+    "lesson": "After a loss, walk away for 15 minutes before looking at the next setup.",
+    "excerpt": "Off from the start today. Slept about 5 hours. Took a trade right after the stop-out just to get it back. Ended red on GC/CL."
+  },
+  {
+    "id": "sample-j-023",
+    "date": "2026-09-01",
+    "url": null,
+    "linked_trade_ids": [
+      "90fee2d662197131"
+    ],
+    "symbols": [
+      "MCL"
+    ],
+    "setup": "trend pullback",
+    "mood": 3,
+    "sleep_hours": 6.5,
+    "followed_plan": true,
+    "mistakes": [],
+    "emotions": [
+      "neutral",
+      "focused"
+    ],
+    "lesson": "The loss was inside the plan. Stop-outs are the cost of doing business.",
+    "excerpt": "Nothing special going in, just the routine. Slept about 6.5 hours. Ended red on MCL."
+  },
+  {
+    "id": "sample-j-024",
+    "date": "2026-09-02",
+    "url": null,
+    "linked_trade_ids": [
+      "4bb7674e9639677c",
+      "f36fa60bc85371bb"
+    ],
+    "symbols": [
+      "MCL",
+      "GC"
+    ],
+    "setup": "opening range break",
+    "mood": 5,
+    "sleep_hours": 9.0,
+    "followed_plan": false,
+    "mistakes": [
+      "revenge",
+      "oversize"
+    ],
+    "emotions": [
+      "confident",
+      "calm",
+      "angry"
+    ],
+    "lesson": "After a loss, walk away for 15 minutes before looking at the next setup.",
+    "excerpt": "Locked in all day. Slept about 9 hours. Took a trade right after the stop-out just to get it back. Ended red on MCL/GC."
+  },
+  {
+    "id": "sample-j-025",
+    "date": "2026-09-03",
+    "url": null,
+    "linked_trade_ids": [
+      "c6154b9c65f3cad8",
+      "b3737d24cbb087bf",
+      "1b172252a4016650"
+    ],
+    "symbols": [
+      "MCL",
+      "NG"
+    ],
+    "setup": "VWAP reclaim",
+    "mood": 4,
+    "sleep_hours": 8.0,
+    "followed_plan": false,
+    "mistakes": [
+      "revenge",
+      "moved_stop",
+      "oversize"
+    ],
+    "emotions": [
+      "calm",
+      "focused",
+      "angry"
+    ],
+    "lesson": "Once the stop is set, it only moves in my favor.",
+    "excerpt": "Felt sharp going in. Slept about 8 hours. I moved my stop instead of letting the trade work, and it cost far more than my plan allowed. Ended green on MCL/NG."
+  },
+  {
+    "id": "sample-j-026",
+    "date": "2026-09-04",
+    "url": null,
+    "linked_trade_ids": [
+      "ce8bf122a2150a45",
+      "db671121a8d720c4"
+    ],
+    "symbols": [
+      "ZC",
+      "CL"
+    ],
+    "setup": "opening range break",
+    "mood": 3,
+    "sleep_hours": 5.0,
+    "followed_plan": false,
+    "mistakes": [
+      "revenge"
+    ],
+    "emotions": [
+      "neutral",
+      "focused",
+      "angry"
+    ],
+    "lesson": "After a loss, walk away for 15 minutes before looking at the next setup.",
+    "excerpt": "Nothing special going in, just the routine. Slept about 5 hours. Took a trade right after the stop-out just to get it back. Ended red on ZC/CL."
+  },
+  {
+    "id": "sample-j-027",
+    "date": "2026-09-09",
+    "url": null,
+    "linked_trade_ids": [
+      "1491bef8a3bcb862",
+      "9cc5ff8d416249a7"
+    ],
+    "symbols": [
+      "CL",
+      "MGC"
+    ],
+    "setup": "inventory report fade",
+    "mood": 2,
+    "sleep_hours": 6.5,
+    "followed_plan": true,
+    "mistakes": [
+      "early_exit"
+    ],
+    "emotions": [
+      "tired",
+      "impatient"
+    ],
+    "lesson": "Let the target do its job; I wrote it down for a reason.",
+    "excerpt": "Off from the start today. Slept about 6.5 hours. Faded the inventory report and it did not work, but the entry was by the book. Bailed on a winner way too early. Ended red on CL/MGC."
+  },
+  {
+    "id": "sample-j-028",
+    "date": "2026-09-10",
+    "url": null,
+    "linked_trade_ids": [
+      "2f3e03aa0219ba86",
+      "9d3cd5a945240b19",
+      "25f3a77093a0a2b9",
+      "0ed115ab6f646365"
+    ],
+    "symbols": [
+      "GC",
+      "MCL"
+    ],
+    "setup": "VWAP reclaim",
+    "mood": 3,
+    "sleep_hours": 7.5,
+    "followed_plan": false,
+    "mistakes": [
+      "revenge",
+      "early_exit",
+      "overtrading"
+    ],
+    "emotions": [
+      "neutral",
+      "focused",
+      "angry"
+    ],
+    "lesson": "After a loss, walk away for 15 minutes before looking at the next setup.",
+    "excerpt": "Fairly even day. Slept about 7.5 hours. Took a trade right after the stop-out just to get it back. Ended green on GC/MCL."
+  },
+  {
+    "id": "sample-j-029",
+    "date": "2026-09-11",
+    "url": null,
+    "linked_trade_ids": [
+      "6b922fd3375783fb",
+      "15c9f479752644e6",
+      "f4f5458f69b5fde3"
+    ],
+    "symbols": [
+      "MGC",
+      "CL",
+      "MCL"
+    ],
+    "setup": "VWAP reclaim",
+    "mood": 5,
+    "sleep_hours": 7.5,
+    "followed_plan": false,
+    "mistakes": [
+      "revenge"
+    ],
+    "emotions": [
+      "confident",
+      "calm",
+      "angry"
+    ],
+    "lesson": "After a loss, walk away for 15 minutes before looking at the next setup.",
+    "excerpt": "Locked in all day. Slept about 7.5 hours. Took a trade right after the stop-out just to get it back. Ended green on MGC/CL/MCL."
+  },
+  {
+    "id": "sample-j-030",
+    "date": "2026-09-15",
+    "url": null,
+    "linked_trade_ids": [
+      "b196367868b15fae",
+      "63c8d6e7019d43b5",
+      "f3c603b37e75e9cd"
+    ],
+    "symbols": [
+      "CL",
+      "ZC",
+      "MGC"
+    ],
+    "setup": "opening range break",
+    "mood": 2,
+    "sleep_hours": 7.0,
+    "followed_plan": true,
+    "mistakes": [],
+    "emotions": [
+      "tired",
+      "impatient"
+    ],
+    "lesson": "Waiting for the setup paid; keep doing the boring version.",
+    "excerpt": "Slow, heavy morning and not much patience. Slept about 7 hours. Ended green on CL/ZC/MGC."
+  },
+  {
+    "id": "sample-j-031",
+    "date": "2026-09-16",
+    "url": null,
+    "linked_trade_ids": [
+      "a0141cd570147670",
+      "675e56f5a753e23d"
+    ],
+    "symbols": [
+      "CL",
+      "MCL"
+    ],
+    "setup": "inventory report fade",
+    "mood": 5,
+    "sleep_hours": 7.0,
+    "followed_plan": true,
+    "mistakes": [],
+    "emotions": [
+      "confident",
+      "calm"
+    ],
+    "lesson": "Waiting for the setup paid; keep doing the boring version.",
+    "excerpt": "Best headspace I've had in a while. Slept about 7 hours. The inventory report setup played out like I wrote it down. Ended green on CL/MCL."
+  },
+  {
+    "id": "sample-j-032",
+    "date": "2026-09-21",
+    "url": null,
+    "linked_trade_ids": [
+      "884945e5ebd35284",
+      "2f85ca887586ee45",
+      "315d7a89ece06851"
+    ],
+    "symbols": [
+      "NG",
+      "MCL",
+      "CL"
+    ],
+    "setup": "VWAP reclaim",
+    "mood": 2,
+    "sleep_hours": 7.0,
+    "followed_plan": false,
+    "mistakes": [
+      "revenge"
+    ],
+    "emotions": [
+      "tired",
+      "impatient",
+      "angry"
+    ],
+    "lesson": "After a loss, walk away for 15 minutes before looking at the next setup.",
+    "excerpt": "Slow, heavy morning and not much patience. Slept about 7 hours. Took a trade right after the stop-out just to get it back. Ended green on NG/MCL/CL."
+  },
+  {
+    "id": "sample-j-033",
+    "date": "2026-09-23",
+    "url": null,
+    "linked_trade_ids": [
+      "52e24ce095edd00f",
+      "fa43314d41673b8e"
+    ],
+    "symbols": [
+      "CL",
+      "MCL"
+    ],
+    "setup": "inventory report fade",
+    "mood": 4,
+    "sleep_hours": 6.5,
+    "followed_plan": true,
+    "mistakes": [],
+    "emotions": [
+      "calm",
+      "focused"
+    ],
+    "lesson": "Waiting for the setup paid; keep doing the boring version.",
+    "excerpt": "Good energy and I stuck to the morning routine. Slept about 6.5 hours. The inventory report setup played out like I wrote it down. Ended green on CL/MCL."
+  },
+  {
+    "id": "sample-j-034",
+    "date": "2026-09-24",
+    "url": null,
+    "linked_trade_ids": [
+      "908554f78f521f96",
+      "ca5933bb07b7088c"
+    ],
+    "symbols": [
+      "ZC",
+      "MGC"
+    ],
+    "setup": "opening range break",
+    "mood": 5,
+    "sleep_hours": 8.0,
+    "followed_plan": false,
+    "mistakes": [
+      "moved_stop",
+      "fomo"
+    ],
+    "emotions": [
+      "confident",
+      "calm"
+    ],
+    "lesson": "Once the stop is set, it only moves in my favor.",
+    "excerpt": "Locked in all day. Slept about 8 hours. I moved my stop instead of letting the trade work, and it cost far more than my plan allowed. Ended red on ZC/MGC."
+  },
+  {
+    "id": "sample-j-035",
+    "date": "2026-09-28",
+    "url": null,
+    "linked_trade_ids": [
+      "69104eff562b1372",
+      "e9d5ecc32f0a6303"
+    ],
+    "symbols": [
+      "MCL",
+      "GC"
+    ],
+    "setup": "trend pullback",
+    "mood": 1,
+    "sleep_hours": 4.0,
+    "followed_plan": true,
+    "mistakes": [],
+    "emotions": [
+      "tired",
+      "frustrated"
+    ],
+    "lesson": "Waiting for the setup paid; keep doing the boring version.",
+    "excerpt": "I barely slept and knew I should have sat this one out. Slept about 4 hours. Ended green on MCL/GC."
+  },
+  {
+    "id": "sample-j-036",
+    "date": "2026-09-29",
+    "url": null,
+    "linked_trade_ids": [
+      "59d458365961508b"
+    ],
+    "symbols": [
+      "NG"
+    ],
+    "setup": "VWAP reclaim",
+    "mood": 4,
+    "sleep_hours": 6.0,
+    "followed_plan": true,
+    "mistakes": [],
+    "emotions": [
+      "calm",
+      "focused"
+    ],
+    "lesson": "The loss was inside the plan. Stop-outs are the cost of doing business.",
+    "excerpt": "Good energy and I stuck to the morning routine. Slept about 6 hours. Ended red on NG."
+  },
+  {
+    "id": "sample-j-037",
+    "date": "2026-09-30",
+    "url": null,
+    "linked_trade_ids": [
+      "b49bb64d3bdddca1",
+      "5d8c69b7f11ec5e8"
+    ],
+    "symbols": [
+      "CL",
+      "MGC"
+    ],
+    "setup": "inventory report fade",
+    "mood": 5,
+    "sleep_hours": 7.5,
+    "followed_plan": true,
+    "mistakes": [],
+    "emotions": [
+      "confident",
+      "calm"
+    ],
+    "lesson": "Waiting for the setup paid; keep doing the boring version.",
+    "excerpt": "Best headspace I've had in a while. Slept about 7.5 hours. The inventory report setup played out like I wrote it down. Ended green on CL/MGC."
+  },
+  {
+    "id": "sample-j-038",
+    "date": "2026-10-01",
+    "url": null,
+    "linked_trade_ids": [
+      "8692e75e4e0c1600",
+      "44b6515a1e51cd9d"
+    ],
+    "symbols": [
+      "CL",
+      "MCL"
+    ],
+    "setup": "VWAP reclaim",
+    "mood": 3,
+    "sleep_hours": 7.0,
+    "followed_plan": false,
+    "mistakes": [
+      "revenge"
+    ],
+    "emotions": [
+      "neutral",
+      "focused",
+      "angry"
+    ],
+    "lesson": "After a loss, walk away for 15 minutes before looking at the next setup.",
+    "excerpt": "Fairly even day. Slept about 7 hours. Took a trade right after the stop-out just to get it back. Ended red on CL/MCL."
+  },
+  {
+    "id": "sample-j-039",
+    "date": "2026-10-02",
+    "url": null,
+    "linked_trade_ids": [
+      "f69e6275c7ce4316",
+      "604df647d633de6d"
+    ],
+    "symbols": [
+      "MCL"
+    ],
+    "setup": "VWAP reclaim",
+    "mood": 1,
+    "sleep_hours": 6.0,
+    "followed_plan": true,
+    "mistakes": [],
+    "emotions": [
+      "tired",
+      "frustrated"
+    ],
+    "lesson": "Waiting for the setup paid; keep doing the boring version.",
+    "excerpt": "I barely slept and knew I should have sat this one out. Slept about 6 hours. Ended green on MCL."
+  },
+  {
+    "id": "sample-j-040",
+    "date": "2026-10-05",
+    "url": null,
+    "linked_trade_ids": [
+      "a2658bb7ac9deec7",
+      "ed7c5af925915192",
+      "e938edf36b497f01",
+      "47921d3644bcaf49"
+    ],
+    "symbols": [
+      "MCL",
+      "MGC",
+      "GC"
+    ],
+    "setup": "VWAP reclaim",
+    "mood": 1,
+    "sleep_hours": 6.0,
+    "followed_plan": false,
+    "mistakes": [
+      "revenge"
+    ],
+    "emotions": [
+      "tired",
+      "frustrated",
+      "angry"
+    ],
+    "lesson": "After a loss, walk away for 15 minutes before looking at the next setup.",
+    "excerpt": "Rough one. I woke up drained and it showed in every decision. Slept about 6 hours. Took a trade right after the stop-out just to get it back. Ended red on MCL/MGC/GC."
+  },
+  {
+    "id": "sample-j-041",
+    "date": "2026-10-06",
+    "url": null,
+    "linked_trade_ids": [
+      "ab05a8d247ff8ab3"
+    ],
+    "symbols": [
+      "MCL"
+    ],
+    "setup": "opening range break",
+    "mood": 2,
+    "sleep_hours": 5.0,
+    "followed_plan": false,
+    "mistakes": [
+      "fomo"
+    ],
+    "emotions": [
+      "tired",
+      "impatient"
+    ],
+    "lesson": "If the move already started, I missed it. Wait for the next one.",
+    "excerpt": "Off from the start today. Slept about 5 hours. Chased an entry after the move had already started. Ended green on MCL."
+  },
+  {
+    "id": "sample-j-042",
+    "date": "2026-10-07",
+    "url": null,
+    "linked_trade_ids": [
+      "516ee36c23d706bf",
+      "51a38ef87e46d5d2"
+    ],
+    "symbols": [
+      "CL"
+    ],
+    "setup": "inventory report fade",
+    "mood": 2,
+    "sleep_hours": 6.0,
+    "followed_plan": true,
+    "mistakes": [],
+    "emotions": [
+      "tired",
+      "impatient"
+    ],
+    "lesson": "Waiting for the setup paid; keep doing the boring version.",
+    "excerpt": "Slow, heavy morning and not much patience. Slept about 6 hours. The inventory report setup played out like I wrote it down. Ended green on CL."
+  },
+  {
+    "id": "sample-j-043",
+    "date": "2026-10-08",
+    "url": null,
+    "linked_trade_ids": [
+      "7b36f3ab77b93c14",
+      "ac2023c9b19f23f8"
+    ],
+    "symbols": [
+      "MGC"
+    ],
+    "setup": "trend pullback",
+    "mood": 2,
+    "sleep_hours": 7.5,
+    "followed_plan": true,
+    "mistakes": [],
+    "emotions": [
+      "tired",
+      "impatient"
+    ],
+    "lesson": "Waiting for the setup paid; keep doing the boring version.",
+    "excerpt": "Slow, heavy morning and not much patience. Slept about 7.5 hours. Ended green on MGC."
+  },
+  {
+    "id": "sample-j-044",
+    "date": "2026-10-09",
+    "url": null,
+    "linked_trade_ids": [
+      "aa92ac8b096a5de7",
+      "c8446702ac1f3e57"
+    ],
+    "symbols": [
+      "CL"
+    ],
+    "setup": "VWAP reclaim",
+    "mood": 3,
+    "sleep_hours": 7.5,
+    "followed_plan": true,
+    "mistakes": [],
+    "emotions": [
+      "neutral",
+      "focused"
+    ],
+    "lesson": "Waiting for the setup paid; keep doing the boring version.",
+    "excerpt": "Nothing special going in, just the routine. Slept about 7.5 hours. Ended green on CL."
+  },
+  {
+    "id": "sample-j-045",
+    "date": "2026-10-12",
+    "url": null,
+    "linked_trade_ids": [
+      "ef4f51bd1043b18a",
+      "3c3f753c6ec8735a",
+      "fa4da847d740b2fe",
+      "28ada133e94e6d8c"
+    ],
+    "symbols": [
+      "CL",
+      "MGC",
+      "MCL"
+    ],
+    "setup": "opening range break",
+    "mood": 3,
+    "sleep_hours": 7.5,
+    "followed_plan": false,
+    "mistakes": [
+      "revenge",
+      "oversize",
+      "early_exit"
+    ],
+    "emotions": [
+      "neutral",
+      "focused",
+      "angry"
+    ],
+    "lesson": "After a loss, walk away for 15 minutes before looking at the next setup.",
+    "excerpt": "Nothing special going in, just the routine. Slept about 7.5 hours. Took a trade right after the stop-out just to get it back. Ended red on CL/MGC/MCL."
+  },
+  {
+    "id": "sample-j-046",
+    "date": "2026-10-13",
+    "url": null,
+    "linked_trade_ids": [
+      "9ff89668804c2de5",
+      "21bb68407d2ee8b5"
+    ],
+    "symbols": [
+      "NG",
+      "GC"
+    ],
+    "setup": "opening range break",
+    "mood": 4,
+    "sleep_hours": 6.0,
+    "followed_plan": true,
+    "mistakes": [],
+    "emotions": [
+      "calm",
+      "focused"
+    ],
+    "lesson": "Waiting for the setup paid; keep doing the boring version.",
+    "excerpt": "Good energy and I stuck to the morning routine. Slept about 6 hours. Ended green on NG/GC."
+  },
+  {
+    "id": "sample-j-047",
+    "date": "2026-10-15",
+    "url": null,
+    "linked_trade_ids": [
+      "48b9dcc9dd651af9",
+      "66ce8543202776f1",
+      "1849846bb12af20b"
+    ],
+    "symbols": [
+      "MCL",
+      "CL"
+    ],
+    "setup": "VWAP reclaim",
+    "mood": 2,
+    "sleep_hours": 9.0,
+    "followed_plan": true,
+    "mistakes": [],
+    "emotions": [
+      "tired",
+      "impatient"
+    ],
+    "lesson": "Waiting for the setup paid; keep doing the boring version.",
+    "excerpt": "Off from the start today. Slept about 9 hours. Ended green on MCL/CL."
+  },
+  {
+    "id": "sample-j-048",
+    "date": "2026-10-16",
+    "url": null,
+    "linked_trade_ids": [
+      "c9521327b3d7a269",
+      "52ae79eaccebef73"
+    ],
+    "symbols": [
+      "CL"
+    ],
+    "setup": "trend pullback",
+    "mood": 4,
+    "sleep_hours": 7.5,
+    "followed_plan": false,
+    "mistakes": [
+      "revenge"
+    ],
+    "emotions": [
+      "calm",
+      "focused",
+      "angry"
+    ],
+    "lesson": "After a loss, walk away for 15 minutes before looking at the next setup.",
+    "excerpt": "Good energy and I stuck to the morning routine. Slept about 7.5 hours. Took a trade right after the stop-out just to get it back. Ended red on CL."
+  },
+  {
+    "id": "sample-j-049",
+    "date": "2026-10-19",
+    "url": null,
+    "linked_trade_ids": [
+      "0552498a7e85c5ea",
+      "09bc05c867709a6e"
+    ],
+    "symbols": [
+      "GC",
+      "CL"
+    ],
+    "setup": "VWAP reclaim",
+    "mood": 5,
+    "sleep_hours": 6.0,
+    "followed_plan": true,
+    "mistakes": [],
+    "emotions": [
+      "confident",
+      "calm"
+    ],
+    "lesson": "Waiting for the setup paid; keep doing the boring version.",
+    "excerpt": "Locked in all day. Slept about 6 hours. Ended green on GC/CL."
+  },
+  {
+    "id": "sample-j-050",
+    "date": "2026-10-21",
+    "url": null,
+    "linked_trade_ids": [
+      "9fd7ec25d9522054",
+      "a45481b375994c33"
+    ],
+    "symbols": [
+      "CL"
+    ],
+    "setup": "inventory report fade",
+    "mood": 4,
+    "sleep_hours": 8.0,
+    "followed_plan": true,
+    "mistakes": [
+      "early_exit"
+    ],
+    "emotions": [
+      "calm",
+      "focused"
+    ],
+    "lesson": "Let the target do its job; I wrote it down for a reason.",
+    "excerpt": "Felt sharp going in. Slept about 8 hours. The inventory report setup played out like I wrote it down. Bailed on a winner way too early. Ended green on CL."
+  },
+  {
+    "id": "sample-j-051",
+    "date": "2026-10-22",
+    "url": null,
+    "linked_trade_ids": [
+      "69e194a3e9da5824"
+    ],
+    "symbols": [
+      "MGC"
+    ],
+    "setup": "trend pullback",
+    "mood": 3,
+    "sleep_hours": 5.5,
+    "followed_plan": true,
+    "mistakes": [],
+    "emotions": [
+      "neutral",
+      "focused"
+    ],
+    "lesson": "Waiting for the setup paid; keep doing the boring version.",
+    "excerpt": "Fairly even day. Slept about 5.5 hours. Ended green on MGC."
+  },
+  {
+    "id": "sample-j-052",
+    "date": "2026-10-23",
+    "url": null,
+    "linked_trade_ids": [
+      "2fdbc01370252d07"
+    ],
+    "symbols": [
+      "ZC"
+    ],
+    "setup": "VWAP reclaim",
+    "mood": 4,
+    "sleep_hours": 8.0,
+    "followed_plan": true,
+    "mistakes": [],
+    "emotions": [
+      "calm",
+      "focused"
+    ],
+    "lesson": "Waiting for the setup paid; keep doing the boring version.",
+    "excerpt": "Good energy and I stuck to the morning routine. Slept about 8 hours. Ended green on ZC."
+  },
+  {
+    "id": "sample-j-053",
+    "date": "2026-10-26",
+    "url": null,
+    "linked_trade_ids": [
+      "4e1771bbcf7f64f0",
+      "2cb9efa954d4225e"
+    ],
+    "symbols": [
+      "GC",
+      "CL"
+    ],
+    "setup": "trend pullback",
+    "mood": 1,
+    "sleep_hours": 5.5,
+    "followed_plan": false,
+    "mistakes": [
+      "revenge",
+      "moved_stop"
+    ],
+    "emotions": [
+      "tired",
+      "frustrated",
+      "angry"
+    ],
+    "lesson": "Once the stop is set, it only moves in my favor.",
+    "excerpt": "Rough one. I woke up drained and it showed in every decision. Slept about 5.5 hours. I moved my stop instead of letting the trade work, and it cost far more than my plan allowed. Ended red on GC/CL."
+  },
+  {
+    "id": "sample-j-054",
+    "date": "2026-10-27",
+    "url": null,
+    "linked_trade_ids": [
+      "e792453c26d5bbff",
+      "04f1a78d3cea3bce",
+      "a5b01d016abbe4d8"
+    ],
+    "symbols": [
+      "NG",
+      "MCL"
+    ],
+    "setup": "VWAP reclaim",
+    "mood": 4,
+    "sleep_hours": 8.0,
+    "followed_plan": true,
+    "mistakes": [],
+    "emotions": [
+      "calm",
+      "focused"
+    ],
+    "lesson": "Waiting for the setup paid; keep doing the boring version.",
+    "excerpt": "Good energy and I stuck to the morning routine. Slept about 8 hours. Ended green on NG/MCL."
+  },
+  {
+    "id": "sample-j-055",
+    "date": "2026-10-28",
+    "url": null,
+    "linked_trade_ids": [
+      "441e1eedd9347f60",
+      "43629c2a75d47bc8"
+    ],
+    "symbols": [
+      "MCL",
+      "ZC"
+    ],
+    "setup": "inventory report fade",
+    "mood": 1,
+    "sleep_hours": 6.0,
+    "followed_plan": true,
+    "mistakes": [],
+    "emotions": [
+      "tired",
+      "frustrated"
+    ],
+    "lesson": "Waiting for the setup paid; keep doing the boring version.",
+    "excerpt": "Rough one. I woke up drained and it showed in every decision. Slept about 6 hours. The inventory report setup played out like I wrote it down. Ended green on MCL/ZC."
+  },
+  {
+    "id": "sample-j-056",
+    "date": "2026-11-02",
+    "url": null,
+    "linked_trade_ids": [
+      "45af3458a6fbb209",
+      "ed1e0b3b1cf3b94b",
+      "fb5c36b14ae29a51"
+    ],
+    "symbols": [
+      "CL",
+      "GC",
+      "MGC"
+    ],
+    "setup": "opening range break",
+    "mood": 4,
+    "sleep_hours": 8.0,
+    "followed_plan": true,
+    "mistakes": [
+      "early_exit"
+    ],
+    "emotions": [
+      "calm",
+      "focused"
+    ],
+    "lesson": "Let the target do its job; I wrote it down for a reason.",
+    "excerpt": "Felt sharp going in. Slept about 8 hours. Bailed on a winner way too early. Ended green on CL/GC/MGC."
+  },
+  {
+    "id": "sample-j-057",
+    "date": "2026-11-05",
+    "url": null,
+    "linked_trade_ids": [
+      "30986f3b5b4fecc6",
+      "150b5d47e973e0e3",
+      "e6c0857f34f1b59f"
+    ],
+    "symbols": [
+      "GC",
+      "NG",
+      "CL"
+    ],
+    "setup": "opening range break",
+    "mood": 2,
+    "sleep_hours": 4.5,
+    "followed_plan": false,
+    "mistakes": [
+      "revenge"
+    ],
+    "emotions": [
+      "tired",
+      "impatient",
+      "angry"
+    ],
+    "lesson": "After a loss, walk away for 15 minutes before looking at the next setup.",
+    "excerpt": "Off from the start today. Slept about 4.5 hours. Took a trade right after the stop-out just to get it back. Ended red on GC/NG/CL."
+  },
+  {
+    "id": "sample-j-058",
+    "date": "2026-11-09",
+    "url": null,
+    "linked_trade_ids": [
+      "105006074dabc037",
+      "80ec9b0baad678a9",
+      "111e389b561e16a4"
+    ],
+    "symbols": [
+      "CL",
+      "MGC"
+    ],
+    "setup": "opening range break",
+    "mood": 3,
+    "sleep_hours": 6.5,
+    "followed_plan": true,
+    "mistakes": [],
+    "emotions": [
+      "neutral",
+      "focused"
+    ],
+    "lesson": "The loss was inside the plan. Stop-outs are the cost of doing business.",
+    "excerpt": "Nothing special going in, just the routine. Slept about 6.5 hours. Ended red on CL/MGC."
+  },
+  {
+    "id": "sample-j-059",
+    "date": "2026-11-10",
+    "url": null,
+    "linked_trade_ids": [
+      "02e1daac1639d2ad",
+      "b84281d2f5e24776"
+    ],
+    "symbols": [
+      "MCL",
+      "CL"
+    ],
+    "setup": "opening range break",
+    "mood": 5,
+    "sleep_hours": 5.5,
+    "followed_plan": false,
+    "mistakes": [
+      "revenge"
+    ],
+    "emotions": [
+      "confident",
+      "calm",
+      "angry"
+    ],
+    "lesson": "After a loss, walk away for 15 minutes before looking at the next setup.",
+    "excerpt": "Locked in all day. Slept about 5.5 hours. Took a trade right after the stop-out just to get it back. Ended green on MCL/CL."
+  },
+  {
+    "id": "sample-j-060",
+    "date": "2026-11-13",
+    "url": null,
+    "linked_trade_ids": [
+      "f8c404f3db3bdbb1",
+      "b25a72b950bd04b5"
+    ],
+    "symbols": [
+      "CL"
+    ],
+    "setup": "opening range break",
+    "mood": 4,
+    "sleep_hours": 6.5,
+    "followed_plan": true,
+    "mistakes": [],
+    "emotions": [
+      "calm",
+      "focused"
+    ],
+    "lesson": "Waiting for the setup paid; keep doing the boring version.",
+    "excerpt": "Felt sharp going in. Slept about 6.5 hours. Ended green on CL."
+  }
+]

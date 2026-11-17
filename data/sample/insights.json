@@ -1,0 +1,169 @@
+{
+  "generated": "2026-11-14T07:31:00-05:00",
+  "focus_rule": "After a loss, wait 15 minutes before the next entry",
+  "insights": [
+    {
+      "title": "Your Wednesday inventory report fade averages +1.87R over 13 trades (win rate 92%)",
+      "evidence": {
+        "trade_ids": [
+          "86b69e6a152b701c",
+          "516ee36c23d706bf",
+          "a0141cd570147670",
+          "5214966c62137d5a",
+          "8a0fd936b0fac9da",
+          "7a72b1c1f0fdb9b4",
+          "441e1eedd9347f60",
+          "1d4a9984e24d2284",
+          "9fd7ec25d9522054",
+          "52e24ce095edd00f",
+          "b49bb64d3bdddca1",
+          "0caeb2278dc93a08"
+        ],
+        "journal_ids": [
+          "sample-j-004",
+          "sample-j-006",
+          "sample-j-009",
+          "sample-j-012",
+          "sample-j-027",
+          "sample-j-031",
+          "sample-j-033",
+          "sample-j-037",
+          "sample-j-042",
+          "sample-j-050",
+          "sample-j-055"
+        ],
+        "n": 13
+      },
+      "confidence": "moderate",
+      "suggestion": "Keep this setup at full planned size, and write down what makes the good ones good."
+    },
+    {
+      "title": "Moved stops turn a 1.1R loss into 2.6R on average (6 trades, -$1881)",
+      "evidence": {
+        "trade_ids": [
+          "92279b67edaf7f51",
+          "b1e1aea0b5c78e73",
+          "908554f78f521f96",
+          "4e1771bbcf7f64f0",
+          "c6154b9c65f3cad8",
+          "ed9e0eb53a4ab77a"
+        ],
+        "journal_ids": [
+          "sample-j-007",
+          "sample-j-010",
+          "sample-j-019",
+          "sample-j-025",
+          "sample-j-034",
+          "sample-j-053"
+        ],
+        "n": 6
+      },
+      "confidence": "early",
+      "suggestion": "Set the stop at entry and only ever move it toward profit."
+    },
+    {
+      "title": "Revenge trades after a loss cost you 13.3R over 18 trades",
+      "evidence": {
+        "trade_ids": [
+          "93acda41b1908ed8",
+          "f36fa60bc85371bb",
+          "5d2fe3af80b18f2d",
+          "e6c0857f34f1b59f",
+          "28ada133e94e6d8c",
+          "52ae79eaccebef73",
+          "9d3cd5a945240b19",
+          "db671121a8d720c4",
+          "44b6515a1e51cd9d",
+          "ed7c5af925915192",
+          "2cb9efa954d4225e",
+          "d3c080467b5a8a63"
+        ],
+        "journal_ids": [
+          "sample-j-007",
+          "sample-j-008",
+          "sample-j-021",
+          "sample-j-022",
+          "sample-j-024",
+          "sample-j-025",
+          "sample-j-026",
+          "sample-j-028",
+          "sample-j-029",
+          "sample-j-032",
+          "sample-j-038",
+          "sample-j-040"
+        ],
+        "n": 18
+      },
+      "confidence": "moderate",
+      "suggestion": "After a stop-out, step away for 15 minutes and re-read your plan before the next entry."
+    },
+    {
+      "title": "Mondays are your weakest day: -0.25R per trade over 38 trades, against 0.41R on Tuesday to Friday",
+      "evidence": {
+        "trade_ids": [
+          "93acda41b1908ed8",
+          "4e1771bbcf7f64f0",
+          "28ada133e94e6d8c",
+          "884945e5ebd35284",
+          "c77cf05e81d20687",
+          "7d7e757394ca584f",
+          "fa4da847d740b2fe",
+          "111e389b561e16a4",
+          "ed7c5af925915192",
+          "ef4f51bd1043b18a",
+          "2cb9efa954d4225e",
+          "105006074dabc037"
+        ],
+        "journal_ids": [
+          "sample-j-002",
+          "sample-j-005",
+          "sample-j-008",
+          "sample-j-017",
+          "sample-j-022",
+          "sample-j-032",
+          "sample-j-035",
+          "sample-j-040",
+          "sample-j-045",
+          "sample-j-049",
+          "sample-j-053",
+          "sample-j-056"
+        ],
+        "n": 38
+      },
+      "confidence": "strong",
+      "suggestion": "Cap Mondays at two trades at half size, or treat them as an observe-and-plan session."
+    },
+    {
+      "title": "Entries in the first 15 minutes average -0.64R against +0.29R for the rest of the session",
+      "evidence": {
+        "trade_ids": [
+          "908554f78f521f96",
+          "09bf44842b7f6445",
+          "02e1daac1639d2ad",
+          "ef4f51bd1043b18a",
+          "ce8bf122a2150a45",
+          "f8c404f3db3bdbb1",
+          "43bf66ea6f8e60f9",
+          "ab05a8d247ff8ab3"
+        ],
+        "journal_ids": [
+          "sample-j-001",
+          "sample-j-019",
+          "sample-j-026",
+          "sample-j-034",
+          "sample-j-041",
+          "sample-j-045",
+          "sample-j-059",
+          "sample-j-060"
+        ],
+        "n": 8
+      },
+      "confidence": "early",
+      "suggestion": "Watch the first 15 minutes without entering; take your first trade at 09:15 or later."
+    }
+  ],
+  "brief": {
+    "date": "2026-11-14",
+    "markdown": "**Yesterday (Fri 13 Nov):** 2 trades, +$112, 1 of them winners.\n\n**Week so far:** 10 trades, +$110, win rate 50%.\n\n**Limits for the next session (Mon 16 Nov):** max loss $500 a day (prop limit $1,000), 4 trades, stop after 2 losses in a row. Trailing drawdown cushion: $1,643 of $2,000.\n\n**Focus rule:** After a loss, wait 15 minutes before the next entry.\n\n**Market context (sample, not live):**\n- 08:30 ET US economic data window\n- 10:30 ET EIA petroleum status report (Wed)\n- 10:30 ET EIA natural gas storage report (Thu)\n\n**Watchlist notes:** CL: wait for the 09:30 range before entering. GC: watch the prior day high. NG: only if the setup is clean; it has been choppy.\n\n**Reflection:** Mondays have been your weakest day. What would a good, boring Monday look like?\n\n*Sample data: synthetic, for demonstration only.*"
+  }
+}
