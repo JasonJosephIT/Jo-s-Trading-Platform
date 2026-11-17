@@ -108,7 +108,7 @@ If she has no wizard answers (she opened the folder and said "set me up"), give 
 1. **Click through the setup page (recommended, about 5 minutes):** `https://jasonjosephit.github.io/Jo-s-Trading-Platform/setup.html`. It ends with a prompt she pastes back here.
 2. **Answer here instead:** ask these, one per message, in this order, with numbered options where shown. Accept "skip" or "not sure" for anything; use the default in brackets.
    1. What should I call you? (optional)
-   2. Mac or Windows?
+   2. *(Don't ask: she has a Mac.)*
    3. Where do you place trades? (free text; look it up in `catalog/tools.json` by name or alias). If she names a prop firm (Topstep, Apex…), also ask which app she clicks Buy and Sell in, since the trades come from that app. NinjaTrader 8 desktop is Windows-only: on a Mac, "NinjaTrader" means the NinjaTrader/Tradovate web or desktop app, so use the Tradovate steps.
    4. Where do you journal? **1.** Notion **2.** Google Sheets/Docs **3.** Excel **4.** Somewhere else. If Notion: "Is it one database (a table) or separate pages? **1.** Database **2.** Pages **3.** Not sure", then "Want each morning brief copied to a Notion page so you can read it on your phone? **1.** Yes **2.** No".
    5. Which calendar do you use? **1.** Google **2.** Outlook **3.** Apple **4.** None. If not None: "Want scheduled market reports (oil inventories, Fed, jobs, inflation) put on that calendar? **1.** Yes **2.** No".

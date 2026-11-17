@@ -19,6 +19,7 @@ updated: 2026-11-17
 4. Test the Notion journal flow against her real journal shape (this build was dry-run on synthetic data only; the session's Notion connector could only view pages).
 
 ## Decisions
+- 2026-11-17 — She has a Mac: the setup page no longer asks (and step 1 "About you" is gone; the name field shows on the welcome screen only when the link has no `?name=`). Everything is "liquid metal": "Hello, Jo." and the logo use Paper Shaders' `LiquidMetal` WebGL effect (Apache-2.0, `@paper-design/shaders-react@0.0.82`) coloured gold with a CSS sepia filter, falling back to the static gold text without WebGL2 and holding still for reduced motion; buttons, chips, checks and progress use a flowing metallic-gold gradient; glass cards get a polished metal rim.
 - 2026-11-17 — She already has Claude: setup step 1 is now "About you" (computer + name); the paid-plan and Claude Desktop checks are gone.
 - 2026-11-17 — Renamed to **Trading Assistant** everywhere she sees it (setup page, dashboard, CLAUDE.md, prompts, docs, her folder `~/Documents/Trading Assistant`); plugin and marketplace ids are now `trading-assistant`. Repo name and internal slugs unchanged.
 - 2026-11-17 — Setup page uses a CSS-only Liquid Glass look (frosted translucent cards, light rims, specular sheen, gold glass buttons, glass segmented control and chips; falls back to solid for reduced transparency / more contrast). No SVG refraction filters (Chromium-only; she likely uses Safari). "Hello, Jo." is set in Great Vibes script (bundled, works offline) with a left-to-right write-in.

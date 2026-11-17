@@ -55,14 +55,6 @@ export const MARKETS: { value: string; label: string; words: string[]; symbols: 
 const STORAGE = 'trading-coach-wizard-v1'
 const memory: { value: string | null } = { value: null }
 
-function detectOs(): 'mac' | 'windows' {
-  try {
-    return /Win/i.test(navigator.userAgent) ? 'windows' : 'mac'
-  } catch {
-    return 'mac'
-  }
-}
-
 function detectTz(): string {
   try {
     return Intl.DateTimeFormat().resolvedOptions().timeZone || 'America/New_York'
@@ -74,7 +66,7 @@ function detectTz(): string {
 export function defaults(): Answers {
   return {
     name: '',
-    os: detectOs(),
+    os: 'mac', // she has a Mac
     markets: [],
     instruments: [],
     style: 'day',

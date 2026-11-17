@@ -2,9 +2,10 @@
 import * as React from 'react'
 import {
   BarChart3, BookOpen, Briefcase, CalendarDays, Check, CircleHelp, Clock, Cloud, Coffee, Compass, Download, FolderOpen,
-  Laptop, LineChart, Moon, Newspaper, NotebookPen, Power, Search, ShieldCheck, Sparkles, Sunrise, Target, Wand2,
+  LineChart, Moon, Newspaper, NotebookPen, Power, Search, ShieldCheck, Sparkles, Sunrise, Target, Wand2,
 } from 'lucide-react'
 import promptsJson from '@prompts/prompts.json'
+import { MetalCrest, MetalText } from '@/components/metal'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 import {
   Callout, ChipInput, Chips, CopyBlock, FieldLabel, IconTile, LargeTitle, ListGroup, ListRow, NumberField, Section,
@@ -113,16 +114,18 @@ function ToolPicker({
 
 /* ---------- 0. Welcome ---------- */
 
-export function Welcome() {
+export function Welcome({ a, set }: P) {
   const name = linkName()
   return (
     <>
       <div className="glass relative mx-5 mt-2 overflow-hidden rounded-[32px] px-6 pt-8 pb-7">
-        <Crest />
+        <MetalCrest fallback={<Crest />} />
         <p className="mt-6 text-[13px] font-semibold uppercase tracking-[0.12em] text-gold">Trading Assistant</p>
         {name ? (
           <>
-            <h1 aria-label={`Hello, ${name}.`} className="script-hello gold-text -ml-1 mt-1 whitespace-nowrap text-[clamp(44px,15vw,64px)] tracking-normal">Hello, {name}.</h1>
+            <h1 className="mt-1">
+              <MetalText text={`Hello, ${name}.`} font="Great Vibes" px={84} fallback={<span className="script-hello gold-text -ml-1 block whitespace-nowrap text-[clamp(44px,15vw,64px)] tracking-normal">Hello, {name}.</span>} />
+            </h1>
             <p className="mt-1 text-[21px] leading-snug font-semibold tracking-[-0.01em] text-balance">Let's set up your trading workstation.</p>
             <p className="mt-3 text-[16px] leading-relaxed text-muted-foreground">Your journal, your numbers, a calm morning plan. About 20 minutes once; after that it updates itself every trading morning.</p>
           </>
@@ -133,6 +136,12 @@ export function Welcome() {
           </>
         )}
       </div>
+      {!name && (
+        <Section className="pt-5">
+          <FieldLabel htmlFor="name">What should Claude call you? (optional)</FieldLabel>
+          <TextField id="name" value={a.name} onChange={(e) => set('name', e.target.value)} placeholder="First name" autoComplete="given-name" />
+        </Section>
+      )}
       <ListGroup header="What you get" className="pt-6">
         <ListRow icon={<Sunrise />} title="A morning brief" detail="Your limits, today's focus and the market events that matter, ready before the open." />
         <ListRow icon={<BarChart3 />} title="A dashboard that stays current" detail="Win rate, profit factor, expectancy, drawdown, best setups and where money leaks." />
@@ -164,30 +173,12 @@ function Crest() {
   )
 }
 
-/* ---------- 1. Check what you have ---------- */
-
-export function Basics({ a, set }: P) {
-  return (
-    <>
-      <LargeTitle eyebrow="Step 1" title="About you" subtitle="Two quick questions so Claude sets things up the right way for you." icon={<IconTile><Laptop className="size-7" /></IconTile>} />
-      <Section>
-        <FieldLabel>Your computer</FieldLabel>
-        <Segmented label="Your computer" value={a.os} onChange={(v) => set('os', v)} options={[{ value: 'mac', label: 'Mac' }, { value: 'windows', label: 'Windows' }]} />
-      </Section>
-      <Section>
-        <FieldLabel htmlFor="name">What should Claude call you? (optional)</FieldLabel>
-        <TextField id="name" value={a.name} onChange={(e) => set('name', e.target.value)} placeholder="First name" autoComplete="given-name" />
-      </Section>
-    </>
-  )
-}
-
 /* ---------- 2. Your toolkit ---------- */
 
 export function Toolkit({ a, set }: P) {
   return (
     <>
-      <LargeTitle eyebrow="Step 2" title="What do you use?" subtitle="Pick the apps you already trade and plan with. We'll check each one works with Claude, and line up a second option if it doesn't." icon={<IconTile><Briefcase className="size-7" /></IconTile>} />
+      <LargeTitle eyebrow="Step 1" title="What do you use?" subtitle="Pick the apps you already trade and plan with. We'll check each one works with Claude, and line up a second option if it doesn't." icon={<IconTile><Briefcase className="size-7" /></IconTile>} />
       <ToolPicker
         header="Where you place trades"
         cats={['broker', 'prop', 'crypto']}
@@ -223,7 +214,7 @@ export function Compatibility({ a }: P) {
   const research = toolsSummary(a).to_research
   return (
     <>
-      <LargeTitle eyebrow="Step 3" title="How your tools fit" subtitle={`Checked against Claude's connector directory on ${verifiedOn}.`} icon={<IconTile><ShieldCheck className="size-7" /></IconTile>} />
+      <LargeTitle eyebrow="Step 2" title="How your tools fit" subtitle={`Checked against Claude's connector directory on ${verifiedOn}.`} icon={<IconTile><ShieldCheck className="size-7" /></IconTile>} />
       <div className="space-y-3 px-4 pb-6">
         {rows.map((r, i) => {
           if (!r.pick) {
@@ -282,7 +273,7 @@ export function Trading({ a, set }: P) {
   const tzs = TZS.includes(a.timezone) ? TZS : [a.timezone, ...TZS]
   return (
     <>
-      <LargeTitle eyebrow="Step 4" title="About your trading" subtitle="This sets up your dashboard layout and your morning brief." icon={<IconTile><Target className="size-7" /></IconTile>} />
+      <LargeTitle eyebrow="Step 3" title="About your trading" subtitle="This sets up your dashboard layout and your morning brief." icon={<IconTile><Target className="size-7" /></IconTile>} />
       <Section>
         <FieldLabel>What you trade</FieldLabel>
         <Chips label="Markets" options={MARKETS.map((m) => ({ value: m.value, label: m.label }))} selected={a.markets} onToggle={(v) => set('markets', toggle(a.markets, v))} />
@@ -344,7 +335,7 @@ const SETUP_IDEAS = ['Opening range break', 'VWAP reclaim', 'Inventory report fa
 export function Risk({ a, set }: P) {
   return (
     <>
-      <LargeTitle eyebrow="Step 5" title="Your risk rules" subtitle="The coach reminds you of these every morning and flags days you went past them. Rough numbers are fine; you can change them later." icon={<IconTile><ShieldCheck className="size-7" /></IconTile>} />
+      <LargeTitle eyebrow="Step 4" title="Your risk rules" subtitle="The coach reminds you of these every morning and flags days you went past them. Rough numbers are fine; you can change them later." icon={<IconTile><ShieldCheck className="size-7" /></IconTile>} />
       <Section className="grid grid-cols-2 gap-3">
         <div>
           <FieldLabel htmlFor="risk">Risk per trade</FieldLabel>
@@ -390,7 +381,7 @@ export function Journal({ a, set }: P) {
   const isNotion = a.journal?.id === 'notion'
   return (
     <>
-      <LargeTitle eyebrow="Step 6" title={isNotion ? 'Connect your Notion journal' : `Your journal in ${a.journal?.name || 'your app'}`} subtitle="You keep journaling exactly the way you do now. Nothing about your format changes." icon={<IconTile><NotebookPen className="size-7" /></IconTile>} />
+      <LargeTitle eyebrow="Step 5" title={isNotion ? 'Connect your Notion journal' : `Your journal in ${a.journal?.name || 'your app'}`} subtitle="You keep journaling exactly the way you do now. Nothing about your format changes." icon={<IconTile><NotebookPen className="size-7" /></IconTile>} />
       {fit === 'directory' ? (
         <Section>
           <StepList steps={connectSteps(t!.connector?.name ?? t!.name)} />
@@ -448,7 +439,7 @@ export function Platform({ a }: P) {
   const name = a.broker?.name
   return (
     <>
-      <LargeTitle eyebrow="Step 7" title={name ? `Bring in your trades from ${name}` : 'Bring in your trades'} subtitle="The coach only reads your trades. It never places, changes or suggests an order." icon={<IconTile><LineChart className="size-7" /></IconTile>} />
+      <LargeTitle eyebrow="Step 6" title={name ? `Bring in your trades from ${name}` : 'Bring in your trades'} subtitle="The coach only reads your trades. It never places, changes or suggests an order." icon={<IconTile><LineChart className="size-7" /></IconTile>} />
       {!fit && (
         <Section>
           <Callout tone="gold" title="No platform picked">That's fine. Claude will ask which platform you use and find the right way to bring your trades in.</Callout>
@@ -547,7 +538,7 @@ export function Extras({ a, set }: P) {
   const calFit = fitOf(byId(a.calendar?.id))
   return (
     <>
-      <LargeTitle eyebrow="Step 8" title="Extras that help" subtitle="Optional add-ons. Turn on what sounds useful; Claude sets them up for you." icon={<IconTile><Sparkles className="size-7" /></IconTile>} />
+      <LargeTitle eyebrow="Step 7" title="Extras that help" subtitle="Optional add-ons. Turn on what sounds useful; Claude sets them up for you." icon={<IconTile><Sparkles className="size-7" /></IconTile>} />
       <ListGroup header="On your phone" footer="Claude copies each morning brief to a Notion page, so you can read it on your phone before the open.">
         <ListRow icon={<Sunrise />} title="Morning brief in Notion" toggle={{ checked: a.brief_in_notion, onChange: (v) => set('brief_in_notion', v), label: 'Morning brief in Notion' }} />
       </ListGroup>
@@ -595,9 +586,9 @@ export function Folder({ a }: P) {
   const mac = a.os === 'mac'
   return (
     <>
-      <LargeTitle eyebrow="Step 9" title="Get your Trading Assistant folder" subtitle="One folder on your computer holds your dashboard and your data. It never gets uploaded anywhere." icon={<IconTile><FolderOpen className="size-7" /></IconTile>} />
+      <LargeTitle eyebrow="Step 8" title="Get your Trading Assistant folder" subtitle="One folder on your computer holds your dashboard and your data. It never gets uploaded anywhere." icon={<IconTile><FolderOpen className="size-7" /></IconTile>} />
       <Section>
-        <a href={ZIP} className="flex h-[54px] w-full items-center justify-center gap-2 rounded-2xl text-[17px] font-semibold text-[var(--cta-ink)]" style={{ background: 'var(--cta)' }}>
+        <a href={ZIP} className="glass-gold press flex h-[54px] w-full items-center justify-center gap-2 rounded-full text-[17px] font-semibold text-[var(--cta-ink)]">
           <Download className="size-5" />
           Download the folder (ZIP)
         </a>
@@ -633,7 +624,7 @@ export function Folder({ a }: P) {
 export function StartClaude({ a }: P) {
   return (
     <>
-      <LargeTitle eyebrow="Step 10" title="Hand it to Claude" subtitle="This is the last real step. Claude reads the folder, asks a few questions, and builds everything." icon={<IconTile><Wand2 className="size-7" /></IconTile>} />
+      <LargeTitle eyebrow="Step 9" title="Hand it to Claude" subtitle="This is the last real step. Claude reads the folder, asks a few questions, and builds everything." icon={<IconTile><Wand2 className="size-7" /></IconTile>} />
       <Section>
         <StepList
           steps={[
@@ -662,7 +653,7 @@ export function StartClaude({ a }: P) {
 export function KeepRunning({ a }: P) {
   return (
     <>
-      <LargeTitle eyebrow="Step 11" title="Keep it running" subtitle={`Your brief is made on your computer at ${a.brief_time}. Two switches make sure it's awake then.`} icon={<IconTile><Power className="size-7" /></IconTile>} />
+      <LargeTitle eyebrow="Step 10" title="Keep it running" subtitle={`Your brief is made on your computer at ${a.brief_time}. Two switches make sure it's awake then.`} icon={<IconTile><Power className="size-7" /></IconTile>} />
       <ListGroup header={`Claude Desktop → Settings → This computer → System`} footer="If your computer was asleep at brief time, Claude makes the brief as soon as it wakes. Closing a laptop lid still sleeps it.">
         <ListRow icon={<Sunrise />} title="Keep computer awake" value="On" />
         <ListRow icon={<Power />} title="Run on startup" value="On" />
@@ -705,7 +696,7 @@ export function Rhythm({ a }: P) {
   ]
   return (
     <>
-      <LargeTitle eyebrow="Step 12" title="Your daily rhythm" subtitle="That's it. Here's how the coach fits into a normal week." icon={<IconTile><Clock className="size-7" /></IconTile>} />
+      <LargeTitle eyebrow="Step 11" title="Your daily rhythm" subtitle="That's it. Here's how the coach fits into a normal week." icon={<IconTile><Clock className="size-7" /></IconTile>} />
       <div className="space-y-3 px-4 pb-6">
         {items.map((it) => (
           <div key={it.when} className="glass rounded-[22px] p-4">
