@@ -90,7 +90,7 @@ Both work with this folder. Differences that matter:
 | `config/wizard-answers.example.yaml` | The shape of her setup answers. |
 | `scripts/doctor.py` | Where setup stands and what's next; `--mark <step> <status> [note]` saves progress. Run it first, every session. |
 | `scripts/build_data.py` | `trades.csv` + `journal.json` + `insights.json` + profile → `data/data.js`. Validates everything. |
-| `duet/` | Optional Claude Duet skill and first message (proactive nudges during her day). |
+| `duet/` | The trading-coach-assistant plugin (skill for nudges during her day, for Claude and Claude Duet) and Duet's first message. `.claude-plugin/marketplace.json` lists it. |
 | `.claude/commands/` | Claude Code slash commands, one per prompt. |
 | `docs/` | `contracts.md` (data shapes), `methodology.md` (metrics), `connectors.md`, `privacy.md`. |
 
@@ -163,7 +163,7 @@ If she has no wizard answers (she opened the folder and said "set me up"), give 
 
 10. **`calendar` · Calendar** (if `calendar.add_market_events`; otherwise mark it `skipped`): confirm the event list with her (names, not ids), then run CALENDAR_SYNC once for the next 2 weeks. No calendar connector (or Apple Calendar) → the `.ics` path in CALENDAR_SYNC.
 
-11. **`wrapup` · Wrap up** in 5 lines: what's connected, where her data is, when the next brief arrives, how to read it on her phone, and "if anything looks off, open this folder in Claude and tell me what you see". Then run `python3 scripts/doctor.py` once more and confirm it says setup is complete, or "Ready for daily use" with only steps waiting on her. Name those in the wrap-up as what's left ("Your journal joins in once Notion is connected").
+11. **`wrapup` · Wrap up.** First install the trading-coach-assistant plugin (see "Claude Duet" below; one line to her: "I'm adding your trading-day assistant"). Then wrap up in 5 lines: what's connected, where her data is, when the next brief arrives, how to read it on her phone, and "if anything looks off, open this folder in Claude and tell me what you see". Then run `python3 scripts/doctor.py` once more and confirm it says setup is complete, or "Ready for daily use" with only steps waiting on her. Name those in the wrap-up as what's left ("Your journal joins in once Notion is connected").
 
 ### MORNING_UPDATE (scheduled, weekdays)
 
@@ -230,7 +230,16 @@ If she won't keep a computer on: create a scheduled task without a local folder,
 
 ## Claude Duet (optional)
 
-If she has Claude Duet (Anthropic's proactive assistant) and wants it to nudge her during the day, follow `duet/README.md`: zip `duet/trading-coach-assistant/` for her to upload as a skill, fill the brackets in `duet/first-message.md` from her profile, and walk her through it one step at a time. Duet can't see this folder; it works from her Notion brief page, journal, `[Mkt]` calendar events and a read-only platform connector. Offer it once, in the wrap-up, only if she mentions Duet or wants reminders during the day. When her limits or session change, remind her to update the message she gave Duet.
+`duet/` is a plugin, **trading-coach-assistant** (one skill: trading-day nudges; read-only). This repo is its marketplace, `trading-coach`. Install it in the wrap-up (step 11) by running:
+
+```
+claude plugin marketplace add JasonJosephIT/Jo-s-Trading-Platform
+claude plugin install trading-coach-assistant@trading-coach
+```
+
+Both are pre-allowed in `.claude/settings.json`. If her session still asks, tell her once: "Click Allow, or switch the permission option to accept all, and I'll install it by myself." If the `claude` command isn't available (some Cowork sessions), zip `duet/` into `trading-coach-assistant.plugin` in this folder (`cd duet && zip -r ../trading-coach-assistant.plugin . -x '*.DS_Store'`) and tell her to click it and press **Accept**. Update later with `claude plugin marketplace update trading-coach`.
+
+If she has Claude Duet and wants nudges during the day, also follow `duet/README.md` (fill the brackets in `duet/first-message.md` from her profile; she pastes it into Duet). Duet can't see this folder; it works from her Notion brief page, journal, `[Mkt]` calendar events and a read-only platform connector. When her limits or session change, remind her to update the message she gave Duet.
 
 ## Later: one link for everything (v2, only if she asks)
 

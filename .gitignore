@@ -15,6 +15,7 @@ briefs/*
 !briefs/.gitkeep
 trading-events.ics
 duet/*.zip
+*.plugin
 
 # Build tooling
 wizard/node_modules/

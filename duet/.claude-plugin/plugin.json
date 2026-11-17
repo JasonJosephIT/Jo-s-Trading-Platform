@@ -1,0 +1,9 @@
+{
+  "name": "trading-coach-assistant",
+  "version": "0.1.0",
+  "description": "Trading-day nudges for Jo's Trading Coach: brief missing, before the open, market report coming, limits, journal after the session. Read-only; never trades.",
+  "author": { "name": "Trading Coach" },
+  "repository": "https://github.com/JasonJosephIT/Jo-s-Trading-Platform",
+  "license": "MIT",
+  "keywords": ["trading", "journal", "duet", "assistant"]
+}
