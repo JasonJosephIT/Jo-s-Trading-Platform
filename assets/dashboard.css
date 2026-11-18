@@ -211,7 +211,9 @@ main { display: block; }
   box-shadow: var(--panel-shadow), 0 0 0 1px rgba(220,182,79,.35), 0 24px 60px -28px rgba(220,182,79,.45);
 }
 .panel-coach:focus { outline: none; }
-.chip-jump { text-decoration: none; }
+.chip-jump { position: relative; z-index: 1; text-decoration: none; }
+/* 44px-tall tap area without changing the chip's size or the header layout */
+.chip-jump::before { content: ""; position: absolute; inset: -10px -1px; }
 .chip-jump:hover { background: var(--surface-3); }
 .coach-grid { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 28px; }
 .focus-rule {
