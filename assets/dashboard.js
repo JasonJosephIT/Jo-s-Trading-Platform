@@ -1244,41 +1244,43 @@
       ['Well done is better than well said.', 'Benjamin Franklin']
     ]
   };
-  /* Bible verses for the same themes, King James Version, quoted exactly (some trimmed to the opening clause). */
+  /* Bible verses for the same themes, New International Version (2011), quoted exactly; some trimmed
+     to a full clause. Scripture quotations taken from The Holy Bible, New International Version® NIV®.
+     Copyright © 1973, 1978, 1984, 2011 by Biblica, Inc.™ Used by permission. All rights reserved worldwide. */
   var VERSE_THEMES = {
     patience: [
-      ['Rest in the LORD, and wait patiently for him.', 'Psalm 37:7'],
-      ['Better is the end of a thing than the beginning thereof: and the patient in spirit is better than the proud in spirit.', 'Ecclesiastes 7:8'],
-      ['But they that wait upon the LORD shall renew their strength; they shall mount up with wings as eagles; they shall run, and not be weary; and they shall walk, and not faint.', 'Isaiah 40:31']
+      ['Be still before the LORD and wait patiently for him.', 'Psalm 37:7'],
+      ['The end of a matter is better than its beginning, and patience is better than pride.', 'Ecclesiastes 7:8'],
+      ['Those who hope in the LORD will renew their strength. They will soar on wings like eagles; they will run and not grow weary, they will walk and not be faint.', 'Isaiah 40:31']
     ],
     composure: [
-      ['He that is slow to anger is better than the mighty; and he that ruleth his spirit than he that taketh a city.', 'Proverbs 16:32'],
-      ['Let every man be swift to hear, slow to speak, slow to wrath.', 'James 1:19'],
-      ['Be ye angry, and sin not: let not the sun go down upon your wrath.', 'Ephesians 4:26']
+      ['Better a patient person than a warrior, one with self-control than one who takes a city.', 'Proverbs 16:32'],
+      ['Everyone should be quick to listen, slow to speak and slow to become angry.', 'James 1:19'],
+      ['Do not let the sun go down while you are still angry.', 'Ephesians 4:26']
     ],
     courage: [
-      ['For God hath not given us the spirit of fear; but of power, and of love, and of a sound mind.', '2 Timothy 1:7'],
-      ['Be strong and of a good courage; be not afraid, neither be thou dismayed: for the LORD thy God is with thee whithersoever thou goest.', 'Joshua 1:9'],
-      ['Fear thou not; for I am with thee: be not dismayed; for I am thy God: I will strengthen thee; yea, I will help thee.', 'Isaiah 41:10']
+      ['For the Spirit God gave us does not make us timid, but gives us power, love and self-discipline.', '2 Timothy 1:7'],
+      ['Be strong and courageous. Do not be afraid; do not be discouraged, for the LORD your God will be with you wherever you go.', 'Joshua 1:9'],
+      ['So do not fear, for I am with you; do not be dismayed, for I am your God. I will strengthen you and help you.', 'Isaiah 41:10']
     ],
     discipline: [
-      ['Commit thy works unto the LORD, and thy thoughts shall be established.', 'Proverbs 16:3'],
-      ['He that hath no rule over his own spirit is like a city that is broken down, and without walls.', 'Proverbs 25:28'],
-      ['And let us not be weary in well doing: for in due season we shall reap, if we faint not.', 'Galatians 6:9']
+      ['Commit to the LORD whatever you do, and he will establish your plans.', 'Proverbs 16:3'],
+      ['Like a city whose walls are broken through is a person who lacks self-control.', 'Proverbs 25:28'],
+      ['Let us not become weary in doing good, for at the proper time we will reap a harvest if we do not give up.', 'Galatians 6:9']
     ],
     rest: [
-      ['Come unto me, all ye that labour and are heavy laden, and I will give you rest.', 'Matthew 11:28'],
-      ['I will both lay me down in peace, and sleep: for thou, LORD, only makest me dwell in safety.', 'Psalm 4:8']
+      ['Come to me, all you who are weary and burdened, and I will give you rest.', 'Matthew 11:28'],
+      ['In peace I will lie down and sleep, for you alone, LORD, make me dwell in safety.', 'Psalm 4:8']
     ],
     resilience: [
-      ["It is of the LORD's mercies that we are not consumed, because his compassions fail not. They are new every morning: great is thy faithfulness.", 'Lamentations 3:22–23'],
-      ['For a just man falleth seven times, and riseth up again.', 'Proverbs 24:16'],
-      ['We are troubled on every side, yet not distressed; we are perplexed, but not in despair.', '2 Corinthians 4:8']
+      ["Because of the LORD's great love we are not consumed, for his compassions never fail. They are new every morning; great is your faithfulness.", 'Lamentations 3:22–23'],
+      ['Though the righteous fall seven times, they rise again.', 'Proverbs 24:16'],
+      ['We are hard pressed on every side, but not crushed; perplexed, but not in despair.', '2 Corinthians 4:8']
     ],
     steady: [
-      ['This is the day which the LORD hath made; we will rejoice and be glad in it.', 'Psalm 118:24'],
-      ['Trust in the LORD with all thine heart; and lean not unto thine own understanding.', 'Proverbs 3:5'],
-      ['I can do all things through Christ which strengtheneth me.', 'Philippians 4:13']
+      ['The LORD has done it this very day; let us rejoice today and be glad.', 'Psalm 118:24'],
+      ['Trust in the LORD with all your heart and lean not on your own understanding.', 'Proverbs 3:5'],
+      ['I can do all this through him who gives me strength.', 'Philippians 4:13']
     ]
   };
   var THEME_WORDS = {
@@ -1325,7 +1327,7 @@
     var ins = (data && data.insights) || {};
     var theme = quoteTheme(data && data.journal);
     var verse = pickLine(ins.verse, 'ref', VERSE_THEMES, theme, day);
-    showLine('verse', verse, ins.verse && ins.verse.text ? '' : ' (KJV)');
+    showLine('verse', verse, ins.verse && ins.verse.text ? '' : ' (NIV)');
     showLine('quote', pickLine(ins.quote, 'by', QUOTE_THEMES, theme, day));
   }
 

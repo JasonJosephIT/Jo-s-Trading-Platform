@@ -209,7 +209,7 @@ An inspiring quote that speaks to what her recent journal entries and comments s
 - Under 240 characters. Don't reuse the quote already in `insights.quote`.
 Write `{ "text", "by", "theme", "why" }` (`why`: one line on which entries it answers). No journal yet → leave `quote` out; the dashboard picks a steady one.
 
-Also pick a **Bible verse** for the same theme, shown above the quote: `insights.verse = { "text", "ref", "theme", "why" }`, with `ref` like `"Psalm 37:7 (KJV)"`. Use the King James Version and copy the words exactly (an opening clause of a verse is fine; never reword or merge verses). Encouraging, never about wealth or prosperity. If you can't check the exact wording, use a verse from `VERSE_THEMES` in `assets/dashboard.js`. Don't reuse the verse already in `insights.verse`.
+Also pick a **Bible verse** for the same theme, shown above the quote: `insights.verse = { "text", "ref", "theme", "why" }`, with `ref` like `"Psalm 37:7 (NIV)"`. Use the New International Version (2011) and copy the words exactly (a full clause of a verse is fine; never reword, modernise or merge verses, and don't swap in another translation's wording). Encouraging, never about wealth or prosperity. If you can't check the exact NIV wording, use a verse from `VERSE_THEMES` in `assets/dashboard.js`. Don't reuse the verse already in `insights.verse`. The dashboard footer carries Biblica's NIV credit line; keep it.
 
 ### CHECKIN (interactive, ~2 minutes)
 

@@ -449,6 +449,7 @@ dialog.sheet[open] { animation: sheet-in .28s cubic-bezier(.2,.8,.2,1); }
 }
 .footer p + p { margin-top: 4px; }
 .footer strong { color: var(--foreground); font-weight: 600; }
+.footer-credit { font-size: 11px; opacity: .8; }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 1180px) {
