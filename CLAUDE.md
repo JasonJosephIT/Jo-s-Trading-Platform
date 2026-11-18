@@ -203,10 +203,11 @@ R uses each trade's `initial_risk`, or her `default_risk_per_trade` when that's 
 
 ### Quote of the day
 
-One short line that speaks to what her recent journal entries and comments say (last 7 days first). Pick one:
-- **Her own words (preferred):** a sentence she wrote, copied exactly (a `lesson` or a line from her entry), that answers today's focus or a feeling she keeps writing about. Best: something she wrote on a day she followed her plan. `source: "journal"`, `by: "You, <D Mon>"`, `journal_id`.
-- **A quoted line:** only if nothing of hers fits. A real quote you're sure of, correctly attributed, chosen for what her notes say (she writes about rushing → patience; about fear after a loss → courage, steadiness). `source: "quoted"`, `by: "<name>"`. Never invent or paraphrase a quote, never use one about money or getting rich.
-Keep it under 240 characters, encouraging, about process. Don't reuse the quote that's already in `insights.quote`. Write one line in `why` (which note it answers). No journal yet → leave `quote` out; the dashboard has a fallback.
+An inspiring quote that speaks to what her recent journal entries and comments say (last 7 days first). Read them for what she's wrestling with: rushing or FOMO → patience; anger or revenge trades → composure; fear, hesitation, missed trades → courage; moved stops, broken rules → discipline; tired, short on sleep → rest; a rough stretch or low mood → resilience; a good run → steady. Then choose a well-known quote for that.
+- A real quote you're sure of, correctly attributed (person, or "Japanese proverb"). Never invent, paraphrase or guess an attribution; if unsure, use a quote from the dashboard's built-in list (`QUOTE_THEMES` in `assets/dashboard.js`).
+- Encouraging and about process. Never about money or getting rich, and never quote her journal back to her here.
+- Under 240 characters. Don't reuse the quote already in `insights.quote`.
+Write `{ "text", "by", "theme", "why" }` (`why`: one line on which entries it answers). No journal yet → leave `quote` out; the dashboard picks a steady one.
 
 ### CHECKIN (interactive, ~2 minutes)
 

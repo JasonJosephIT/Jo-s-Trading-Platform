@@ -158,12 +158,8 @@ def check_insights(ins, path, errors):
         else:
             if len(q["text"]) > 240:
                 errors.append("%s: quote 'text' must be at most 240 chars, got %d" % (path, len(q["text"])))
-            if q.get("source") not in ("journal", "quoted"):
-                errors.append("%s: quote 'source' must be journal|quoted, got %r" % (path, q.get("source")))
             if not isinstance(q.get("by"), str) or not q["by"].strip():
                 errors.append("%s: quote needs 'by'" % path)
-            if q.get("source") == "journal" and not q.get("journal_id"):
-                errors.append("%s: a journal quote needs 'journal_id'" % path)
     items = ins.get("insights", [])
     if not isinstance(items, list):
         errors.append("%s: field 'insights' must be an array" % path)

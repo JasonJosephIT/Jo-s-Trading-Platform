@@ -214,18 +214,17 @@ class BuildDataTests(unittest.TestCase):
     def test_quote_validation(self):
         self.write_trade()
         ins_path = os.path.join(self.tmp, "data", "insights.json")
-        good = {"insights": [], "quote": {"text": "Keep doing the boring version.", "by": "You, 17 Jul",
-                                           "source": "journal", "journal_id": "j1"}}
+        good = {"insights": [], "quote": {"text": "Well begun is half done.", "by": "Aristotle", "theme": "patience"}}
         with open(ins_path, "w") as f:
             json.dump(good, f)
         _, payload = build_data.build(self.tmp)
-        self.assertEqual(payload["insights"]["quote"]["by"], "You, 17 Jul")
-        good["quote"].pop("journal_id")
+        self.assertEqual(payload["insights"]["quote"]["by"], "Aristotle")
+        good["quote"].pop("by")
         with open(ins_path, "w") as f:
             json.dump(good, f)
         with self.assertRaises(build_data.ValidationError) as ctx:
             build_data.build(self.tmp)
-        self.assertIn("journal_id", str(ctx.exception))
+        self.assertIn("quote needs 'by'", str(ctx.exception))
 
     def test_validation_error_names_row_and_field(self):
         self.write_trade(side="buy")

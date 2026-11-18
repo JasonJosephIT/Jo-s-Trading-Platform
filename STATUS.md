@@ -10,7 +10,7 @@ updated: 2026-11-17
 ## Now
 - Live 2026-11-17: https://jasonjosephit.github.io/Jo-s-Trading-Platform/setup.html and /dashboard.html?demo=1 (repo JasonJosephIT/Jo-s-Trading-Platform, Pages from main root).
 - v1 built: setup wizard (`setup.html` from `wizard/`, React + shadcn/ui, iPhone-style onboarding, royal purple → black with gold trim), dashboard, data scripts, CLAUDE.md, prompts, catalog, docs.
-- 2026-11-17: dashboard is liquid metal too, with a quote of the day at the top, taken from her own journal. Checked at phone width in Chromium; not checked in Safari.
+- 2026-11-17: dashboard is liquid metal too, with a quote of the day at the top, chosen for what her journal says. Checked at phone width in Chromium; not checked in Safari.
 
 
 ## Next
@@ -20,7 +20,7 @@ updated: 2026-11-17
 4. Test the Notion journal flow against her real journal shape (this build was dry-run on synthetic data only; the session's Notion connector could only view pages).
 
 ## Decisions
-- 2026-11-17 — The quote at the top of the dashboard comes from her own notes. Each morning her Claude writes `insights.quote`: preferably a line she wrote herself, copied exactly (`source: journal`, "You, <date>"), that answers today's focus or what she keeps writing about; otherwise a real, correctly attributed quote chosen for what her notes say. Never invented, never about money (CLAUDE.md "Quote of the day", contract in `docs/contracts.md`, checked by `build_data.py`). Without it the dashboard rotates her journal `lesson` lines (plan-followed days first); the 7 built-in quotes are only the no-journal fallback.
+- 2026-11-17 — The quote at the top of the dashboard is an inspiring quote (real, correctly attributed, never about money) chosen for what her recent journal entries say: her Claude picks it each morning into `insights.quote` (CLAUDE.md "Quote of the day"); without it the dashboard reads her last 7 days of entries (mistakes, emotions, mood, sleep, plan followed), picks a theme (patience, composure, courage, discipline, rest, resilience, steady) and shows a built-in quote for it (`QUOTE_THEMES` in `assets/dashboard.js`). Her own words are not quoted back to her there.
 - 2026-11-17 — Dashboard is liquid metal, CSS only (no WebGL shader: it has no build step and must work from `file://`). `assets/theme.css` carries the setup page's tokens (`--metal` flowing gold, `--metal-rim` conic rim, `--glass-sheen`); `.gold-trim` panels now get the metal rim and a glass sheen; wordmark, gold buttons, demo ribbon, range chips, insight numbers and the prop progress bar are polished metal; flowing stops for reduced motion. Chart colours unchanged. A quote of the day sits under the brand: one quiet italic line, process not money, from 7 sourced quotes in `assets/dashboard.js` (Durant, Seneca, Franklin, Frost, Hemingway, Alcott, T. Roosevelt), same quote all day.
 - 2026-11-17 — She has a Mac: the setup page no longer asks (and step 1 "About you" is gone; the name field shows on the welcome screen only when the link has no `?name=`). Everything is "liquid metal": "Hello, Jo." and the logo use Paper Shaders' `LiquidMetal` WebGL effect (Apache-2.0, `@paper-design/shaders-react@0.0.82`) coloured gold with a CSS sepia filter, falling back to the static gold text without WebGL2 and holding still for reduced motion; buttons, chips, checks and progress use a flowing metallic-gold gradient; glass cards get a polished metal rim.
 - 2026-11-17 — She already has Claude: setup step 1 is now "About you" (computer + name); the paid-plan and Claude Desktop checks are gone.

@@ -1205,30 +1205,76 @@
   }
 
   /* ---------------- quote of the day ---------------- */
-  /* From her own notes: the quote her Claude picked (insights.quote), else a lesson she wrote
-     (plan-followed days first), else a sourced quote. Process, not money; same line all day. */
-  var QUOTES = [
-    ['We are what we repeatedly do. Excellence, then, is not an act, but a habit.', 'Will Durant'],
-    ['We suffer more often in imagination than in reality.', 'Seneca'],
-    ['Well done is better than well said.', 'Benjamin Franklin'],
-    ['The best way out is always through.', 'Robert Frost'],
-    ['Courage is grace under pressure.', 'Ernest Hemingway'],
-    ["I am not afraid of storms, for I am learning how to sail my ship.", 'Louisa May Alcott'],
-    ['Do what you can, with what you have, where you are.', 'Theodore Roosevelt']
-  ];
+  /* An inspiring line chosen for what her recent journal entries say. Her Claude picks it each
+     morning (insights.quote); without that, the theme comes from her last week of entries.
+     Real, correctly attributed quotes only; process, never money. Same line all day. */
+  var QUOTE_THEMES = {
+    patience: [
+      ['Adopt the pace of nature: her secret is patience.', 'Ralph Waldo Emerson'],
+      ['He that can have patience can have what he will.', 'Benjamin Franklin'],
+      ['Well begun is half done.', 'Aristotle']
+    ],
+    composure: [
+      ['How much more grievous are the consequences of anger than the causes of it.', 'Marcus Aurelius'],
+      ['A good fighter is not angry.', 'Lao Tzu'],
+      ['No man is free who is not master of himself.', 'Epictetus']
+    ],
+    courage: [
+      ['We suffer more often in imagination than in reality.', 'Seneca'],
+      ['Courage is grace under pressure.', 'Ernest Hemingway'],
+      ['I am not afraid of storms, for I am learning how to sail my ship.', 'Louisa May Alcott']
+    ],
+    discipline: [
+      ['We are what we repeatedly do. Excellence, then, is not an act, but a habit.', 'Will Durant'],
+      ['First say to yourself what you would be; and then do what you have to do.', 'Epictetus'],
+      ['Well done is better than well said.', 'Benjamin Franklin']
+    ],
+    rest: [
+      ['Rest is not idleness.', 'John Lubbock'],
+      ['Adopt the pace of nature: her secret is patience.', 'Ralph Waldo Emerson']
+    ],
+    resilience: [
+      ['Our greatest glory is not in never falling, but in rising every time we fall.', 'Oliver Goldsmith'],
+      ['The best way out is always through.', 'Robert Frost'],
+      ['Fall seven times, stand up eight.', 'Japanese proverb']
+    ],
+    steady: [
+      ['Do what you can, with what you have, where you are.', 'Theodore Roosevelt'],
+      ['We are what we repeatedly do. Excellence, then, is not an act, but a habit.', 'Will Durant'],
+      ['Well done is better than well said.', 'Benjamin Franklin']
+    ]
+  };
+  var THEME_WORDS = {
+    patience: /fomo|chas|impatien|rush|bored|overtrad|early|jump/,
+    composure: /revenge|ang(ry|er)|frustrat|tilt|mad\b|annoy/,
+    courage: /fear|afraid|scared|anxi|nervous|hesitat|missed|doubt/,
+    discipline: /moved_stop|oversiz|off_plan|broke|rule/,
+    rest: /tired|exhaust|sleepy|drained/
+  };
+  /* Which theme her last 7 days of entries point to (most mentions wins; ties go in list order). */
+  function quoteTheme(journal) {
+    var es = (journal || []).filter(function (e) { return e && e.date; });
+    if (!es.length) return 'steady';
+    var last = es.reduce(function (m, e) { return e.date > m ? e.date : m; }, '');
+    var since = addDays(last, -6);
+    var score = { patience: 0, composure: 0, courage: 0, discipline: 0, rest: 0, resilience: 0 };
+    es.forEach(function (e) {
+      if (e.date < since) return;
+      var text = [].concat(e.mistakes || [], e.emotions || [], e.lesson || '', e.excerpt || '').join(' ').toLowerCase();
+      Object.keys(THEME_WORDS).forEach(function (k) { var m = text.match(new RegExp(THEME_WORDS[k].source, 'g')); if (m) score[k] += m.length; });
+      if (e.followed_plan === false) score.discipline += 1;
+      if (typeof e.sleep_hours === 'number' && e.sleep_hours < 6) score.rest += 1;
+      if (typeof e.mood === 'number' && e.mood <= 2) score.resilience += 1;
+    });
+    var best = 'steady', top = 0;
+    Object.keys(score).forEach(function (k) { if (score[k] > top) { top = score[k]; best = k; } });
+    return best;
+  }
   function pickQuote(data, day) {
     var q = data && data.insights && data.insights.quote;
     if (q && typeof q.text === 'string' && q.text.trim()) return [q.text.trim(), q.by || ''];
-    var lessons = ((data && data.journal) || []).filter(function (e) {
-      return e && typeof e.lesson === 'string' && e.lesson.trim() && e.lesson.length <= 240;
-    });
-    var good = lessons.filter(function (e) { return e.followed_plan === true; });
-    var pool = (good.length ? good : lessons).slice().sort(function (a, b) { return a.date < b.date ? 1 : -1; }).slice(0, 30);
-    if (pool.length) {
-      var e = pool[day % pool.length];
-      return [e.lesson.trim(), e.date ? 'You, ' + fmtShort(e.date) : 'You'];
-    }
-    return QUOTES[day % QUOTES.length];
+    var list = QUOTE_THEMES[quoteTheme(data && data.journal)];
+    return list[day % list.length];
   }
   function renderQuote(data) {
     var now = new Date();
