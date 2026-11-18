@@ -467,7 +467,7 @@
     var adh = M.planAdherence(trades, J);
     var rel = s.reliability;
     var tiles = [
-      { label: 'Net P&L', value: pnlMoney(s.netPnl, 0), sub: (s.netR != null ? pnlR(s.netR) + '<span>·</span>' : '') + '<span>' + s.n + ' trades</span>' },
+      { label: 'Net P&L', value: pnlMoney(s.netPnl, 0), sub: (s.netR != null ? pnlR(s.netR) : '') + '<span>' + s.n + ' trades</span>' },
       { label: 'Win rate', value: '<span class="neutral">' + pct(s.winRate) + '</span>', sub: '<span>' + s.wins + ' won · ' + s.losses + ' lost' + (s.scratches ? ' · ' + s.scratches + ' flat' : '') + '</span>' },
       { label: 'Profit factor', value: '<span class="neutral">' + pfFmt(s.profitFactor) + '</span>', sub: '<span>ex-largest win ' + pfFmt(s.profitFactorExLargest) + '</span>' },
       { label: 'Expectancy', value: pnlR(s.expectancyR), sub: '<span class="rel rel-' + rel + '">' + rel + '</span><span>per trade' + (s.rCoverage < 1 ? ' · R on ' + pct(s.rCoverage) : '') + '</span>' },
@@ -838,7 +838,7 @@
       muted: g('--muted-foreground') || '#b5a8cf',
       grid: light ? 'rgba(61,26,122,.09)' : 'rgba(203,181,236,.09)',
       zero: light ? 'rgba(61,26,122,.28)' : 'rgba(203,181,236,.28)',
-      gain: hex(g('--gain'), light ? '#0f8a63' : '#3ccf9a'),
+      gain: hex(g('--gain'), light ? '#0b7a57' : '#3ccf9a'),
       loss: hex(g('--loss'), light ? '#c4421f' : '#ff7a59'),
       purple: light ? '#6a35c2' : '#a47ce6',
       gold: light ? '#9a7720' : '#dcb64f',
