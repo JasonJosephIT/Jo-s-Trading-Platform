@@ -2,7 +2,7 @@
 status: active
 progress: v1 published and blind-tested twice; setup link ready to send
 next_date: 2026-11-18
-updated: 2026-11-17
+updated: 2026-11-18
 ---
 
 # Trading Assistant status
@@ -20,6 +20,7 @@ updated: 2026-11-17
 4. Test the Notion journal flow against her real journal shape (this build was dry-run on synthetic data only; the session's Notion connector could only view pages).
 
 ## Decisions
+- 2026-11-18 — Design critique of the dashboard (27/40, blocked on contrast) polished: the flowing gold now has a text-safe ramp (`--metal-safe`, every stop ≥5.7:1 under the dark label ink) for buttons, chips and the title, and a bronze title ramp in light mode (the light-mode title had dropped to 1.1:1); phone header is 2 rows; verse and quote are 13px on phones; 44px tap targets on phones; theme switch snaps. Snapshots live in `.design/` (gitignored).
 - 2026-11-17 — A Bible verse sits above the quote, picked the same way: her Claude writes `insights.verse` each morning for the theme her recent entries point to; otherwise the dashboard shows a built-in verse for that theme (`VERSE_THEMES` in `assets/dashboard.js`, New International Version 2011, all 20 checked word for word against biblegateway.com on 2026-11-17, some trimmed to a full clause; Biblica's NIV credit line is in the dashboard footer, as their free-use terms require). Never about wealth or prosperity.
 - 2026-11-17 — The quote at the top of the dashboard is an inspiring quote (real, correctly attributed, never about money) chosen for what her recent journal entries say: her Claude picks it each morning into `insights.quote` (CLAUDE.md "Quote of the day"); without it the dashboard reads her last 7 days of entries (mistakes, emotions, mood, sleep, plan followed), picks a theme (patience, composure, courage, discipline, rest, resilience, steady) and shows a built-in quote for it (`QUOTE_THEMES` in `assets/dashboard.js`). Her own words are not quoted back to her there.
 - 2026-11-17 — Dashboard is liquid metal, CSS only (no WebGL shader: it has no build step and must work from `file://`). `assets/theme.css` carries the setup page's tokens (`--metal` flowing gold, `--metal-rim` conic rim, `--glass-sheen`); `.gold-trim` panels now get the metal rim and a glass sheen; wordmark, gold buttons, demo ribbon, range chips, insight numbers and the prop progress bar are polished metal; flowing stops for reduced motion. Chart colours unchanged. A quote of the day sits under the brand: one quiet italic line, process not money, from 7 sourced quotes in `assets/dashboard.js` (Durant, Seneca, Franklin, Frost, Hemingway, Alcott, T. Roosevelt), same quote all day.

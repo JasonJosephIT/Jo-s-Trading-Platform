@@ -47,6 +47,10 @@
   /* Liquid metal (same tokens as the setup page): polished gold that flows, and a light-catching rim. */
   --metal: linear-gradient(105deg, #6b4c0c 0%, #c9a13f 14%, #fff1c4 26%, #d8b04c 38%, #8a6a1a 52%, #f3d98a 66%, #fffaf0 74%, #b48a26 86%, #6b4c0c 100%);
   --metal-ink: #1b0c38;
+  /* Text-safe metal: same sheen without the darkest bands. Every stop is ≥5.7:1 under --metal-ink
+     and ≥4:1 on the purple header, so labels on it and gold text made of it stay readable. */
+  --metal-safe: linear-gradient(105deg, #b48a26 0%, #d8b04c 14%, #fff1c4 26%, #e6c56a 38%, #b48a26 52%, #f3d98a 66%, #fffaf0 74%, #c9a13f 86%, #b48a26 100%);
+  --metal-text: var(--metal-safe);
   --metal-rim: conic-gradient(from 200deg, rgba(255,255,255,.55), rgba(220,182,79,.35), rgba(255,255,255,.06), rgba(246,231,180,.6), rgba(255,255,255,.04), rgba(220,182,79,.45), rgba(255,255,255,.55));
   --glass-sheen: linear-gradient(160deg, rgba(255,255,255,.10) 0%, rgba(255,255,255,0) 38%);
   --glass-rim: rgba(255,255,255,.22);
@@ -77,6 +81,8 @@
   --metal-rim: conic-gradient(from 200deg, rgba(255,255,255,.95), rgba(154,119,32,.55), rgba(255,255,255,.35), rgba(220,182,79,.8), rgba(90,60,10,.35), rgba(255,250,235,.9), rgba(255,255,255,.95));
   --glass-sheen: linear-gradient(160deg, rgba(255,255,255,.7) 0%, rgba(255,255,255,0) 38%);
   --glass-rim: rgba(255,255,255,.85);
+  /* Light theme: darker bronze so the gold title stays ≥3.9:1 on ivory */
+  --metal-text: linear-gradient(105deg, #5a3f08 0%, #8a6a1a 18%, #6b4c0c 34%, #7a5c12 50%, #5a3f08 64%, #8a6a1a 80%, #6b4c0c 100%);
   color-scheme: light;
 }
 
@@ -103,6 +109,7 @@
     --metal-rim: conic-gradient(from 200deg, rgba(255,255,255,.95), rgba(154,119,32,.55), rgba(255,255,255,.35), rgba(220,182,79,.8), rgba(90,60,10,.35), rgba(255,250,235,.9), rgba(255,255,255,.95));
     --glass-sheen: linear-gradient(160deg, rgba(255,255,255,.7) 0%, rgba(255,255,255,0) 38%);
     --glass-rim: rgba(255,255,255,.85);
+    --metal-text: linear-gradient(105deg, #5a3f08 0%, #8a6a1a 18%, #6b4c0c 34%, #7a5c12 50%, #5a3f08 64%, #8a6a1a 80%, #6b4c0c 100%);
     color-scheme: light;
   }
 }
@@ -129,7 +136,7 @@
 .metal {
   background:
     linear-gradient(180deg, rgba(255,255,255,.4) 0%, rgba(255,255,255,0) 50%),
-    var(--metal);
+    var(--metal-safe);
   background-size: 100% 100%, 260% 100%;
   color: var(--metal-ink);
   animation: metal-flow 7s ease-in-out infinite alternate;
@@ -139,7 +146,7 @@
     0 8px 22px -12px rgba(220,182,79,.6);
 }
 .metal-text {
-  background: var(--metal);
+  background: var(--metal-text);
   background-size: 260% 100%;
   -webkit-background-clip: text; background-clip: text;
   color: transparent;

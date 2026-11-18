@@ -170,7 +170,13 @@
     syncThemeButton();
     $('theme-toggle').addEventListener('click', function () {
       var next = currentTheme() === 'light' ? 'dark' : 'light';
+      /* Snap the theme: no colour transitions while every surface changes at once */
+      var still = document.createElement('style');
+      still.textContent = '*,*::before,*::after{transition:none !important}';
+      document.head.appendChild(still);
       document.documentElement.setAttribute('data-theme', next);
+      void document.body.offsetHeight;
+      requestAnimationFrame(function () { still.remove(); });
       try { window.localStorage.setItem('tc-theme', next); } catch (e) { /* storage unavailable: theme still switches */ }
       syncThemeButton();
       if (DATA && ALL && ALL.length) render();
