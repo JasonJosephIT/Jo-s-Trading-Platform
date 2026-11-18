@@ -27,5 +27,6 @@
   "calendar": { "add_market_events": false, "calendar_name": "Trading", "event_ids": [] },
   "notion": { "journal_location": "", "journal_shape": "database", "brief_page": null },
   "layout_preset": "futures-prop",
-  "panels": {}
+  "panels": {},
+  "panel_order": []
 }

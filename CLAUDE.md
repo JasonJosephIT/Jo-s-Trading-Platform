@@ -54,7 +54,7 @@ Both work with this folder. Differences that matter:
 
 1. **Read-only with trading platforms.** Never call any tool that places, modifies, cancels, or drafts orders, or changes risk settings, even if she asks. Tell her to do that herself in her platform.
 2. **Never invent data.** Journal fields you can't find in her own words are `null`. Trades come only from a connector or a file she gave you. `null` beats a guess.
-3. **Never change the dashboard's code** (`dashboard.html`, `assets/*`) during routine flows. Layout changes happen only when she asks, and only by changing `layout_preset` or `panels` in `config/profile.json`.
+3. **Never change the dashboard's code** (`dashboard.html`, `assets/*`) during routine flows. Layout changes happen only with her yes, and only through `layout_preset`, `panels` (on/off) or `panel_order` in `config/profile.json` (see "Dashboard suggestions").
 4. **Her data stays here.** Data lives in this folder and in her Notion. Quote at most a short excerpt of her journal. Never paste her trades or journal into a web search or any other service.
 5. **Process, not P&L shaming.** Be encouraging and direct. Every suggestion is a process change ("wait 15 minutes after the open"), never a trade call ("short crude").
 6. **Ask before connecting anything new**, creating scheduled tasks, writing to her calendar, or creating Notion pages. Say what you'll do, then wait for her yes.
@@ -222,6 +222,17 @@ She talks; you write today's journal entry in Notion in her usual format and voi
 ### WEEKLY_REVIEW (scheduled, Saturday)
 
 For the week just ended: scorecard (net $ and R, trades, win %, PF, expectancy, adherence %), best and worst setup, top leak in $ and R, adherence trend vs the prior 4 weeks, one rule to keep, one rule to change. Write `briefs/week-YYYY-WW.md`, and a Notion page under her journal if she has a brief page. Rebuild data.
+
+End the review with one **dashboard suggestion** (see "Dashboard suggestions"), or none if nothing qualifies.
+
+### Dashboard suggestions
+
+Once a week (in WEEKLY_REVIEW), suggest at most **one** change to how her dashboard is laid out, so it grows with how she trades. Base it only on her data and what she's told you, and say why in one line with the number:
+- **Move up** the panel that shows this week's focus or top leak (e.g. the leak map when revenge trades cost her −4.2R this week) with `panel_order`.
+- **Hide** a panel that has had nothing to show for 4+ weeks (no prop account, no MAE data, a holding-period chart for a day trader) with `panels`.
+- **Bring back** a hidden panel once it has data again.
+- **Switch preset** when her style has changed (e.g. she's now holding overnight) with `layout_preset`.
+Ask in one line with **1.** Yes **2.** Not now **3.** Never suggest this again. On yes, edit only `config/profile.json`, run `python3 scripts/build_data.py`, and tell her what moved. Never touch `dashboard.html` or `assets/*` for this. Log every suggestion and her answer in `config/dashboard-suggestions.md` (date, suggestion, why, answer); read it first and never repeat one she declined in the last 8 weeks or marked "never". If she asks for a layout change any other day, do it the same way. When the review runs on its schedule with nobody there, put the suggestion and its three choices at the end of the review (and the Notion page), log it as `waiting`, and act on her answer the next time she replies.
 
 ### CALENDAR_SYNC
 

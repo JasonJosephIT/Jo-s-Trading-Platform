@@ -50,7 +50,9 @@ Missing fields are `null` (arrays may be `[]`). Never invent values.
 
 ## `config/profile.json`
 
-See `config/profile.example.json`. Key fields: `timezone`, `style` (`day|swing|futures-prop`), `session`, `brief_time`, `account_currency`, `default_risk_per_trade`, `max_daily_loss`, `max_trades_per_day`, `stop_after_consecutive_losses`, `prop_rules`, `setups`, `mistake_tags`, `markets`, `instruments`, `watchlist`, `data_source`, `tools`, `calendar`, `notion`, `layout_preset`, `panels`.
+See `config/profile.example.json`. Key fields: `timezone`, `style` (`day|swing|futures-prop`), `session`, `brief_time`, `account_currency`, `default_risk_per_trade`, `max_daily_loss`, `max_trades_per_day`, `stop_after_consecutive_losses`, `prop_rules`, `setups`, `mistake_tags`, `markets`, `instruments`, `watchlist`, `data_source`, `tools`, `calendar`, `notion`, `layout_preset`, `panels`, `panel_order`.
+
+Dashboard layout lives only in the profile: `panels` turns panels on or off (`{"holding": false}`), and `panel_order` lists panel ids most important first (`["kpis", "leakmap", "equity"]`). Rows keep their pairs; unlisted rows follow in the default order (numbers and charts, then the brief, then the trade log). Panel ids: `kpis`, `equity`, `prop`, `calendar`, `setup`, `timeofday`, `holding`, `dayofweek`, `rdist`, `leakmap`, `state`, `rolling`, `maemfe`, `coach` (her brief), `tradelog`.
 
 ## `data/data.js` (generated, never hand-edited during routine runs)
 

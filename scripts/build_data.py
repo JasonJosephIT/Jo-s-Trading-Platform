@@ -29,7 +29,7 @@ RISK_SOURCES = ["journal", "broker_stop", "default"]
 CONFIDENCE = ["early", "moderate", "strong"]
 PROFILE_KEYS = ["name", "timezone", "markets", "instruments", "style", "session", "brief_time", "account_currency",
                 "default_risk_per_trade", "max_daily_loss", "max_trades_per_day", "stop_after_consecutive_losses",
-                "prop_rules", "setups", "mistake_tags", "watchlist", "layout_preset", "panels"]
+                "prop_rules", "setups", "mistake_tags", "watchlist", "layout_preset", "panels", "panel_order"]
 TIME_RX = re.compile(r"^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(:\d{2}(\.\d+)?)?(Z|[+-]\d{2}:?\d{2})$")
 
 

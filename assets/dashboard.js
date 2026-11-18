@@ -15,8 +15,9 @@
   var MINUS = '\u2212';
 
   /* Layout rows: [panelId, span of 12]. Hidden panels give their space to the rest of the row. */
+  /* Default order: numbers and charts first (the stars), then her brief, then the trade log.
+     Her profile can reorder rows with panel_order (see docs/contracts.md). */
   var ROWS = [
-    [['coach', 12]],
     [['kpis', 12]],
     [['equity', 8], ['prop', 4]],
     [['calendar', 5], ['setup', 7]],
@@ -24,6 +25,7 @@
     [['rdist', 6], ['leakmap', 6]],
     [['state', 6], ['rolling', 6]],
     [['maemfe', 12]],
+    [['coach', 12]],
     [['tradelog', 12]]
   ];
 
@@ -128,6 +130,7 @@
     document.documentElement.setAttribute('data-preset', PRESET);
     $('preset-label').textContent = PRESET_LABEL[PRESET];
     $('preset-label').hidden = false;
+    applyOrder(P.panel_order);
 
     var updated = data.updated && !isNaN(Date.parse(data.updated)) ? data.updated : null;
     if (updated) $('updated-label').textContent = 'Updated ' + fmtDateTime(updated);
@@ -304,6 +307,29 @@
         var md = shown.length === 1 || span >= 8 ? 12 : 6;
         el.style.setProperty('--span', span);
         el.style.setProperty('--span-md', md);
+      });
+    });
+    $('brief-jump').hidden = !vis.coach;
+  }
+
+  /* panel_order (from her profile): panel ids, most important first. Rows keep their pairs
+     (equity + prop, …); a row moves to where its first listed panel sits; unlisted rows keep
+     their default order after the listed ones. Moves the DOM too, so reading order matches. */
+  function applyOrder(order) {
+    if (!Array.isArray(order) || !order.length) return;
+    var rank = function (row) {
+      var best = Infinity;
+      row.forEach(function (c) { var i = order.indexOf(c[0]); if (i >= 0 && i < best) best = i; });
+      return best;
+    };
+    var indexed = ROWS.map(function (row, i) { return { row: row, i: i, r: rank(row) }; });
+    indexed.sort(function (a, b) { return a.r - b.r || a.i - b.i; });
+    ROWS = indexed.map(function (x) { return x.row; });
+    var grid = $('dash'), tail = $('no-match');
+    ROWS.forEach(function (row) {
+      row.forEach(function (c) {
+        var el = document.querySelector('[data-panel="' + c[0] + '"]');
+        if (el) grid.insertBefore(el, tail);
       });
     });
   }

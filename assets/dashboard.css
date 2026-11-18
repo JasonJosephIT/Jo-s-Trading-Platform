@@ -205,6 +205,14 @@ main { display: block; }
   var(--panel-bg); }
 :root[data-theme="light"] .panel-coach { background: radial-gradient(90% 120% at 0% 0%, rgba(203,181,236,.45) 0%, transparent 60%), var(--panel-bg); }
 .panel-coach .panel-head h2 { font-size: 22px; }
+/* The brief sits after the charts, so it gets a warm gold halo to stand out from them */
+.panel-coach {
+  scroll-margin-top: 16px;
+  box-shadow: var(--panel-shadow), 0 0 0 1px rgba(220,182,79,.35), 0 24px 60px -28px rgba(220,182,79,.45);
+}
+.panel-coach:focus { outline: none; }
+.chip-jump { text-decoration: none; }
+.chip-jump:hover { background: var(--surface-3); }
 .coach-grid { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 28px; }
 .focus-rule {
   margin: 4px 0 16px; padding: 14px 16px;

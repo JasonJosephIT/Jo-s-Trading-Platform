@@ -33,6 +33,7 @@
       <h1 class="wordmark metal-text">Trading Assistant</h1>
     </div>
     <div class="topbar-meta">
+      <a class="chip chip-jump" id="brief-jump" href="#brief" hidden>Today's brief ↓</a>
       <span class="chip chip-preset" id="preset-label" hidden></span>
       <span class="updated" id="updated-label"></span>
       <button type="button" class="icon-btn" id="theme-toggle" aria-label="Switch to light theme" title="Switch theme">
@@ -95,27 +96,6 @@
   </section>
 
   <div class="grid" id="dash" hidden>
-
-    <!-- 2. Coach -->
-    <section class="panel gold-trim panel-coach" data-panel="coach" aria-labelledby="h-coach">
-      <div class="coach-grid">
-        <div class="coach-brief">
-          <header class="panel-head">
-            <p class="eyebrow" id="brief-date"></p>
-            <h2 id="h-coach">Today's brief</h2>
-          </header>
-          <div class="focus-rule gold-trim" id="focus-rule" hidden>
-            <span class="focus-label">Focus rule</span>
-            <p id="focus-text"></p>
-          </div>
-          <div class="md" id="brief-md"></div>
-        </div>
-        <div class="coach-insights">
-          <h3 class="sub-h">What your trades are saying</h3>
-          <ol class="insights" id="insights"></ol>
-        </div>
-      </div>
-    </section>
 
     <!-- 3. KPIs -->
     <section class="panel panel-kpis" data-panel="kpis" aria-labelledby="h-kpis">
@@ -261,6 +241,27 @@
         <p class="panel-sub" id="sum-mae"></p>
       </header>
       <div class="chart-box"><canvas id="c-mae" role="img" aria-describedby="sum-mae"></canvas></div>
+    </section>
+
+    <!-- 2. Coach -->
+    <section class="panel gold-trim panel-coach" data-panel="coach" id="brief" aria-labelledby="h-coach" tabindex="-1">
+      <div class="coach-grid">
+        <div class="coach-brief">
+          <header class="panel-head">
+            <p class="eyebrow" id="brief-date"></p>
+            <h2 id="h-coach" class="metal-text">Today's brief</h2>
+          </header>
+          <div class="focus-rule gold-trim" id="focus-rule" hidden>
+            <span class="focus-label">Focus rule</span>
+            <p id="focus-text"></p>
+          </div>
+          <div class="md" id="brief-md"></div>
+        </div>
+        <div class="coach-insights">
+          <h3 class="sub-h">What your trades are saying</h3>
+          <ol class="insights" id="insights"></ol>
+        </div>
+      </div>
     </section>
 
     <!-- 14. Trade log -->
