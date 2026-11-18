@@ -150,7 +150,7 @@ If she has no wizard answers (she opened the folder and said "set me up"), give 
    - Do not change her journal's structure. If useful properties are missing (mood, followed plan), you may *suggest* adding them, once.
    - **If Notion isn't connected in this session:** give her the connect clicks (Customize → Connectors → + → Notion → Connect), wait, then test with a search. If she can't connect it now, offer: **1.** Try again later (mark `journal` `in_progress`, carry on with the other steps) **2.** Export the journal from Notion (database **⋯ → Export → CSV**, or page **⋯ → Export → Markdown**) into `inbox/journal/` and you read that instead **3.** Skip the journal for now (the dashboard works; mood, sleep and mistake insights wait until it's connected). For Google Sheets or Excel journals, use that connector the same way.
 
-6. **`insights` · First insights.** Run `python3 scripts/insights_stats.py` and write insights only from its numbers (see "Finding insights"). Write `data/insights.json` with up to 5 insights, a `focus_rule`, today's `brief` and a `quote` (see "Quote of the day"). Run `python3 scripts/build_data.py`.
+6. **`insights` · First insights.** Run `python3 scripts/insights_stats.py` and write insights only from its numbers (see "Finding insights"). Write `data/insights.json` with up to 5 insights, a `focus_rule`, today's `brief` and a `quote` and `verse` (see "Quote of the day"). Run `python3 scripts/build_data.py`.
 
 7. **`dashboard` · Show her.** You usually can't see her screen, so ask her: "Open your Trading Assistant folder in Documents and double-click **dashboard.html**. What do you see? **1.** My numbers and charts **2.** 'Not set up yet' **3.** Something looks empty or wrong". For 2, rebuild data and check `data/data.js` isn't `null`; for 3, ask which panel and check the data behind it. Then ask her to bookmark it. Point at today's brief panel and the leak map. Ask her to tell you if anything looks empty or wrong; fix data, never the dashboard code.
 
@@ -171,7 +171,7 @@ If she has no wizard answers (she opened the folder and said "set me up"), give 
 2. **Journal.** Read Notion entries created or edited since the last run (`insights.generated`). Update `journal.json` (replace entries with the same `id`). Re-link to trades. Update trade `tags` from her written mistakes.
 3. **Insights.** Recompute (see "Finding insights"). Keep insights that still hold; replace stale ones. Max 5.
 4. **Market context.** Web-search today's scheduled events for her markets. Start from `catalog/market-events.json` for what recurs, but confirm today's actual times on the official schedule pages (holidays shift them). Add earnings or notable overnight moves only for her `instruments`/`watchlist`. Official sources first (EIA, USDA, CFTC, BLS, BEA, Federal Reserve, the exchange).
-5. **Brief.** Write `briefs/YYYY-MM-DD.md` and `insights.brief` using the template below. Also set `insights.quote`, the line at the top of her dashboard, from her own notes (see "Quote of the day"). Run `python3 scripts/build_data.py`.
+5. **Brief.** Write `briefs/YYYY-MM-DD.md` and `insights.brief` using the template below. Also set `insights.verse` and `insights.quote`, the two lines at the top of her dashboard, chosen for what her recent entries say (see "Quote of the day"). Run `python3 scripts/build_data.py`.
 6. **Notion.** If `notion.brief_page` is set, replace that page's content with today's brief.
 7. **Mondays:** run CALENDAR_SYNC for the coming week if enabled.
 8. If any source failed, still write the brief, and say at the top what was missing ("Couldn't reach NinjaTrader this morning; numbers are as of Friday").
@@ -208,6 +208,8 @@ An inspiring quote that speaks to what her recent journal entries and comments s
 - Encouraging and about process. Never about money or getting rich, and never quote her journal back to her here.
 - Under 240 characters. Don't reuse the quote already in `insights.quote`.
 Write `{ "text", "by", "theme", "why" }` (`why`: one line on which entries it answers). No journal yet → leave `quote` out; the dashboard picks a steady one.
+
+Also pick a **Bible verse** for the same theme, shown above the quote: `insights.verse = { "text", "ref", "theme", "why" }`, with `ref` like `"Psalm 37:7 (KJV)"`. Use the King James Version and copy the words exactly (an opening clause of a verse is fine; never reword or merge verses). Encouraging, never about wealth or prosperity. If you can't check the exact wording, use a verse from `VERSE_THEMES` in `assets/dashboard.js`. Don't reuse the verse already in `insights.verse`.
 
 ### CHECKIN (interactive, ~2 minutes)
 

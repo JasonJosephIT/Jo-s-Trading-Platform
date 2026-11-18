@@ -214,7 +214,8 @@ class BuildDataTests(unittest.TestCase):
     def test_quote_validation(self):
         self.write_trade()
         ins_path = os.path.join(self.tmp, "data", "insights.json")
-        good = {"insights": [], "quote": {"text": "Well begun is half done.", "by": "Aristotle", "theme": "patience"}}
+        good = {"insights": [], "quote": {"text": "Well begun is half done.", "by": "Aristotle", "theme": "patience"},
+                "verse": {"text": "Rest in the LORD, and wait patiently for him.", "ref": "Psalm 37:7 (KJV)", "theme": "patience"}}
         with open(ins_path, "w") as f:
             json.dump(good, f)
         _, payload = build_data.build(self.tmp)

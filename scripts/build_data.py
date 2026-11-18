@@ -151,15 +151,17 @@ def check_insights(ins, path, errors):
     if not isinstance(ins, dict):
         errors.append("%s: must be a JSON object" % path)
         return
-    q = ins.get("quote")
-    if q is not None:
+    for field, by, limit in (("quote", "by", 240), ("verse", "ref", 300)):
+        q = ins.get(field)
+        if q is None:
+            continue
         if not isinstance(q, dict) or not isinstance(q.get("text"), str) or not q["text"].strip():
-            errors.append("%s: field 'quote' needs a non-empty 'text'" % path)
-        else:
-            if len(q["text"]) > 240:
-                errors.append("%s: quote 'text' must be at most 240 chars, got %d" % (path, len(q["text"])))
-            if not isinstance(q.get("by"), str) or not q["by"].strip():
-                errors.append("%s: quote needs 'by'" % path)
+            errors.append("%s: field '%s' needs a non-empty 'text'" % (path, field))
+            continue
+        if len(q["text"]) > limit:
+            errors.append("%s: %s 'text' must be at most %d chars, got %d" % (path, field, limit, len(q["text"])))
+        if not isinstance(q.get(by), str) or not q[by].strip():
+            errors.append("%s: %s needs '%s'" % (path, field, by))
     items = ins.get("insights", [])
     if not isinstance(items, list):
         errors.append("%s: field 'insights' must be an array" % path)

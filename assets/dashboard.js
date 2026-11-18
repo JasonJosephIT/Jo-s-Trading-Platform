@@ -1244,6 +1244,43 @@
       ['Well done is better than well said.', 'Benjamin Franklin']
     ]
   };
+  /* Bible verses for the same themes, King James Version, quoted exactly (some trimmed to the opening clause). */
+  var VERSE_THEMES = {
+    patience: [
+      ['Rest in the LORD, and wait patiently for him.', 'Psalm 37:7'],
+      ['Better is the end of a thing than the beginning thereof: and the patient in spirit is better than the proud in spirit.', 'Ecclesiastes 7:8'],
+      ['But they that wait upon the LORD shall renew their strength; they shall mount up with wings as eagles; they shall run, and not be weary; and they shall walk, and not faint.', 'Isaiah 40:31']
+    ],
+    composure: [
+      ['He that is slow to anger is better than the mighty; and he that ruleth his spirit than he that taketh a city.', 'Proverbs 16:32'],
+      ['Let every man be swift to hear, slow to speak, slow to wrath.', 'James 1:19'],
+      ['Be ye angry, and sin not: let not the sun go down upon your wrath.', 'Ephesians 4:26']
+    ],
+    courage: [
+      ['For God hath not given us the spirit of fear; but of power, and of love, and of a sound mind.', '2 Timothy 1:7'],
+      ['Be strong and of a good courage; be not afraid, neither be thou dismayed: for the LORD thy God is with thee whithersoever thou goest.', 'Joshua 1:9'],
+      ['Fear thou not; for I am with thee: be not dismayed; for I am thy God: I will strengthen thee; yea, I will help thee.', 'Isaiah 41:10']
+    ],
+    discipline: [
+      ['Commit thy works unto the LORD, and thy thoughts shall be established.', 'Proverbs 16:3'],
+      ['He that hath no rule over his own spirit is like a city that is broken down, and without walls.', 'Proverbs 25:28'],
+      ['And let us not be weary in well doing: for in due season we shall reap, if we faint not.', 'Galatians 6:9']
+    ],
+    rest: [
+      ['Come unto me, all ye that labour and are heavy laden, and I will give you rest.', 'Matthew 11:28'],
+      ['I will both lay me down in peace, and sleep: for thou, LORD, only makest me dwell in safety.', 'Psalm 4:8']
+    ],
+    resilience: [
+      ["It is of the LORD's mercies that we are not consumed, because his compassions fail not. They are new every morning: great is thy faithfulness.", 'Lamentations 3:22–23'],
+      ['For a just man falleth seven times, and riseth up again.', 'Proverbs 24:16'],
+      ['We are troubled on every side, yet not distressed; we are perplexed, but not in despair.', '2 Corinthians 4:8']
+    ],
+    steady: [
+      ['This is the day which the LORD hath made; we will rejoice and be glad in it.', 'Psalm 118:24'],
+      ['Trust in the LORD with all thine heart; and lean not unto thine own understanding.', 'Proverbs 3:5'],
+      ['I can do all things through Christ which strengtheneth me.', 'Philippians 4:13']
+    ]
+  };
   var THEME_WORDS = {
     patience: /fomo|chas|impatien|rush|bored|overtrad|early|jump/,
     composure: /revenge|ang(ry|er)|frustrat|tilt|mad\b|annoy/,
@@ -1270,20 +1307,26 @@
     Object.keys(score).forEach(function (k) { if (score[k] > top) { top = score[k]; best = k; } });
     return best;
   }
-  function pickQuote(data, day) {
-    var q = data && data.insights && data.insights.quote;
-    if (q && typeof q.text === 'string' && q.text.trim()) return [q.text.trim(), q.by || ''];
-    var list = QUOTE_THEMES[quoteTheme(data && data.journal)];
+  /* Her Claude's pick for today if there is one, else the built-in line for her journal's theme. */
+  function pickLine(picked, byKey, themes, theme, day) {
+    if (picked && typeof picked.text === 'string' && picked.text.trim()) return [picked.text.trim(), picked[byKey] || ''];
+    var list = themes[theme];
     return list[day % list.length];
+  }
+  function showLine(id, line, suffix) {
+    $(id + '-text').textContent = line[0];
+    $(id + '-by').textContent = line[1] ? line[1] + (suffix || '') : '';
+    $(id + '-by').hidden = !line[1];
+    $(id).hidden = false;
   }
   function renderQuote(data) {
     var now = new Date();
     var day = Math.floor((Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()) - Date.UTC(now.getFullYear(), 0, 0)) / 864e5);
-    var q = pickQuote(data, day);
-    $('quote-text').textContent = q[0];
-    $('quote-by').textContent = q[1];
-    $('quote-by').hidden = !q[1];
-    $('quote').hidden = false;
+    var ins = (data && data.insights) || {};
+    var theme = quoteTheme(data && data.journal);
+    var verse = pickLine(ins.verse, 'ref', VERSE_THEMES, theme, day);
+    showLine('verse', verse, ins.verse && ins.verse.text ? '' : ' (KJV)');
+    showLine('quote', pickLine(ins.quote, 'by', QUOTE_THEMES, theme, day));
   }
 
   /* ---------------- start ---------------- */

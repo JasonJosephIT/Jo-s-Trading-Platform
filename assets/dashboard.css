@@ -81,6 +81,7 @@ button, input, select { font: inherit; color: inherit; }
 .quote q { font-style: italic; color: var(--foreground); quotes: "\201C" "\201D"; }
 .quote cite { font-style: normal; white-space: nowrap; color: var(--gold-text); font-size: 13px; }
 .quote cite::before { content: "— "; }
+.quote.verse + .quote { margin-top: 6px; }
 .topbar-meta { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
 .updated { color: var(--muted-foreground); font-size: 13px; }
 

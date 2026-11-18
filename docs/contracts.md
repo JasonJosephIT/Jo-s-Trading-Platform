@@ -41,10 +41,12 @@ Missing fields are `null` (arrays may be `[]`). Never invent values.
   "quote": { "text": "Adopt the pace of nature: her secret is patience.",   // optional, ≤240 chars
      "by": "Ralph Waldo Emerson",    // a real person (or "Japanese proverb"), correctly attributed
      "theme": "patience",            // patience|composure|courage|discipline|rest|resilience|steady
-     "why": "one line for her Claude: which entries it answers" } }
+     "why": "one line for her Claude: which entries it answers" },
+  "verse": { "text": "Rest in the LORD, and wait patiently for him.",   // optional, ≤300 chars, quoted exactly
+     "ref": "Psalm 37:7 (KJV)", "theme": "patience", "why": "…" } }
 ```
 
-`quote` is the inspiring line at the top of the dashboard. Without it, the dashboard picks a theme from her last 7 days of journal entries (mistakes, emotions, mood, sleep, plan followed) and shows one of its built-in quotes for that theme.
+`quote` is the inspiring line at the top of the dashboard. Without it, the dashboard picks a theme from her last 7 days of journal entries (mistakes, emotions, mood, sleep, plan followed) and shows one of its built-in quotes for that theme. `verse` is the Bible verse shown above it, picked the same way (built-in fallback: King James Version).
 
 ## `config/profile.json`
 
