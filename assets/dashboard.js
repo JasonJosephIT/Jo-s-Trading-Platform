@@ -1244,8 +1244,8 @@
       ['Well done is better than well said.', 'Benjamin Franklin']
     ]
   };
-  /* Bible verses for the same themes, New International Version (2011), quoted exactly; some trimmed
-     to a full clause. Scripture quotations taken from The Holy Bible, New International Version® NIV®.
+  /* Bible verses for the same themes, New International Version (2011), quoted exactly (checked word for
+     word against biblegateway.com NIV on 2026-11-17); some trimmed to a full clause. Scripture quotations taken from The Holy Bible, New International Version® NIV®.
      Copyright © 1973, 1978, 1984, 2011 by Biblica, Inc.™ Used by permission. All rights reserved worldwide. */
   var VERSE_THEMES = {
     patience: [
@@ -1273,7 +1273,7 @@
       ['In peace I will lie down and sleep, for you alone, LORD, make me dwell in safety.', 'Psalm 4:8']
     ],
     resilience: [
-      ["Because of the LORD's great love we are not consumed, for his compassions never fail. They are new every morning; great is your faithfulness.", 'Lamentations 3:22–23'],
+      ['Because of the LORD\u2019s great love we are not consumed, for his compassions never fail. They are new every morning; great is your faithfulness.', 'Lamentations 3:22–23'],
       ['Though the righteous fall seven times, they rise again.', 'Proverbs 24:16'],
       ['We are hard pressed on every side, but not crushed; perplexed, but not in despair.', '2 Corinthians 4:8']
     ],
