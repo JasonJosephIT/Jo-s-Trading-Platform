@@ -2,7 +2,7 @@
 status: active
 progress: v1 published and blind-tested twice; setup link sent to Jo, waiting on her
 next_date: 2026-11-20
-updated: 2026-11-18
+updated: 2026-11-22
 ---
 
 # Trading Assistant status
@@ -21,6 +21,7 @@ updated: 2026-11-18
 4. Test the Notion journal flow against her real journal shape (this build was dry-run on synthetic data only; the session's Notion connector could only view pages).
 
 ## Decisions
+- 2026-11-22: Consolidation pass: merged 2 finished branches into main, saved uncommitted work on wip/*-2026-11-22 branches, refreshed the code graph and added/migrated GLOSSARY.md.
 - 2026-11-18 — Third dashboard critique (28/40, blocked) polished: light-mode gain green is now `#0b7a57` (4.7:1 on panels; was 3.8:1), KPI values wrap instead of clipping ("$177 / $1…" at 320px), phone selects/search/"Leave demo" are 44px tall, and the stray "·" in the Net P&L tile is gone.
 - 2026-11-18 — Dashboard order: verse and quote, then key numbers and charts (the stars), then Today's brief, then the trade log. The brief has a gold halo and metal heading, and a "Today's brief ↓" chip in the header jumps to it. Her profile can reorder rows with `panel_order` (rows keep their pairs; the DOM moves too, so reading order matches).
 - 2026-11-18 — Her Trading Assistant suggests at most one dashboard layout change a week in WEEKLY_REVIEW (move up the panel behind her focus or top leak, hide an empty panel, bring one back, switch preset), with Yes / Not now / Never. Changes only touch `panel_order`, `panels` or `layout_preset` in `config/profile.json`; answers are logged in `config/dashboard-suggestions.md` (private, gitignored) so declined ones aren't repeated.
