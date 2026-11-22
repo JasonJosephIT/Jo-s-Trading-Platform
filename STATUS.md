@@ -1,7 +1,7 @@
 ---
 status: active
-progress: v1 published and blind-tested twice; setup link ready to send
-next_date: 2026-11-18
+progress: v1 published and blind-tested twice; setup link sent to Jo, waiting on her
+next_date: 2026-11-20
 updated: 2026-11-18
 ---
 
@@ -10,11 +10,12 @@ updated: 2026-11-18
 ## Now
 - Live 2026-11-17: https://jasonjosephit.github.io/Jo-s-Trading-Platform/setup.html and /dashboard.html?demo=1 (repo JasonJosephIT/Jo-s-Trading-Platform, Pages from main root).
 - v1 built: setup wizard (`setup.html` from `wizard/`, React + shadcn/ui, iPhone-style onboarding, royal purple → black with gold trim), dashboard, data scripts, CLAUDE.md, prompts, catalog, docs.
+- 2026-11-17: setup link and handoff sent to Jo (README on GitHub main checked: all links, screenshot and zip download return 200). Waiting on her to run setup.
 - 2026-11-17: dashboard is liquid metal too, with a Bible verse and a quote of the day at the top, chosen for what her journal says. Checked at phone width in Chromium; not checked in Safari.
 
 
 ## Next
-1. Send her the setup link (ready 2026-11-17): https://jasonjosephit.github.io/Jo-s-Trading-Platform/setup.html?name=Jo ; collect her answers to: which platform, Notion database or pages.
+1. Setup link sent 2026-11-17 (https://jasonjosephit.github.io/Jo-s-Trading-Platform/setup.html?name=Jo). Collect her answers: which platform, Notion database or pages.
 2. v2 is parked: `docs/v2-plan.md` is notes her Claude follows only if she asks (CLAUDE.md points to it).
 3. Verify the unverified CSV presets (Tradovate, NinjaTrader, thinkorswim, IBKR Flex, Webull) against a real export once she drops one in `inbox/`.
 4. Test the Notion journal flow against her real journal shape (this build was dry-run on synthetic data only; the session's Notion connector could only view pages).
@@ -47,7 +48,7 @@ updated: 2026-11-18
 
 ## Open items / waiting on
 - Not tested in Safari or Edge (Chromium only).
-- Her platform is unknown; the wizard handles it.
+- Waiting on Jo: run setup; tell us her platform and Notion journal shape (database or pages).
 - Per-tool connector toggles are documented for Team/Enterprise only; unconfirmed for Pro/Max.
 - Unconfirmed in catalog: several futures-platform export pages, OPEC+ dates, China customs timing, USDA Grain Stocks/Acreage dates.
 
