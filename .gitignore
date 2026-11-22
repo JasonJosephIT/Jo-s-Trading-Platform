@@ -27,3 +27,4 @@ __pycache__/
 
 # design-review snapshots (local only)
 .design/
+graphify-out
